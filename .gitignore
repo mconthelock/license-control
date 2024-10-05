@@ -1,0 +1,9 @@
+.DS_Store
+/node_modules
+/system
+assets/dist
+application/cache
+application/config
+application/logs
+application/third_party
+application/vendor
