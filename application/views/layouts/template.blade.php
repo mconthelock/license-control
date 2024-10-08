@@ -10,17 +10,19 @@
 </head>
 
 <body class="flex flex-col min-h-screen">
-    <div class="drawer flex-grow">
-        <input id="nav-menu" type="checkbox" class="drawer-toggle" />
+    <div class="flex-none z-[100]">
+        @include('layouts.navbar')
+    </div>
+    <div class="drawer lg:drawer-open flex-1">
+        <input id="nav-master" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content flex flex-col">
             <!-- Navbar -->
-            @include('layouts/navbar')
+
             <!-- Page content here -->
-            @yield('contents')
+            Content
         </div>
-        @include('layouts/sidebar')
+        @include('layouts.sidebar')
     </div>
-    @yield('scripts')
 </body>
 
 </html>
