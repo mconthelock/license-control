@@ -38,7 +38,9 @@
     <div class="flex-1 drawer lg:drawer-open">
         <input id="nav-master" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content flex flex-col p-5 pt-[calc(68px+1rem)]">
-            @yield('content')
+            <div class="flex-1 z-10">
+                @yield('content')
+            </div>
             <div class="w-[750px] h-[750px] overflow-hidden absolute bottom-0 right-0 z-0">
                 <div
                     class="w-full h-full pattern-dots pattern-gray-500 pattern-bg-transparent pattern-size-2 pattern-opacity-60 rotate-45 translate-y-56 translate-x-40">
