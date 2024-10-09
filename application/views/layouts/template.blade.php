@@ -23,6 +23,7 @@
         </div>
         @include('layouts.sidebar')
     </div>
+    @include('layouts.footer')
 </body>
 
 </html>
