@@ -2,14 +2,14 @@ const path = require("path");
 
 module.exports = {
   entry: {
-    app: "./assets/script/main.js", // ไฟล์เริ่มต้นของคุณ
-    login: "./assets/script/login.js", // ไฟล์เริ่มต้นของคุณ
+    apps: "./assets/script/app.js",
+    master: "./assets/script/master/index.js",
   },
   output: {
-    filename: "[name].bundle.js", // ไฟล์ output ที่จะสร้าง
+    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "assets/dist/js"),
   },
-  mode: "development", // ใช้โหมด development หรือ production
+  mode: "production", // ใช้โหมด development หรือ production
   module: {
     rules: [
       {

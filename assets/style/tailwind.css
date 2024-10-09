@@ -3,7 +3,84 @@
 @tailwind utilities;
 
 @layer base {
+  @font-face {
+    font-family: "LINE Seed EN";
+    src: url("../fonts/lineseed/en/LINESeedSans_W_Rg.woff2") format("woff2"),
+      url("../fonts/lineseed/en/LINESeedSans_W_Rg.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "LINE Seed EN Bold";
+    src: url("../fonts/lineseed/en/LINESeedSans_W_Bd.woff2") format("woff2"),
+      url("../fonts/lineseed/en/LINESeedSans_W_Bd.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "LINE Seed TH";
+    src: url("../fonts/lineseed/th/LINESeedSansTH_W_Rg.woff2") format("woff2"),
+      url("../fonts/lineseed/th/LINESeedSansTH_W_Rg.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "LINE Seed TH Bold";
+    src: url("../fonts/lineseed/th/LINESeedSansTH_W_Bd.woff2") format("woff2"),
+      url("../fonts/lineseed/th/LINESeedSansTH_W_Bd.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "LINE Seed JP";
+    src: url("../fonts/lineseed/jp/LINESeedJP_OTF_Rg.woff2") format("woff2"),
+      url("../fonts/lineseed/jp/LINESeedJP_OTF_Rg.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "LINE Seed JP Bold";
+    src: url("../fonts/lineseed/jp/LINESeedJP_OTF_Bd.woff2") format("woff2"),
+      url("../fonts/lineseed/jp/LINESeedJP_OTF_Bd.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+  }
+
   body {
     @apply font-sans;
+  }
+
+  .loader {
+    height: 5rem;
+    aspect-ratio: 1;
+    border: 3px solid #fff;
+    animation: l4 2s infinite;
+  }
+  @keyframes l4 {
+    0% {
+      aspect-ratio: 1;
+      border-radius: 50px;
+    }
+    25% {
+      aspect-ratio: 2;
+      border-radius: 50px;
+    }
+    50% {
+      aspect-ratio: 2;
+      border-radius: 0;
+    }
+    75% {
+      aspect-ratio: 1;
+      border-radius: 0;
+    }
+    100% {
+      aspect-ratio: 1;
+      border-radius: 50px;
+    }
   }
 }

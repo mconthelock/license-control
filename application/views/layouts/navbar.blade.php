@@ -1,4 +1,4 @@
-<div class="navbar bg-base-300 w-full">
+<div class="navbar bg-base-100/[0.5] w-full z-[100] fixed shadow-md">
     <div class="flex-none lg:hidden">
         <label for="nav-master" aria-label="open sidebar" class="btn btn-square btn-ghost">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -8,7 +8,7 @@
         </label>
     </div>
     <div class="flex-1">
-        <a class="btn btn-ghost text-xl">daisyUI</a>
+        <a class="btn btn-ghost text-xl">AMEC License Control</a>
     </div>
     <div class="flex-none">
         <div class="dropdown dropdown-end">

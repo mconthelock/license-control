@@ -4,12 +4,24 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Roboto", "sans-serif"],
-        kanit: ["Kanit", "sans-serif"],
+        sans: [
+          "LINE Seed EN",
+          "LINE Seed EN Bold",
+          "LINE Seed TH",
+          "LINE Seed TH Bold",
+          "LINE Seed JP",
+          "LINE Seed JP Bold",
+          "sans-serif",
+        ],
       },
     },
   },
-  plugins: [require("daisyui"), require("tailwindcss-animate")],
+  plugins: [
+    require("daisyui"),
+    require("tailwindcss-animate"),
+    require("tailwindcss-bg-patterns"),
+    //require("tailwindcss-gradients"),
+  ],
   daisyui: {
     themes: [
       {
