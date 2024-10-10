@@ -8,23 +8,11 @@
     <meta name="base_url" content="{{ base_url() }}">
     <meta name="base_uri" content="{{ 'https://' . $_SERVER['HTTP_HOST'] }}">
 
-    <title>AMEC Webflow</title>
+    <title>AMEC License Control</title>
     <link rel="stylesheet" href="{{ $GLOBALS['cdn'] }}icofont/icofont.min.css">
     <link rel="stylesheet" href="{{ base_url() }}assets/dist/css/tailwind.css?ver={{ date('Ymdhis') }}">
     @yield('styles')
 
-    <script>
-        (function() {
-            const savedTheme = localStorage.getItem('theme') || 'light'; // ค่าเริ่มต้นเป็น 'light'
-            document.documentElement.setAttribute("data-theme", savedTheme);
-            localStorage.setItem("theme", savedTheme);
-            document.addEventListener("DOMContentLoaded", function() {
-                if (savedTheme === 'dark') {
-                    document.getElementById('theme').checked = true;
-                }
-            });
-        })();
-    </script>
     <script>
         (function() {
             const savedTheme = localStorage.getItem('theme') || 'light'; // ค่าเริ่มต้นเป็น 'light'

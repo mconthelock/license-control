@@ -12,6 +12,7 @@
     "@fontsource/kanit": "^5.1.0",
     "@fontsource/roboto": "^5.1.0",
     "@fortawesome/fontawesome-free": "^6.6.0",
+    "datatables.net-dt": "^2.1.8",
     "jquery": "^3.7.1",
     "tailwindcss-animate": "^1.0.7",
     "tailwindcss-bg-patterns": "^0.3.0"

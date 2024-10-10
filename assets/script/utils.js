@@ -39,3 +39,31 @@ export function showMessage(msg, type = "error") {
 export const showLoader = (val) => {
   $("#loading-box").prop("checked", val);
 };
+
+export const tableOption = {
+  dom: '<"flex items-center"<"flex-1"f><"flex-none table-action">>r<"border border-gray-300 rounded-lg my-5"t><"flex gap-2 items-center"<"flex-1"i><"flex-none"l><"flex-none"p>>',
+  pageLength: 2,
+  autoWidth: false,
+  destroy: true,
+  language: {
+    info: "_START_ to _END_ of _TOTAL_ row(s)",
+    infoEmpty: "",
+    paginate: {
+      previous: '<i class="icofont-circled-left text-secondary text-xl"></i>',
+      next: '<i class="icofont-circled-right text-secondary text-xl"></i>',
+      first: '<i class="icofont-double-left text-secondary text-xl"></i>',
+      last: '<i class="icofont-double-right text-secondary text-xl"></i>',
+    },
+    search: "",
+    searchPlaceholder: "Search record",
+    emptyTable: "No records available",
+    lengthMenu: "Rows per page _MENU_",
+  },
+  columnDefs: [
+    {
+      targets: "action",
+      searchable: false,
+      orderable: false,
+    },
+  ],
+};

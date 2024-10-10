@@ -1,0 +1,46 @@
+div.dt-container thead > tr:last-child > th {
+  border-bottom: 1px solid #d1d5db !important;
+}
+
+div.dt-container thead > tr > th {
+  text-align: left !important;
+}
+
+div.dt-container tbody > tr > td {
+  border-bottom: 1px solid #d1d5db !important;
+}
+
+div.dt-container thead > tr,
+div.dt-container tbody > tr:last-child,
+div.dt-container tbody > tr:last-child > td {
+  border-bottom: none !important;
+}
+
+.dt-search input {
+  padding-left: 15px !important;
+  border-radius: 0.5rem !important;
+  border-color: #d1d5db !important;
+}
+
+.dt-paging > nav {
+  display: flex;
+  gap: 0.25rem;
+}
+.dt-paging > nav > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border: 1px solid #d1d5db !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  background-color: #d1d5db !important;
+}
+.dt-paging > nav > button.next,
+.dt-paging > nav > button.previous,
+.dt-paging > nav > button.first,
+.dt-paging > nav > button.last {
+  border: none !important;
+  background-color: transparent !important;
+}
