@@ -2,14 +2,14 @@ const path = require("path");
 
 module.exports = {
   entry: {
-    apps: "./assets/script/apps.js",
-    // index: "./assets/script/main.js",
+    apps: "./assets/script/app.js",
+    master: "./assets/script/master/index.js",
   },
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "assets/dist/js"),
   },
-  mode: "development", // ใช้โหมด development หรือ production
+  mode: "production", // ใช้โหมด development หรือ production
   module: {
     rules: [
       {
