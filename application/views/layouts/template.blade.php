@@ -42,15 +42,17 @@
             <div class="flex-1 z-10">
                 @yield('content')
             </div>
-            <div class="w-[750px] h-[750px] overflow-hidden absolute bottom-0 right-0 z-0">
-                <div
-                    class="w-full h-full pattern-dots pattern-gray-500 pattern-bg-transparent pattern-size-2 pattern-opacity-60 rotate-45 translate-y-56 translate-x-40">
-                </div>
-            </div>
         </div>
         @include('layouts.sidebar')
     </div>
     @include('layouts.footer')
+
+    {{-- Pattern --}}
+    <div class="w-[750px] h-[750px] overflow-hidden absolute bottom-0 right-0 z-0">
+        <div
+            class="w-full h-full pattern-dots pattern-gray-500 pattern-bg-transparent pattern-size-2 opacity-50 rotate-45 translate-y-56 translate-x-40">
+        </div>
+    </div>
     {{-- Loading Page --}}
     <input type="checkbox" id="loading-box" class="modal-toggle" checked />
     <div class="modal" role="dialog">
