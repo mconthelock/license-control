@@ -3,5 +3,6 @@
     <ul class="menu bg-base-200 w-80 p-4 pt-[calc(68px+1rem)] lg:pt-4 h-full">
         <li><a>Sidebar Item 1</a></li>
         <li><a>Sidebar Item 2</a></li>
+		<li><a href="{{base_url()}}welcome/logout/">Logout</a></li>
     </ul>
 </div>
