@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="{{ $GLOBALS['cdn'] }}icofont/icofont.min.css">
     <link rel="stylesheet" href="{{ base_url() }}assets/dist/css/tailwind.css?ver={{ date('Ymdhis') }}">
     @yield('styles')
-
     <script>
         (function() {
             const savedTheme = localStorage.getItem('theme') || 'light'; // ค่าเริ่มต้นเป็น 'light'

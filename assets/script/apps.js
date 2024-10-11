@@ -1,5 +1,5 @@
 import $ from "jquery";
-
+//Loading Page
 $(document).on("change", "#theme", function () {
   console.log("theme changed");
   if (this.checked) {

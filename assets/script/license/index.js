@@ -1,9 +1,9 @@
 import "datatables.net-dt/css/dataTables.dataTables.min.css";
-import "../../style/main.css";
+import "../../dist/css/datatable.min.css";
 import DataTable from "datatables.net-dt";
 
 import $ from "jquery";
-import { host, showLoader, tableOption } from "../utils";
+import { host, showLoader, tableOption, toggleNavbar } from "../utils";
 
 var table;
 $(document).ready(async function () {
@@ -37,6 +37,7 @@ $(document).ready(async function () {
     },
   ];
   await createTable(data);
+  await toggleNavbar("a.license");
   await showLoader(false);
 });
 
@@ -54,11 +55,13 @@ function createTable(data) {
     { data: "docno", title: "", sortable: false },
   ];
   opt.initComplete = function () {
-    $(".table-action").html(
-      `<a class="btn btn-secondary btn-sm shadow-md" href="${host}/licenses/add/">
-        <i class="icofont-close-circled rotate-45 text-xl"></i>Add New
-        </a>`
-    );
+    $(".table-action").html(`
+        <a class="btn btn-sm btn-primary shadow-md text-base-300 font-normal" href="${host}/licenses/add/">
+            <i class="icofont-close-circled rotate-45 text-xl"></i>Add New
+        </a>
+        <a class="btn btn-sm btn-secondary shadow-md  font-normal" href="${host}/licenses/add/">
+            <i class="icofont-arrow-down text-xl"></i>Export
+        </a>`);
   };
   table = new DataTable("#licenses-table", opt);
   return table;

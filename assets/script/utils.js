@@ -40,8 +40,13 @@ export const showLoader = (val) => {
   $("#loading-box").prop("checked", val);
 };
 
+export const toggleNavbar = (cls) => {
+  $("#nav-sidebar").find("a").removeClass("active");
+  $("#nav-sidebar").find(cls).addClass("active");
+};
+
 export const tableOption = {
-  dom: '<"flex items-center"<"flex-1"f><"flex-none table-action">>r<"border border-gray-300 rounded-lg my-5"t><"flex gap-2 items-center"<"flex-1"i><"flex-none"l><"flex-none"p>>',
+  dom: '<"flex items-center"<"flex-1"f><"flex-none flex gap-2 table-action">>r<"bg-base-200 border rounded-lg overflow-hidden my-5"t><"flex gap-2 items-center"<"flex-1"i><"flex-none flex gap-2"l><"flex-none"p>>',
   pageLength: 2,
   autoWidth: false,
   destroy: true,
@@ -49,14 +54,14 @@ export const tableOption = {
     info: "_START_ to _END_ of _TOTAL_ row(s)",
     infoEmpty: "",
     paginate: {
-      previous: '<i class="icofont-circled-left text-secondary text-xl"></i>',
-      next: '<i class="icofont-circled-right text-secondary text-xl"></i>',
-      first: '<i class="icofont-double-left text-secondary text-xl"></i>',
-      last: '<i class="icofont-double-right text-secondary text-xl"></i>',
+      previous: '<i class="icofont-circled-left"></i>',
+      next: '<i class="icofont-circled-right"></i>',
+      first: '<i class="icofont-double-left"></i>',
+      last: '<i class="icofont-double-right"></i>',
     },
     search: "",
     searchPlaceholder: "Search record",
-    emptyTable: "No records available",
+    emptyTable: '<div class="w-full text-center">No records available</div>',
     lengthMenu: "Rows per page _MENU_",
   },
   columnDefs: [

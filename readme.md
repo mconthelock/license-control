@@ -1,7 +1,17 @@
 # Start Tailwind
 
 - npx tailwindcss -i ./assets/style/tailwind.css -o ./assets/dist/css/tailwind.css --watch
+- npx tailwindcss -i ./assets/style/datatable.css -o ./assets/dist/css/datatable.min.css --minify
 - npx webpack --watch
+
+# Element
+
+| Type          | Class     | Ex.        |
+| ------------- | --------- | ---------- |
+| Main Button   | Primary   |            |
+| Second Button | Secondary |            |
+| Foregrand     | base-200  | Card/Table |
+| Border        | base-200  |            |
 
 # Color
 
@@ -9,10 +19,11 @@
 | --------- | ------- | ------- | -------------------------- |
 | primary   | #2563eb | #111827 | Use with side bar/ button/ |
 | secondary | #60a5fa | #d1d5db | Footer                     |
-| neutral   | #6b7280 | #d1d5db | Text                       |
-| base-100  | #f9fafb | #f9fafb | Text in side bar/ footer   |
-| base-200  | #64748b | #64748b | Boder-color                |
+| base-100  | #0A0E1A | #F0F6FF | Body Background            |
+| base-200  |         | #020817 | Boder-color                |
+| base-300  |         | #F0F6FF | Boder-color                |
 | accent    | #d97706 | #d97706 | Navbar                     |
+| neutral   | #6b7280 | #d1d5db | Text                       |
 
 # Standard Class
 

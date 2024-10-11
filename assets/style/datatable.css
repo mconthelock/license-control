@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+div.dt-container thead > tr:last-child > th {
+  border-bottom: 1px solid #d1d5db !important;
+}
+
+div.dt-container thead > tr > th {
+  text-align: left !important;
+}
+
+div.dt-container tbody > tr > td {
+  border-bottom: 1px solid #d1d5db !important;
+}
+
+div.dt-container thead > tr,
+div.dt-container tbody > tr:last-child,
+div.dt-container tbody > tr:last-child > td {
+  border-bottom: none !important;
+}
+
+/*.dt-search input {
+  @apply input input-bordered w-full max-w-xs outline-none bg-base-200;
+}
+  */
+
+.dt-paging > nav {
+  display: flex;
+  gap: 0.5rem;
+}
+.dt-paging > nav > button {
+  @apply bg-primary w-8 h-8 text-base-300 rounded-full;
+}
+.dt-paging > nav > button.next,
+.dt-paging > nav > button.previous,
+.dt-paging > nav > button.first,
+.dt-paging > nav > button.last {
+  @apply text-primary text-xl;
+  border: none !important;
+  background-color: transparent !important;
+}
+
+.dt-paging > nav > button.disabled,
+.dt-paging > nav > button.current {
+  @apply grayscale !important;
+  cursor: not-allowed !important;
+}
+/*
+
+.dt-length select {
+  @apply select select-bordered select-sm;
+}
+
+table.dataTable thead > tr > *,
+table.dataTable tbody > tr > * {
+  @apply border-b;
+}
+
+table.dataTable thead > tr > th {
+  @apply flex;
+}
+
+table.dataTable thead > tr > th > .dt-column-title {
+  @apply flex-1;
+}
+table.dataTable thead > tr > th > .dt-column-order {
+  @apply flex-1;
+}
+
+table.dataTable
+  thead
+  > tr
+  > th:not(.dt-orderable-none)
+  .dt-column-order::after {
+  font-family: IcoFont !important;
+  font-size: 1.125rem;
+  content: "\ea96";
+  @apply opacity-40;
+}
+*/
