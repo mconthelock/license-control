@@ -1,4 +1,4 @@
-<footer class="footer bg-neutral text-neutral-content px-10 py-5 flex z-[5]">
+<footer class="footer bg-neutral text-neutral-content px-10 py-5 flex z-[100]">
     <aside class="flex-1 flex gap-3">
         <div>
             <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24"

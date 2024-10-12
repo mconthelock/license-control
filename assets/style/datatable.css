@@ -20,62 +20,38 @@ div.dt-container tbody > tr:last-child > td {
   border-bottom: none !important;
 }
 
-/*.dt-search input {
-  @apply input input-bordered w-full max-w-xs outline-none bg-base-200;
+div.dt-container .dt-search input {
+  @apply px-3 py-1 !important;
 }
-  */
+
+.dt-container .dt-input {
+  @apply bg-base-200 !important;
+}
 
 .dt-paging > nav {
   display: flex;
   gap: 0.5rem;
 }
-.dt-paging > nav > button {
-  @apply bg-primary w-8 h-8 text-base-300 rounded-full;
-}
-.dt-paging > nav > button.next,
-.dt-paging > nav > button.previous,
-.dt-paging > nav > button.first,
-.dt-paging > nav > button.last {
-  @apply text-primary text-xl;
-  border: none !important;
-  background-color: transparent !important;
+div.dt-container .dt-paging .dt-paging-button {
+  @apply bg-primary w-8 h-8 text-base-300 rounded-full p-0 m-0 !important;
 }
 
-.dt-paging > nav > button.disabled,
-.dt-paging > nav > button.current {
+div.dt-container .dt-paging .dt-paging-button.next,
+div.dt-container .dt-paging .dt-paging-button.previous,
+div.dt-container .dt-paging .dt-paging-button.first,
+div.dt-container .dt-paging .dt-paging-button.last {
+  @apply text-primary text-xl border-none bg-transparent !important;
+}
+div.dt-container .dt-paging .dt-paging-button.next:hover,
+div.dt-container .dt-paging .dt-paging-button.previous:hover,
+div.dt-container .dt-paging .dt-paging-button.first:hover,
+div.dt-container .dt-paging .dt-paging-button.last:hover {
+  background: transparent !important;
+  @apply text-neutral !important;
+}
+
+div.dt-container .dt-paging .dt-paging-button.disabled,
+div.dt-container .dt-paging .dt-paging-button.current {
   @apply grayscale !important;
   cursor: not-allowed !important;
 }
-/*
-
-.dt-length select {
-  @apply select select-bordered select-sm;
-}
-
-table.dataTable thead > tr > *,
-table.dataTable tbody > tr > * {
-  @apply border-b;
-}
-
-table.dataTable thead > tr > th {
-  @apply flex;
-}
-
-table.dataTable thead > tr > th > .dt-column-title {
-  @apply flex-1;
-}
-table.dataTable thead > tr > th > .dt-column-order {
-  @apply flex-1;
-}
-
-table.dataTable
-  thead
-  > tr
-  > th:not(.dt-orderable-none)
-  .dt-column-order::after {
-  font-family: IcoFont !important;
-  font-size: 1.125rem;
-  content: "\ea96";
-  @apply opacity-40;
-}
-*/

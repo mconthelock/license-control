@@ -31,14 +31,14 @@
     </script>
 </head>
 
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen relative">
     <div class="flex-none z-[100]">
         @include('layouts.navbar')
     </div>
     <div class="flex-1 drawer lg:drawer-open">
         <input id="nav-master" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content flex flex-col p-5 pt-[calc(68px+1rem)]">
-            <div class="flex-1 z-10">
+            <div class="flex-1 z-10 lg:ps-[18rem]">
                 @yield('content')
             </div>
         </div>
