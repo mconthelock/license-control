@@ -4,6 +4,7 @@ module.exports = {
   entry: {
     apps: "./assets/script/apps.js",
     masters: "./assets/script/master/index.js",
+    newmasters: "./assets/script/master/newmaster.js",
     licenses: "./assets/script/license/index.js",
     newlicenses: "./assets/script/license/add.js",
   },

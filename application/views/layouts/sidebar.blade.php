@@ -10,7 +10,7 @@
             </a>
         </li>
         <li>
-            <a class="text-md home" href="{{ base_url() }}audits">
+            <a class="text-md home" href="{{ base_url() }}licenses">
                 <div class="flex-none"><i class="icofont-certificate text-xl"></i></div>
                 <div class="flex-1">License</div>
                 <div class="badge badge-secondary hidden"></div>

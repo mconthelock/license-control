@@ -56,9 +56,14 @@ function createTable(data) {
   ];
   opt.initComplete = function () {
     $(".table-action").html(`
-        <a class="btn btn-sm btn-primary shadow-md text-base-300 font-normal" href="${host}/licenses/add/">
-            <i class="icofont-close-circled rotate-45 text-xl"></i>Add New
-        </a>
+        <details class="dropdown">
+            <summary class="btn btn-sm btn-primary shadow-md text-base-300 font-normal m-1"><i class="icofont-close-circled rotate-45 text-xl"></i> Add New</summary>
+            <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow border">
+                <li><a href="${host}/licenses/add/">New License</a></li>
+                <div class="divider m-0"></div>
+                <li><a>Template 1</a></li>
+            </ul>
+        </details>
         <a class="btn btn-sm btn-secondary shadow-md  font-normal" href="${host}/licenses/add/">
             <i class="icofont-arrow-down text-xl"></i>Export
         </a>`);

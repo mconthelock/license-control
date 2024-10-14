@@ -5,30 +5,32 @@
         document.</p>
     <div class="divider"></div>
 
-    <div class="flex flex-col flex-wrap gap-5 lg:flex-row">
-        <div class="flex-1 min-w-80">
-            @include('master/add-info')
+    <form action="#" method="POST" id="addtemplate">
+        <div class="flex flex-col flex-wrap gap-5 lg:flex-row">
+            <div class="flex-1 min-w-80">
+                @include('master/add-info')
+            </div>
+            <div class="flex-1 min-w-80">
+                @include('master/add-prop')
+            </div>
+            <div class="flex-1 min-w-80">
+                @include('master/add-member')
+            </div>
         </div>
-        <div class="flex-1 min-w-80">
-            @include('master/add-prop')
-        </div>
-        <div class="flex-1 min-w-80">
-            @include('master/add-member')
-        </div>
-    </div>
-    <div class="flex gap-3 mt-5">
-        <button class="btn btn-primary text-base-300">
-            <span class="loading loading-spinner hidden"></span>
-            <span>Save Template</span>
-        </button>
+        <div class="flex gap-3 mt-5">
+            <button class="btn btn-primary text-base-300" type="submit">
+                <span class="loading loading-spinner hidden"></span>
+                <span>Save Template</span>
+            </button>
 
-        <button class="btn btn-error text-base-300">
-            <span class="loading loading-spinner hidden"></span>
-            <span>Cancel</span>
-        </button>
-    </div>
+            <button class="btn btn-error text-base-300">
+                <span class="loading loading-spinner hidden"></span>
+                <span>Cancel</span>
+            </button>
+        </div>
+    </form>
 @endsection
 
 @section('scripts')
-    <script src="{{ $GLOBALS['script'] }}masters.bundle.js"></script>
+    <script src="{{ $GLOBALS['script'] }}newmasters.bundle.js"></script>
 @endsection
