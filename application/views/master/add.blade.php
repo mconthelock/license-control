@@ -32,5 +32,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ $GLOBALS['script'] }}newmasters.bundle.js"></script>
+    <script src="{{ $GLOBALS['script'] }}newmasters.bundle.js?ver={{ date('Ymdhis') }}"></script>
 @endsection
