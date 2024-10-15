@@ -9,5 +9,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ $GLOBALS['script'] }}masters.bundle.js"></script>
+    <script src="{{ $GLOBALS['script'] }}masters.bundle.js?ver={{ date('Ymdhis') }}"></script>
 @endsection

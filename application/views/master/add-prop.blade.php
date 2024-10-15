@@ -5,6 +5,5 @@
     </div>
     <div class="divider"></div>
     <div class="flex flex-col gap-3" id="prop">
-
     </div>
 </div>

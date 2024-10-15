@@ -1,5 +1,6 @@
 @extends('layouts/template')
 @section('content')
+    <div class="badge !badge-secondary">4</div>
 @endsection
 
 @section('scripts')

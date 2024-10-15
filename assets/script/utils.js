@@ -46,7 +46,7 @@ export const toggleNavbar = (cls) => {
 };
 
 export const tableOption = {
-  dom: '<"flex items-center"<"flex-1"f><"flex-none flex gap-2 table-action">>r<"bg-base-200 border rounded-lg overflow-hidden my-5"t><"flex gap-2 items-center"<"flex-1"i><"flex-none flex gap-2"l><"flex-none"p>>',
+  dom: '<"flex gap-3 items-center"<"flex-1"f><"flex-none flex gap-2 table-action">>r<"bg-base-200 border rounded-lg overflow-hidden my-5"t><"flex gap-2 items-center"<"flex-1"i><"flex-none flex gap-2"l><"flex-none"p>>',
   pageLength: 2,
   autoWidth: false,
   destroy: true,
@@ -61,7 +61,8 @@ export const tableOption = {
     },
     search: "",
     searchPlaceholder: "Search record",
-    emptyTable: '<div class="w-full text-center">No records available</div>',
+    emptyTable:
+      '<div class="w-full text-start md:text-center">No records available</div>',
     lengthMenu: "Rows per page _MENU_",
   },
   columnDefs: [
