@@ -1,0 +1,1588 @@
+--------------------------------------------------------
+--  File created - Wednesday-October-16-2024   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table DOC_CATEGORY
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."DOC_CATEGORY" 
+   (	"CATE_ID" NUMBER, 
+	"CATE_NAME" VARCHAR2(100 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for Table DOC_TEMPLATE
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."DOC_TEMPLATE" 
+   (	"DOCID" NUMBER, 
+	"PREFIX" NVARCHAR2(10), 
+	"DOCNAME" NVARCHAR2(100), 
+	"CATEGORY" NUMBER, 
+	"LIFE" NUMBER, 
+	"LIFE_TYPE" NVARCHAR2(5), 
+	"ALERT" NUMBER, 
+	"EXTENDED" NVARCHAR2(1)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for Table DOC_TEMPLATE_ALERT
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."DOC_TEMPLATE_ALERT" 
+   (	"ALT_DOC" NUMBER, 
+	"ALT_EMP" NVARCHAR2(5)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for Table DOC_TEMPLATE_COLUMN
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."DOC_TEMPLATE_COLUMN" 
+   (	"COL_ID" NUMBER, 
+	"COL_DOC" NUMBER, 
+	"COL_NAME" NVARCHAR2(100), 
+	"COL_TYPE" NVARCHAR2(20)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for Table DOC_TEMPLATE_OPTION
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."DOC_TEMPLATE_OPTION" 
+   (	"OPT_ID" NUMBER, 
+	"OPT_COLUMN" NUMBER, 
+	"OPT_VALUE" NVARCHAR2(100)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for Table LEAVE_TYPE
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."LEAVE_TYPE" 
+   (	"LV_CODE" NVARCHAR2(3), 
+	"LV_ENAME" NVARCHAR2(50), 
+	"LV_TNAME" NVARCHAR2(50), 
+	"LV_STATUS" CHAR(1 BYTE), 
+	"LV_SEQ" NUMBER(2,0), 
+	"LV_NUM" NUMBER(2,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for Table NEWS
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."NEWS" 
+   (	"NEWS_ID" NUMBER, 
+	"NEWS_TITLE" NVARCHAR2(1000), 
+	"NEWS_DETAIL" LONG, 
+	"NEWS_ADDDATE" NVARCHAR2(20), 
+	"NEWS_START" NVARCHAR2(20), 
+	"NEWS_END" NVARCHAR2(20), 
+	"NEWS_IMG" NVARCHAR2(100), 
+	"NEW_UPDATEDATE" NVARCHAR2(20), 
+	"NEW_UPDATEBY" NVARCHAR2(5), 
+	"NEWS_ADDBY" NVARCHAR2(5)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for Table NEWS_FILES
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."NEWS_FILES" 
+   (	"FILE_ID" NUMBER, 
+	"FILE_NAME" NVARCHAR2(250), 
+	"FILE_FNAME" NVARCHAR2(100), 
+	"NEWS" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for Table RPTAUTHMST
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."RPTAUTHMST" 
+   (	"CAUTHNO" CHAR(1 BYTE), 
+	"VAUTHRIZE" VARCHAR2(200 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for Table RPTMST
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."RPTMST" 
+   (	"NREPNO" NUMBER(2,0), 
+	"VDESC" VARCHAR2(200 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for Table RPTUSRAUTH
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."RPTUSRAUTH" 
+   (	"VEMPNO" VARCHAR2(12 BYTE), 
+	"NREPNO" NUMBER(2,0), 
+	"CAUTHNO" CHAR(1 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for Table UNIFORM
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."UNIFORM" 
+   (	"PROD_ID" NUMBER, 
+	"PROD_CODE" VARCHAR2(15 BYTE), 
+	"PROD_SIZES" VARCHAR2(10 BYTE), 
+	"PROD_WIDTH" VARCHAR2(10 BYTE), 
+	"PROD_HEIGHT" VARCHAR2(10 BYTE), 
+	"PROD_CATEGORY" NUMBER, 
+	"PROD_MIN" NUMBER, 
+	"PROD_REMAIN" NUMBER, 
+	"PROD_STATUS" CHAR(1 BYTE) DEFAULT 1, 
+	"PROD_PRICE" NUMBER, 
+	"UPDATE_DATE" TIMESTAMP (6), 
+	"UPDATE_BY" VARCHAR2(5 BYTE), 
+	"PROD_ALOC" NUMBER, 
+	"PROD_TYPE" CHAR(1 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for Table UNIFORM_ANNUAL
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."UNIFORM_ANNUAL" 
+   (	"REQ_YEAR" NUMBER(4,0), 
+	"REQ_USER" CHAR(5 BYTE), 
+	"CREATE_DATE" NVARCHAR2(20), 
+	"CREATE_BY" NVARCHAR2(5), 
+	"CSTATUS" CHAR(1 BYTE), 
+	"REMARK" VARCHAR2(255 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for Table UNIFORM_ANNUAL_DETAIL
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."UNIFORM_ANNUAL_DETAIL" 
+   (	"REQL_YEAR" NUMBER(4,0), 
+	"REQL_USER" CHAR(5 BYTE), 
+	"PRODUCT" NUMBER, 
+	"REQUEST_QTY" NUMBER, 
+	"REMARK" NVARCHAR2(256), 
+	"ADJUST" VARCHAR2(3 BYTE), 
+	"EXTRA" VARCHAR2(1 BYTE), 
+	"DISCOUNT" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for Table UNIFORM_CATEGORY
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."UNIFORM_CATEGORY" 
+   (	"CATID" NUMBER, 
+	"CATNAME" VARCHAR2(125 BYTE), 
+	"CATDESC" VARCHAR2(125 BYTE), 
+	"CATANNUAL" VARCHAR2(1 BYTE), 
+	"CATIMAGE" VARCHAR2(150 BYTE), 
+	"CATUNIT" VARCHAR2(10 BYTE), 
+	"CATMETER" VARCHAR2(10 BYTE), 
+	"CATSEQ" NUMBER, 
+	"CATGROUP" CHAR(1 BYTE), 
+	"CATOWNER" CHAR(1 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for Table UNIFORM_REPORT
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."UNIFORM_REPORT" 
+   (	"NYEAR" NUMBER, 
+	"NMONTH" NVARCHAR2(2), 
+	"NPROD" NUMBER, 
+	"NQTY" NUMBER, 
+	"CREATE_DATE" TIMESTAMP (6)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for Table UNIFORM_REQUEST
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."UNIFORM_REQUEST" 
+   (	"NFRMNO" NUMBER(38,0), 
+	"VORGNO" VARCHAR2(6 BYTE), 
+	"CYEAR" CHAR(2 BYTE), 
+	"CYEAR2" CHAR(4 BYTE), 
+	"NRUNNO" NUMBER(7,0), 
+	"REQUEST_TYPE" VARCHAR2(100 BYTE), 
+	"JOB" VARCHAR2(100 BYTE), 
+	"ATTACH_FILE" VARCHAR2(100 BYTE), 
+	"EMP_INPUT" VARCHAR2(100 BYTE), 
+	"EMP_REQUEST" VARCHAR2(100 BYTE), 
+	"CREATE_DATE" DATE, 
+	"ADDRESS" VARCHAR2(100 BYTE), 
+	"AGREE_SARARY" VARCHAR2(100 BYTE), 
+	"CONFIRMED" CHAR(1 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for Table UNIFORM_REQUEST_DETAIL
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."UNIFORM_REQUEST_DETAIL" 
+   (	"URD_ID" NUMBER(38,0), 
+	"NFRMNO" NUMBER(*,0), 
+	"VORGNO" VARCHAR2(6 BYTE), 
+	"CYEAR" CHAR(2 BYTE), 
+	"CYEAR2" CHAR(4 BYTE), 
+	"NRUNNO" NUMBER(*,0), 
+	"UNIFORM_CATEGORY" NUMBER(*,0), 
+	"UNIFORM_TYPE" NUMBER(*,0), 
+	"UNIFORM_OLD_TYPE" NUMBER(*,0), 
+	"QTY" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for Table UNIFORM_REQUEST_TYPE
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."UNIFORM_REQUEST_TYPE" 
+   (	"RT_ID" NUMBER(38,0), 
+	"RT_DETAIL" VARCHAR2(100 BYTE), 
+	"RT_STATUS" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for Table UNIFORM_TRANSACTION
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."UNIFORM_TRANSACTION" 
+   (	"TRS_ID" NUMBER, 
+	"TRS_TYPE" NUMBER, 
+	"TRS_PRODUCT" NUMBER, 
+	"TRS_QTY" NUMBER, 
+	"TRS_USER" VARCHAR2(6 BYTE), 
+	"TRS_DATE" TIMESTAMP (6) DEFAULT sysdate, 
+	"TRS_DETAIL" VARCHAR2(1000 BYTE), 
+	"REMAINLOG" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for Table WORKTYPE
+--------------------------------------------------------
+
+  CREATE TABLE "GPREPORT"."WORKTYPE" 
+   (	"WKTYPENO" NUMBER(1,0), 
+	"NAME" VARCHAR2(10 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT);
+--------------------------------------------------------
+--  DDL for View ANNUAL_SUMMARY
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."ANNUAL_SUMMARY" ("SEMPNO", "SNAME", "YEARS", "NRIGHT", "LVUSED", "LVREMAIN", "LVEMC") AS 
+  SELECT 
+SEMPNO, SNAME, YEARS
+, CASE WHEN B.NRIGHT IS NOT NULL THEN B.NRIGHT
+ WHEN C.NRIGHT IS NOT NULL THEN C.NRIGHT+NVL(D.LVREMAIN,0)
+ WHEN WORKTIME > 5 THEN 12+NVL(D.LVREMAIN,0)
+ ELSE 0 END AS NRIGHT
+, NVL(LVUSED, 0) AS LVUSED
+, NVL(B.LVREMAIN, 0) AS LVREMAIN
+, NVL(LVEMC, 0) AS LVEMC
+FROM (
+ SELECT SEMPNO, SNAME, YEARS
+ , floor((to_date(years||'-01-01', 'yyyy-mm-dd')-startdate)/365) AS WORKTIME
+ , to_number(to_char(startdate, 'mm')) AS WORKMONTH
+ FROM AMECUSERALL ,AYEARS
+ WHERE CSTATUS = 1 
+)A
+LEFT JOIN ANNUAL_USED B ON A.SEMPNO = B.EMPNO AND A.YEARS = B.LVYEAR
+LEFT JOIN ANNUAL C ON A.WORKTIME = C.CYEAR AND WORKMONTH = C.SMON
+LEFT JOIN (
+ SELECT EMPNO, LVYEAR+1 AS NXYEAR, LVREMAIN FROM ANNUAL_USED
+)D ON A.SEMPNO = D.EMPNO AND A.YEARS = NXYEAR
+--WHERE SEMPNO = '12069'
+ORDER BY SEMPNO, YEARS
+;
+--------------------------------------------------------
+--  DDL for View ANNUAL_USED
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."ANNUAL_USED" ("EMPNO", "LVYEAR", "NRIGHT", "LVUSED", "LVREMAIN", "LVEMC") AS 
+  SELECT EMPNO,LVYEAR, MIN(NRIGHT) AS NRIGHT
+, NVL(SUM(LVTIME), 0) AS LVUSED
+, MIN(NRIGHT)-SUM(LVTIME) AS LVREMAIN
+, COUNT(NFRMNO) AS LVEMC
+FROM(
+ SELECT EMPNO
+ , to_char(frmlvdate, 'yyyy') AS LVYEAR
+ , CASE WHEN TOTLV = '01:00:00' AND REQTO = '1' THEN 1
+ WHEN TOTLV = '01:00:00' AND REQTO = '2' THEN -1
+ WHEN TOTLV = '00:04:15' AND REQTO = '1' THEN 0.5
+ ELSE -0.5 END LVTIME
+ , CASE WHEN SUBSTR(NRIGHT, -5) = '00:00' THEN TO_NUMBER(SUBSTR(NRIGHT, 0,2))
+ ELSE TO_NUMBER(SUBSTR(NRIGHT, 0,2))+0.5 END AS NRIGHT
+ , B.NFRMNO 
+ FROM LVAPP A
+ LEFT JOIN LVEM B ON A.CYEAR2=B.CYEAR2 AND A.NRUNNO = B.NRUNNO
+ WHERE typeno = 3 AND CAPPROVE IN (1,3)
+ --AND empno = '02035'
+ --AND to_char(frmlvdate, 'yyyy') = '2018'
+)X
+WHERE LVYEAR >= 2018
+GROUP BY EMPNO, LVYEAR
+ORDER BY 2
+;
+--------------------------------------------------------
+--  DDL for View ATTENDANCE_TIMEIN
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."ATTENDANCE_TIMEIN" ("DATETIMES", "SEMPNO", "FIRSTNAME", "LASTNAME", "FUNCTIONKEY", "WORKINGDATE", "DATEIN", "TIMESIN", "DATEOUT", "TIMESOUT") AS 
+  SELECT TO_CHAR(WORKDATE, 'YYYY-MM-DD')||' '||SUBSTR(TIMEIN,0,2)||':'||SUBSTR(TIMEIN,3,2)||':00' AS DATETIMES
+, C.SEMPNO
+, SUBSTR(SNAME, 1, INSTR(SNAME, ' ') - 1) AS FIRSTNAME
+, SUBSTR(SNAME, INSTR(SNAME, ' ') + 2, length(sname)) AS LASTNAME
+, 'F1+1' AS FUNCTIONKEY
+, TO_CHAR(WORKDATE, 'YYYY-MM-DD') AS WORKINGDATE
+, TO_CHAR(WORKDATE, 'YYYY-MM-DD') AS DATEIN
+, SUBSTR(TIMEIN,0,2)||':'||SUBSTR(TIMEIN,3,2)||':00' AS TIMESIN
+, NULL AS DATEOUT
+, NULL AS TIMESOUT
+FROM TIMEADJREQ A
+JOIN FORM B ON A.NFRMNO = B.NFRMNO 
+ AND A.VORGNO = B.VORGNO
+ AND A.CYEAR =B.CYEAR
+ AND A.CYEAR2=B.CYEAR2
+ AND A.NRUNNO=B.NRUNNO
+JOIN AMEC.AMECUSERALL C ON B.VREQNO = C.SEMPNO
+WHERE TIMEIN != '----'
+;
+--------------------------------------------------------
+--  DDL for View ATTENDANCE_TIMEOUT
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."ATTENDANCE_TIMEOUT" ("DATETIMES", "SEMPNO", "FIRSTNAME", "LASTNAME", "FUNCTIONKEY", "WORKINGDATE", "DATEIN", "TIMESIN", "DATEOUT", "TIMESOUT") AS 
+  SELECT TO_CHAR(WORKDATE, 'YYYY-MM-DD')||' '||SUBSTR(TIMEOUT,0,2)||':'||SUBSTR(TIMEOUT,3,2)||':00' AS DATETIMES
+, C.SEMPNO
+, SUBSTR(SNAME, 1, INSTR(SNAME, ' ') - 1) AS FIRSTNAME
+, SUBSTR(SNAME, INSTR(SNAME, ' ') + 2, length(SNAME)) AS LASTNAME
+, 'F2+1' AS FUNCTIONKEY
+, TO_CHAR(WORKDATE, 'YYYY-MM-DD') AS WORKINGDATE
+, NULL AS DATEIN
+, NULL AS TIMESIN
+, TO_CHAR(WORKDATE, 'YYYY-MM-DD') AS DATEOUT
+, SUBSTR(TIMEOUT,0,2)||':'||SUBSTR(TIMEOUT,3,2)||':00' AS TIMESOUT
+FROM TIMEADJREQ A
+JOIN FORM B ON A.NFRMNO = B.NFRMNO 
+ AND A.VORGNO = B.VORGNO
+ AND A.CYEAR =B.CYEAR
+ AND A.CYEAR2=B.CYEAR2
+ AND A.NRUNNO=B.NRUNNO
+JOIN AMEC.AMECUSERALL C ON B.VREQNO = C.SEMPNO
+WHERE TIMEOUT != '----'
+;
+--------------------------------------------------------
+--  DDL for View AYEARS
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."AYEARS" ("YEARS") AS 
+  WITH period (start_year, end_year) as
+(SELECT 2018, to_char(SYSDATE, 'yyyy')+1 FROM DUAL)
+SELECT p.start_year + LEVEL - 1 AS YEARS
+FROM DUAL d CROSS JOIN period p
+CONNECT BY LEVEL <= end_year - start_year +1
+ORDER BY YEARS
+;
+--------------------------------------------------------
+--  DDL for View DILIGENT
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."DILIGENT" ("EMPCOD", "DEHYAR", "SUMDILIGENT", "DEHT00", "DEHT01", "DEHT02", "DEHT03", "DEHT04", "DEHT05", "DEHT06", "DEHT07", "DEHT08", "DEHT09", "DEHT10", "DEHT11", "DEHT12", "DEHLST", "LVCOUNT") AS 
+  SELECT EMPCOD, DEHYAR,SUMDILIGENT,
+ DEHT00,
+ DEHT01,
+ DEHT02,
+ DEHT03,
+ DEHT04,
+ DEHT05,
+ DEHT06,
+ DEHT07,
+ DEHT08,
+ DEHT09,
+ DEHT10,
+ DEHT11,
+ DEHT12,
+ DEHLST,
+(
+ DEHR01+
+ DEHR02+
+ DEHR03+
+ DEHR04+
+ DEHR05+
+ DEHR06+
+ DEHR07+
+ DEHR08+
+ DEHR09+
+ DEHR10+
+ DEHR11+
+ DEHR12
+) AS LVCOUNT
+FROM (
+ SELECT EMPCOD, DEHYAR,
+ DEHT00,
+ DEHT01,
+ DEHT02,
+ DEHT03,
+ DEHT04,
+ DEHT05,
+ DEHT06,
+ DEHT07,
+ DEHT08,
+ DEHT09,
+ DEHT10,
+ DEHT11,
+ DEHT12,
+ DEHLST,
+ (
+ DEHT01+
+ DEHT02+
+ DEHT03+
+ DEHT04+
+ DEHT05+
+ DEHT06+
+ DEHT07+
+ DEHT08+
+ DEHT09+
+ DEHT10+
+ DEHT11+
+ DEHT12
+ )AS SUMDILIGENT, 
+ CASE WHEN length(trim(DEHR01)) > 0 THEN 1 ELSE 0 END AS DEHR01,
+ CASE WHEN length(trim(DEHR02)) > 0 THEN 1 ELSE 0 END AS DEHR02,
+ CASE WHEN length(trim(DEHR03)) > 0 THEN 1 ELSE 0 END AS DEHR03,
+ CASE WHEN length(trim(DEHR04)) > 0 THEN 1 ELSE 0 END AS DEHR04,
+ CASE WHEN length(trim(DEHR05)) > 0 THEN 1 ELSE 0 END AS DEHR05,
+ CASE WHEN length(trim(DEHR06)) > 0 THEN 1 ELSE 0 END AS DEHR06,
+ CASE WHEN length(trim(DEHR07)) > 0 THEN 1 ELSE 0 END AS DEHR07,
+ CASE WHEN length(trim(DEHR08)) > 0 THEN 1 ELSE 0 END AS DEHR08,
+ CASE WHEN length(trim(DEHR09)) > 0 THEN 1 ELSE 0 END AS DEHR09,
+ CASE WHEN length(trim(DEHR10)) > 0 THEN 1 ELSE 0 END AS DEHR10,
+ CASE WHEN length(trim(DEHR11)) > 0 THEN 1 ELSE 0 END AS DEHR11,
+ CASE WHEN length(trim(DEHR12)) > 0 THEN 1 ELSE 0 END AS DEHR12
+ FROM MHHDEL00
+)
+;
+--------------------------------------------------------
+--  DDL for View LEAVE_APP
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."LEAVE_APP" ("EMPNO", "SENDDATE", "FRMLVDATE", "FRMLVTIME", "TOLVDATE", "TOLVTIME", "NUSED", "NRIGHT", "TYPENO", "REASON", "REQTO", "REQ_TO", "LVYEAR", "PERIOD", "LV_CODE", "LV_ENAME", "LV_TNAME", "LV_STATUS", "LV_SEQ", "LV_NUM") AS 
+  SELECT EMPNO, TO_CHAR(SENDDATE, 'YYYY-MM-DD') SENDDATE
+, TO_CHAR(FRMLVDATE, 'YYYY-MM-DD') FRMLVDATE
+, SUBSTR(FRMLVTIME, 1, 2)||':'||SUBSTR(FRMLVTIME, 3, 4) FRMLVTIME
+, TO_CHAR(TOLVDATE, 'YYYY-MM-DD') TOLVDATE
+, SUBSTR(TOLVTIME, 1, 2)||':'||SUBSTR(TOLVTIME, 3, 4) TOLVTIME
+, NUSED, NRIGHT
+, TYPENO, REASON, REQTO
+, CASE WHEN REQTO ='1' THEN 'ADD' ELSE 'CANCEL' END AS REQ_TO
+, CASE WHEN TO_CHAR(FRMLVDATE, 'MMDD') >= '1210' THEN to_number(TO_CHAR(FRMLVDATE, 'YYYY'))+1 
+ ELSE to_number(TO_CHAR(FRMLVDATE, 'YYYY')) END AS LVYEAR
+, CASE WHEN TO_CHAR(FRMLVDATE, 'MM') = '04' THEN 5
+ WHEN TO_CHAR(FRMLVDATE, 'DD') >= 10 AND TO_CHAR(FRMLVDATE, 'MM') = '12' THEN 1
+ WHEN TO_CHAR(FRMLVDATE, 'DD') >= 10 THEN TO_NUMBER(TO_CHAR(FRMLVDATE, 'MM'))+1
+ ELSE TO_NUMBER(TO_CHAR(FRMLVDATE, 'MM'))END AS PERIOD
+,B."LV_CODE",B."LV_ENAME",B."LV_TNAME",B."LV_STATUS",B."LV_SEQ",B."LV_NUM"
+FROM LVAPP A
+LEFT JOIN LEAVE_TYPE B ON A.TYPENO = B.LV_NUM
+WHERE CAPPROVE IN (1,3) 
+AND FRMLVDATE > TO_DATE('2019-12-10', 'YYYY-MM-DD')
+--AND EMPNO = '12069' AND ROWNUM < 10
+;
+--------------------------------------------------------
+--  DDL for View LEAVE_COUNTER
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."LEAVE_COUNTER" ("EMPNO", "LRYEAR", "PERIOD", "LT", "A", "ST", "AI", "LV01", "LV02", "LV03", "LV04", "LV05", "LV06", "LV07", "LV08", "LV09", "LV10", "LV23", "LV29") AS 
+  SELECT "EMPNO","LRYEAR","PERIOD","LT","A","ST","AI","LV01","LV02","LV03","LV04","LV05","LV06","LV07","LV08","LV09","LV10","LV23", "LV29"
+FROM (
+SELECT LR103 AS EMPNO, LR109 AS LRTYPE
+, CASE WHEN SUBSTR(LR110, 5,4) >= '1210' THEN to_number(SUBSTR(LR110, 1,4))+1 
+ ELSE to_number(SUBSTR(LR110, 1,4)) END AS LRYEAR
+, CASE WHEN SUBSTR(LR110, 5,2) = '04' THEN 5
+ WHEN SUBSTR(LR110, 7,2) >= 10 AND SUBSTR(LR110, 5,2) = '12' THEN 1
+ WHEN SUBSTR(LR110, 7,2) >= 10 THEN TO_NUMBER(SUBSTR(LR110, 5,2))+1
+ ELSE TO_NUMBER(SUBSTR(LR110, 5,2))END AS PERIOD
+,COUNT(LR110) AS TIMES
+FROM LR100P 
+WHERE LR110 >= '20181210'
+GROUP BY LR103, LR109, LR110
+)A 
+pivot(
+ count(times)
+ FOR(LRTYPE) IN ('LT' "LT", 'A' "A", 'ST' "ST", 'AI' "AI",
+ '01' "LV01", '02' "LV02", '03' "LV03", '04' "LV04", '05' "LV05",
+ '06' "LV06", '07' "LV07", '08' "LV08", '09' "LV09", '10' "LV10",
+ '23' "LV23", '29' "LV29"
+ )
+ 
+)
+;
+--------------------------------------------------------
+--  DDL for View LEAVE_DETAIL
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."LEAVE_DETAIL" ("EMPNO", "LRTYPE", "LR110", "LR111", "LRYEAR", "PERIOD", "LV_CODE", "LV_ENAME", "LV_TNAME", "LV_STATUS", "LV_SEQ") AS 
+  SELECT A.LR103 AS EMPNO, LR109 AS LRTYPE, LR110, LR111
+ , CASE WHEN SUBSTR(LR110, 5,4) >= '1210' THEN to_number(SUBSTR(LR110, 1,4))+1 ELSE to_number(SUBSTR(LR110, 1,4)) END AS LRYEAR
+ , CASE WHEN SUBSTR(LR110, 5,2) = '04' THEN 5
+ WHEN SUBSTR(LR110, 7,2) >= 10 AND SUBSTR(LR110, 5,2) = '12' THEN 1
+ WHEN SUBSTR(LR110, 7,2) >= 10 THEN TO_NUMBER(SUBSTR(LR110, 5,2))+1
+ ELSE TO_NUMBER(SUBSTR(LR110, 5,2))END AS PERIOD
+ , B."LV_CODE",B."LV_ENAME",B."LV_TNAME",B."LV_STATUS",B."LV_SEQ"
+ FROM LR100P A
+ JOIN LEAVE_TYPE B ON A.LR109 = B.LV_CODE
+ WHERE A.LR110 >= '20191210'
+;
+--------------------------------------------------------
+--  DDL for View LEAVE_PERSON
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."LEAVE_PERSON" ("EMPNO", "LRTYPE", "LRYEAR", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC") AS 
+  SELECT "EMPNO","LRTYPE","LRYEAR","JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"
+FROM (
+ SELECT A.LR103 AS EMPNO, LR109 AS LRTYPE
+ , CASE WHEN SUBSTR(LR110, 5,4) >= '1210' THEN to_number(SUBSTR(LR110, 1,4))+1 ELSE to_number(SUBSTR(LR110, 1,4)) END AS LRYEAR
+ 
+ , CASE WHEN SUBSTR(LR110, 5,2) = '04' THEN 5
+ WHEN SUBSTR(LR110, 7,2) >= 10 AND SUBSTR(LR110, 5,2) = '12' THEN 1
+ WHEN SUBSTR(LR110, 7,2) >= 10 THEN TO_NUMBER(SUBSTR(LR110, 5,2))+1
+ ELSE TO_NUMBER(SUBSTR(LR110, 5,2))END AS PERIOD
+ , TO_NUMBER(SUBSTR(A.LR111,0,2))*8.5*60+ TO_NUMBER(SUBSTR(A.LR111,4,2))*60 + TO_NUMBER(SUBSTR(A.LR111,7,2)) AS TIMES
+
+ FROM LR100P A
+ WHERE A.LR110 >= '20181210'
+ --AND A.LR110 <= '20211209'
+)
+PIVOT(
+ SUM(TIMES)
+ FOR(PERIOD) IN (1 "JAN",2 "FEB",3 "MAR",4 "APR", 5 "MAY", 6 "JUN", 7 "JUL", 8 "AUG", 9 "SEP", 10 "OCT", 11 "NOV", 12 "DEC")
+)
+UNION 
+SELECT "EMPNO","LRTYPE","LRYEAR","JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"
+FROM(
+SELECT 
+A.LR103 AS EMPNO
+, 'LTC' AS LRTYPE
+, CASE WHEN SUBSTR(LR110, 5,4) >= '1210' THEN to_number(SUBSTR(LR110, 1,4))+1 
+ ELSE to_number(SUBSTR(LR110, 1,4)) END AS LRYEAR
+, CASE WHEN SUBSTR(LR110, 5,2) = '04' THEN 5
+ WHEN SUBSTR(LR110, 7,2) >= 10 AND SUBSTR(LR110, 5,2) = '12' THEN 1
+ WHEN SUBSTR(LR110, 7,2) >= 10 THEN TO_NUMBER(SUBSTR(LR110, 5,2))+1
+ ELSE TO_NUMBER(SUBSTR(LR110, 5,2))END AS PERIOD
+, LR110 AS TIMES
+
+ FROM LR100P A
+ WHERE A.LR110 >= '20181210'
+ AND A.LR109 = 'LT'
+)
+PIVOT(
+ COUNT(TIMES)
+ FOR(PERIOD) IN (1 "JAN",2 "FEB",3 "MAR",4 "APR", 5 "MAY", 6 "JUN", 7 "JUL", 8 "AUG", 9 "SEP", 10 "OCT", 11 "NOV", 12 "DEC")
+)
+;
+--------------------------------------------------------
+--  DDL for View LEAVE_SUMMARY
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."LEAVE_SUMMARY" ("SEMPNO", "YEARS", "LV_CODE", "LV_TNAME", "LV_ENAME", "LV_SEQ", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC", "LV_TOTAL") AS 
+  SELECT SEMPNO, YEARS, LV_CODE, LV_TNAME, LV_ENAME, LV_SEQ
+, NVL(JAN,0) AS JAN
+, NVL(FEB,0) AS FEB
+, NVL(MAR,0) AS MAR
+, NVL(APR,0) AS APR
+, NVL(MAY,0) AS MAY
+, NVL(JUN,0) AS JUN
+, NVL(JUL,0) AS JUL
+, NVL(AUG,0) AS AUG
+, NVL(SEP,0) AS SEP
+, NVL(OCT,0) AS OCT
+, NVL(NOV,0) AS NOV
+, NVL(DEC,0) AS DEC
+, NVL(JAN,0)+NVL(FEB,0)+NVL(MAR,0)+NVL(APR,0)+NVL(MAY,0)+NVL(JUN,0)+NVL(JUL,0)+NVL(AUG,0)+NVL(SEP,0)+NVL(OCT,0)+NVL(NOV,0)+NVL(DEC,0) AS LV_TOTAL
+FROM (
+ SELECT SEMPNO, SNAME, YEARS, LV_CODE, LV_ENAME, LV_TNAME, LV_SEQ
+ FROM AMECUSERALL ,AYEARS, LEAVE_TYPE
+ WHERE CSTATUS = 1 
+) A
+LEFT JOIN LEAVE_PERSON B ON A.SEMPNO = EMPNO AND YEARS = LRYEAR AND LRTYPE = LV_CODE
+--WHERE SEMPNO = '12069'
+ORDER BY SEMPNO, YEARS, LV_SEQ
+;
+--------------------------------------------------------
+--  DDL for View LOAN
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."LOAN" ("EMPCOD", "CONTACT", "TERM", "PERIOD", "PAYDATE", "PAYAMOUNT", "INTEREST", "PAYSTATUS", "LOANTIME", "APPROVE", "EARNDATE", "EARNAMOUNT", "INSTALLMENT", "EARNINTEREST", "REASON") AS 
+  (
+
+SELECT A.EMPCOD, A.EHLCNO AS CONTACT, EDLTRM AS TERM, EDLPRD AS PERIOD
+, EDLPDT AS PAYDATE, EDLPMT AS PAYAMOUNT, EDLINT AS INTEREST, EDLSTS AS PAYSTATUS
+, EHLTME AS LOANTIME , EHLADT AS APPROVE, EHLPDT AS EARNDATE 
+, EHLLMT AS EARNAMOUNT, EHLPPD AS INSTALLMENT, EHLINT AS EARNINTEREST, EHLRMK AS REASON
+FROM EMP05@amecdc A
+JOIN (
+ SELECT DISTINCT EMPCOD , EHLTME , EHLADT , EHLCNO , EHLPDT , EHLLMT , EHLPPD , EHLINT , EHLRMK 
+ FROM EMP04@amecdc
+) B ON A.EMPCOD = B.EMPCOD AND A.EHLCNO = B.EHLCNO
+
+)
+;
+--------------------------------------------------------
+--  DDL for View LOAN_GUARANTOR
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."LOAN_GUARANTOR" ("EMPCOD", "CONTRACTNO", "GRTDTE", "SEMPNO", "SNAME", "STNAME", "SPOSITION", "SSECCODE", "SSEC", "SDEPCODE", "SDEPT", "SDIVCODE", "SDIV") AS 
+  (
+SELECT EMPCOD, EHLCNO AS CONTRACTNO, GRTDTE
+, SEMPNO , SNAME, SEMPPRT||' '||STNAME AS STNAME, SPOSITION, SSECCODE, SSEC, SDEPCODE, SDEPT, SDIVCODE, SDIV
+FROM EMP04@amecdc
+JOIN AMECUSERALL ON GRTCOD = SEMPNO
+)
+;
+--------------------------------------------------------
+--  DDL for View LV_ALL_STATUS
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."LV_ALL_STATUS" ("NFRMNO", "VORGNO", "CYEAR", "CYEAR2", "NRUNNO", "EMPNO", "SENDDATE", "LRYEAR", "LEAVEDATE", "TYPE", "TIMEN", "NUMDAY", "NUMTIME", "REQTO", "CAPPROVE", "FM", "SUP", "SEM", "DDEM", "DEM", "DDIM", "DIM", "MGR", "ADMIN", "GPDEM", "SHEAD") AS 
+  (
+select NFRMNO , VORGNO , CYEAR , CYEAR2 , NRUNNO, EMPNO , TO_CHAR(SENDDATE,'dd/MM/yyyy') as SENDDATE , CYEAR2 as LRYEAR, CASE WHEN FRMLVDATE = TOLVDATE THEN TO_CHAR(FRMLVDATE,'dd/MM/yyyy') ELSE TO_CHAR(FRMLVDATE,'dd/MM/yyyy')||' - '||TO_CHAR(TOLVDATE,'dd/MM/yyyy') END as LEAVEDATE 
+ , CASE to_number(TYPENO) WHEN 1 THEN '??????' WHEN 2 THEN '?????' WHEN 3 THEN '?????????' WHEN 4 THEN '??????' WHEN 5 THEN '?????????' WHEN 6 THEN '????????' WHEN 7 THEN '?????????????/?????/???????/????' WHEN 8 THEN '????????????????/??????/?????' WHEN 9 THEN '????????' WHEN 10 THEN '?????????????' WHEN 11 THEN '??????????????' WHEN 23 THEN '?????????????????????-19' WHEN 28 THEN '????????????????????-19' WHEN 29 THEN '???????????-19' END as TYPE
+ , CASE WHEN FRMLVTIME is NULL THEN '08:00 - 17:30' ELSE SUBSTR(FRMLVTIME,1,2)||':'||SUBSTR(FRMLVTIME,3,2)||' - '||SUBSTR(TOLVTIME,1,2)||':'||SUBSTR(TOLVTIME,3,2) END as TIMEN , TO_NUMBER(SUBSTR(TOTLV,1,2)) as NUMDAY , case when SUBSTR(TOTLV,4,5) = '00:00' then '0' ELSE SUBSTR(TOTLV,4,5) END as NUMTIME , REQTO , CAPPROVE ,
+(select distinct cstepst from flow where flow.nfrmno = lvapp.nfrmno and flow.vorgno = lvapp.vorgno and flow.cyear = lvapp.cyear and flow.cyear2 = lvapp.cyear2 and flow.nrunno = lvapp.nrunno and cstepno = '23') as FM
+, (select distinct cstepst from flow where flow.nfrmno = lvapp.nfrmno and flow.vorgno = lvapp.vorgno and flow.cyear = lvapp.cyear and flow.cyear2 = lvapp.cyear2 and flow.nrunno = lvapp.nrunno and cstepno = '63') as SUP, (select distinct cstepst from flow where flow.nfrmno = lvapp.nfrmno and flow.vorgno = lvapp.vorgno and flow.cyear = lvapp.cyear and flow.cyear2 = lvapp.cyear2 and flow.nrunno = lvapp.nrunno and cstepno = '06') as SEM , (select distinct cstepst from flow where flow.nfrmno = lvapp.nfrmno and flow.vorgno = lvapp.vorgno and flow.cyear = lvapp.cyear and flow.cyear2 = lvapp.cyear2 and flow.nrunno = lvapp.nrunno and cstepno = '05') as DDEM , (select distinct cstepst from flow where flow.nfrmno = lvapp.nfrmno and flow.vorgno = lvapp.vorgno and flow.cyear = lvapp.cyear and flow.cyear2 = lvapp.cyear2 and flow.nrunno = lvapp.nrunno and cstepno in ('04') ) as DEM , (select distinct cstepst from flow where flow.nfrmno = lvapp.nfrmno and flow.vorgno = lvapp.vorgno and flow.cyear = lvapp.cyear and flow.cyear2 = lvapp.cyear2 and flow.nrunno = lvapp.nrunno and cstepno in ('03') ) as DDIM , (select distinct cstepst from flow where flow.nfrmno = lvapp.nfrmno and flow.vorgno = lvapp.vorgno and flow.cyear = lvapp.cyear and flow.cyear2 = lvapp.cyear2 and flow.nrunno = lvapp.nrunno and cstepno in ('02') ) as DIM 
+, (select distinct cstepst from flow where flow.nfrmno = lvapp.nfrmno and flow.vorgno = lvapp.vorgno and flow.cyear = lvapp.cyear and flow.cyear2 = lvapp.cyear2 and flow.nrunno = lvapp.nrunno and cstepno in ('-1') ) as MGR
+, (select distinct cstepst from flow where flow.nfrmno = lvapp.nfrmno and flow.vorgno = lvapp.vorgno and flow.cyear = lvapp.cyear and flow.cyear2 = lvapp.cyear2 and flow.nrunno = lvapp.nrunno and cstepno in ('27','08') ) as ADMIN
+, (select distinct cstepst from flow where flow.nfrmno = lvapp.nfrmno and flow.vorgno = lvapp.vorgno and flow.cyear = lvapp.cyear and flow.cyear2 = lvapp.cyear2 and flow.nrunno = lvapp.nrunno and cstepno in ('18') ) as GPDEM
+,(select cstepst from flow where flow.nfrmno = lvapp.nfrmno and flow.vorgno = lvapp.vorgno and flow.cyear = lvapp.cyear and flow.cyear2 = lvapp.cyear2 and flow.nrunno = lvapp.nrunno and cstepno in (select cstepnextno from flow where flow.nfrmno = lvapp.nfrmno and flow.vorgno = lvapp.vorgno and flow.cyear = lvapp.cyear and flow.cyear2 = lvapp.cyear2 and flow.nrunno = lvapp.nrunno and flow.cstepno = '--' ) ) as SHEAD From lvapp where typeno <> '3'
+)
+;
+--------------------------------------------------------
+--  DDL for View OVERTIME_COUNTER
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."OVERTIME_COUNTER" ("EMPNO", "OTYEAR", "PERIOD", "OT13", "OT15", "OT30") AS 
+  SELECT EMPNO,OTYEAR,PERIOD,NVL(OT13,0) AS OT13,NVL(OT15,0) AS OT15,NVL(OT30,0) AS OT30
+FROM (SELECT EMPNO, OTYEAR, PERIOD, OTTYPE, OTTIMES FROM OVERTIME_DETAIL)
+PIVOT(
+ sum(OTTIMES)
+ FOR(OTTYPE) IN ('1.3' "OT13", '1.5' "OT15", '3.0' "OT30")
+)
+;
+--------------------------------------------------------
+--  DDL for View OVERTIME_DETAIL
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."OVERTIME_DETAIL" ("EMPNO", "WORKDATE", "PLANTIMEIN", "PLANTIMEOUT", "ACTIMEIN", "ACTIMEOUT", "OTYEAR", "PERIOD", "OTTYPE", "OTJOB", "OTTIMES") AS 
+  SELECT EMPNO, TO_CHAR(WORKDATE, 'YYYY-MM-DD') AS WORKDATE 
+ , TIMEIN AS PLANTIMEIN
+ , TIMEOUT AS PLANTIMEOUT
+ , SUBSTR('0000'||TRIM(LR210), -4) AS ACTIMEIN
+ , CASE WHEN TRIM(LR212) = '0' THEN SUBSTR('0000'||TRIM(LR211), -4) 
+ ELSE SUBSTR('0000'||TRIM(LR212), -4) END AS ACTIMEOUT
+ ,OTYEAR, PERIOD, OTTYPE, OTJOB
+ ,FLOOR(TO_NUMBER(OTTIME)/100)+MOD(TO_NUMBER(OTTIME),100)/60 AS OTTIMES
+ FROM(
+ SELECT A.* 
+ , B.*
+ , CASE WHEN SUBSTR(LR209, 5,4) >= '1210' 
+ THEN to_number(SUBSTR(LR209, 1,4))+1 
+ ELSE to_number(SUBSTR(LR209, 1,4)) END AS OTYEAR
+ , CASE WHEN SUBSTR(LR209, 5,4) >= '1210' THEN 1
+ WHEN SUBSTR(LR209, 5,2) = '04' THEN 5
+ WHEN SUBSTR(LR209, 7,2) >= 10 THEN TO_NUMBER(SUBSTR(LR209, 5,2))+1
+ ELSE TO_NUMBER(SUBSTR(LR209, 5,2))END AS PERIOD
+ FROM LR200P A
+ JOIN OTFORM B ON A.LR203 = EMPNO AND A.LR209 = TO_CHAR(WORKDATE, 'YYYYMMDD')
+ WHERE LR209 >= '20191210'
+ --AND LR203 = '12069'
+ )
+ UNPIVOT ( 
+ OTTIME for OTTYPE in (
+ LR213 as '1.3',
+ LR214 as '1.5',
+ LR215 as '3.0'
+ )
+ )
+ WHERE OTTIME > 0
+;
+--------------------------------------------------------
+--  DDL for View OVERTIME_PERSON
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."OVERTIME_PERSON" ("EMPNO", "OTYEAR", "OTTYPE", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC") AS 
+  SELECT "EMPNO","OTYEAR","OTTYPE","JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"
+FROM (SELECT EMPNO, OTYEAR, PERIOD, OTTYPE, OTTIMES FROM OVERTIME_DETAIL)
+PIVOT(
+ SUM(OTTIMES)
+ FOR(PERIOD) IN (1 "JAN",2 "FEB",3 "MAR",4 "APR", 5 "MAY", 6 "JUN", 7 "JUL", 8 "AUG", 9 "SEP", 10 "OCT", 11 "NOV", 12 "DEC")
+)
+;
+--------------------------------------------------------
+--  DDL for View PUNISHMENT
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."PUNISHMENT" ("WRNCOD", "WRNFDT", "WRNTDT", "VW", "WL", "WS", "LIMIT") AS 
+  select punish."WRNCOD",punish."WRNFDT",punish."WRNTDT",punish."VW",punish."WL",punish."WS"
+ , case
+  when punish.WS >= 1 then '<=E'
+  when punish.WL = 1 then '<=C'
+  when punish.WL = 1 then '<=C'
+  when punish.VW > 1 then '<=C'
+  when punish.VW = 1 and punish.WL = 1 then '<=D'
+  when punish.VW > 1 and punish.WL > 1 then '<=E'
+ end as limit
+from
+(
+ select wrncod, wrnrs1,wrnfdt,wrntdt    from MHTPNH00
+where wrnfdt >= (select extract (year from sysdate)-2||'1210' as begdate from dual)
+and wrntdt <= (select extract (year from sysdate)-1||'1210' as enddate from dual)
+)
+pivot (
+ count(*) for wrnrs1 in ( 'VW' VW, 'WL' WL, 'WS' WS)
+) punish
+;
+--------------------------------------------------------
+--  DDL for View UNIFORM_SUMTRANS
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."UNIFORM_SUMTRANS" ("TRS_PRODUCT", "TRS_YEAR", "TRS_MONTH", "PROD_PRICE", "ADD_NEW", "ADD_CHANGING", "ISSUE_CHANGE", "ISSUE_OTH") AS 
+  select trs_product, to_char(trs_date, 'yyyy') as trs_year
+, to_char(trs_date, 'mm') as trs_month
+, NVL(PROD_PRICE, 0) PROD_PRICE
+, sum(case when trs_type = 1 then trs_qty else 0 end) as add_new
+, sum(case when trs_type = 2 then trs_qty else 0 end) as add_changing
+, sum(case when trs_type = 3 then trs_qty else 0 end) as issue_change
+, sum(case when trs_type = 4 then trs_qty else 0 end) as issue_oth
+from UNIFORM_TRANSACTION A
+join UNIFORM B on A.trs_product = B.PROD_ID
+group by trs_type, trs_product, trs_date, PROD_PRICE
+order by 1
+;
+--------------------------------------------------------
+--  DDL for View UNIFORM_VIEW
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."UNIFORM_VIEW" ("NFRMNO", "VORGNO", "CYEAR", "CYEAR2", "NRUNNO", "REQUEST_TYPE", "UNIFORM_TYPE", "UNIFORM_CATEGORY", "QTY", "JOB", "ATTACH_FILE", "EMP_INPUT", "EMP_REQUEST", "RT_DETAIL", "CATNAME", "CATDESC", "PROD_CODE", "CATUNIT", "PROD_SIZES", "CREATE_DATE", "EMP_IN_NAME", "EMP_REQ_NAME", "UNIFORM_OLD_TYPE", "OLD_SIZE", "PROD_PRICE", "URD_ID") AS 
+  (
+SELECT
+	ur."NFRMNO",
+	ur."VORGNO",
+	ur."CYEAR",
+	ur."CYEAR2",
+	ur."NRUNNO",
+	ur."REQUEST_TYPE",
+	urd."UNIFORM_TYPE",
+	urd."UNIFORM_CATEGORY",
+	urd."QTY",
+	ur."JOB",
+	ur."ATTACH_FILE",
+	ur."EMP_INPUT",
+	ur."EMP_REQUEST",
+	urt."RT_DETAIL",
+	uc."CATNAME",
+	uc."CATDESC",
+	u."PROD_CODE",
+	--    u."PROD_DETAIL",
+    uc."CATUNIT",
+    u."PROD_SIZES",
+    ur."CREATE_DATE",
+    I."STNAME" AS EMP_IN_NAME,
+    R."STNAME" AS EMP_REQ_NAME,
+    urd."UNIFORM_OLD_TYPE",
+    uu."PROD_SIZES" AS OLD_SIZE,
+    u."PROD_PRICE",
+    urd."URD_ID"
+  FROM 
+    GPREPORT.UNIFORM_REQUEST ur
+    LEFT JOIN GPREPORT.UNIFORM_REQUEST_DETAIL urd ON ur."NRUNNO" = urd."NRUNNO"
+    LEFT JOIN GPREPORT.UNIFORM_REQUEST_TYPE urt ON ur."REQUEST_TYPE" = urt."RT_ID"
+    LEFT JOIN GPREPORT.UNIFORM_CATEGORY uc ON urd."UNIFORM_CATEGORY" = uc."CATID"
+    LEFT JOIN GPREPORT.UNIFORM u ON urd."UNIFORM_TYPE" = u."PROD_ID"
+    LEFT JOIN AMEC.AMECUSERALL I ON ur."EMP_INPUT" = I."SEMPNO"
+    LEFT JOIN AMEC.AMECUSERALL R ON ur."EMP_REQUEST" = R."SEMPNO"
+    LEFT JOIN GPREPORT.UNIFORM uu ON urd."UNIFORM_OLD_TYPE" = uu."PROD_ID"
+)
+;
+--------------------------------------------------------
+--  DDL for View UNIFORM_WAITING
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."UNIFORM_WAITING" ("DOCNO", "CYEAR2", "NRUNNO", "EMP_REQUEST", "CREATE_DATE", "ADDRESS", "RT_ID", "RT_DETAIL", "RT_STATUS", "REQTYPE", "QTY", "PROD_ID", "PROD_CODE", "PROD_SIZES", "PROD_REMAIN", "PROD_ALOC", "CATID", "CATDESC") AS 
+  select  'GP-UNF'||substr(a.cyear2,-2)||'-'||substr('000000'||a.nrunno, -6) docno, a.cyear2, a.nrunno
+,  b.emp_request, to_char(b.create_date, 'yyyy-mm-dd') as create_date, b.address
+, C."RT_ID",C."RT_DETAIL",C."RT_STATUS"
+, d.reqtype, d.qty
+, u.prod_id, prod_code, prod_sizes, prod_remain, prod_aloc
+, uc.catid, uc.catdesc
+from flow a
+join uniform_request b on a.nrunno = b.nrunno
+join UNIFORM_REQUEST_TYPE C ON B.REQUEST_TYPE = C.RT_ID
+join (
+    select * 
+    from uniform_request_detail
+    unpivot (
+        PRODUCT
+        for REQTYPE IN
+        (
+            uniform_type AS '2',
+            uniform_old_type as '1'
+        )
+    )
+) D on D.nrunno = a.nrunno
+join uniform u on d.product = u.prod_id
+join uniform_category uc on u.prod_category = uc.catid
+where a.nfrmno = 13 and a.vorgno = '030101' and a.cyear = 24 and CSTEPNO = '19' and CSTEPST = '3'
+;
+--------------------------------------------------------
+--  DDL for View VIEW_LR100P
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."VIEW_LR100P" ("EMPCODE", "ETT_TYPE", "MINS_ABSENT", "DAYS", "HOURS", "MINS", "LEAVE") AS 
+  SELECT TABLE2."EMPCODE",TABLE2."ETT_TYPE",TABLE2."MINS_ABSENT",TABLE2."DAYS",TABLE2."HOURS",TABLE2."MINS"
+,SUBSTR('00'||DAYS, -2)||':'||SUBSTR('00'||HOURS, -2)||':'||SUBSTR('00'||MINS, -2) AS LEAVE 
+FROM (
+SELECT LR103 AS EMPCODE, LR109 AS ETT_TYPE,SUM(absent) AS MINS_ABSENT
+,floor(SUM(absent)/510) AS days 
+,floor((SUM(absent) - (floor(SUM(absent)/510) * 510))/60) AS hours
+,SUM(absent)-((floor(SUM(absent)/510)*510)+(floor((SUM(absent) - (floor(SUM(absent)/510) * 510))/60)*60)) AS mins
+FROM
+(
+ SELECT LR103, LR109,LR111, (substr( LR111, 0,2)*510)+(substr( LR111, 4,2)*60)+substr( LR111, 7,2) AS absent
+ FROM LR100P 
+ WHERE LR109 IN ('A', 'ST')
+ AND LR110 >= (select extract (year from sysdate)-2||'1210' as begdate from dual) 
+ AND LR110 <= (select extract (year from sysdate)-1||'1210' as enddate from dual)
+) TABLE1
+GROUP BY LR103, LR109
+) TABLE2
+;
+--------------------------------------------------------
+--  DDL for View VIEW_LR100P_SUM
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."VIEW_LR100P_SUM" ("EMPCODE", "LEAVE", "A", "ST") AS 
+  select "EMPCODE","LEAVE","A","ST" from
+(
+select EMPCODE, ETT_TYPE, LEAVE from VIEW_LR100P
+)
+pivot
+(
+ count(ETT_TYPE ) for ETT_TYPE in ('A' A, 'ST' ST)
+)
+;
+--------------------------------------------------------
+--  DDL for View VI_LR200P
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "GPREPORT"."VI_LR200P" ("LR201", "LR202", "LR203", "LR204", "LR205", "LR206", "LR207", "LR208", "LR209", "LR210", "LR211", "LR212", "LR213", "LR214", "LR215", "PERIOD", "YEAR") AS 
+  SELECT LR201 , LR202, LR203, LR204, LR205, LR206, LR207, LR208, LR209,LR210,LR211,LR212,LR213,LR214,LR215,
+ CASE WHEN TO_NUMBER(SUBSTR(lr209,5,4)) >= 1210 AND TO_NUMBER(SUBSTR(lr209,5,4)) <= 1231 THEN 'PERIOD1' ELSE
+ CASE WHEN TO_NUMBER(SUBSTR(lr209,5,4)) >= 0101 AND TO_NUMBER(SUBSTR(lr209,5,4)) <= 0109 THEN 'PERIOD1' ELSE
+ CASE WHEN TO_NUMBER(SUBSTR(lr209,5,4)) >= 0110 AND TO_NUMBER(SUBSTR(lr209,5,4)) <= 0209 THEN 'PERIOD2' ELSE
+ CASE WHEN TO_NUMBER(SUBSTR(lr209,5,4)) >= 0210 AND TO_NUMBER(SUBSTR(lr209,5,4)) <= 0309 THEN 'PERIOD3' ELSE
+ CASE WHEN TO_NUMBER(SUBSTR(lr209,5,4)) >= 0310 AND TO_NUMBER(SUBSTR(lr209,5,4)) <= 0331 THEN 'PERIOD4' ELSE
+ CASE WHEN TO_NUMBER(SUBSTR(lr209,5,4)) >= 0401 AND TO_NUMBER(SUBSTR(lr209,5,4)) <= 0509 THEN 'PERIOD5' ELSE
+ CASE WHEN TO_NUMBER(SUBSTR(lr209,5,4)) >= 0510 AND TO_NUMBER(SUBSTR(lr209,5,4)) <= 0609 THEN 'PERIOD6' ELSE
+ CASE WHEN TO_NUMBER(SUBSTR(lr209,5,4)) >= 0610 AND TO_NUMBER(SUBSTR(lr209,5,4)) <= 0709 THEN 'PERIOD7' ELSE
+ CASE WHEN TO_NUMBER(SUBSTR(lr209,5,4)) >= 0710 AND TO_NUMBER(SUBSTR(lr209,5,4)) <= 0809 THEN 'PERIOD8' ELSE
+ CASE WHEN TO_NUMBER(SUBSTR(lr209,5,4)) >= 0810 AND TO_NUMBER(SUBSTR(lr209,5,4)) <= 0909 THEN 'PERIOD9' ELSE
+ CASE WHEN TO_NUMBER(SUBSTR(lr209,5,4)) >= 0910 AND TO_NUMBER(SUBSTR(lr209,5,4)) <= 1009 THEN 'PERIOD10' ELSE
+ CASE WHEN TO_NUMBER(SUBSTR(lr209,5,4)) >= 1010 AND TO_NUMBER(SUBSTR(lr209,5,4)) <= 1109 THEN 'PERIOD11' ELSE
+ CASE WHEN TO_NUMBER(SUBSTR(lr209,5,4)) >= 1110 AND TO_NUMBER(SUBSTR(lr209,5,4)) <= 1209 THEN 'PERIOD12' 
+ END END END END END END END END END END END END END AS PERIOD,
+ CASE WHEN TO_NUMBER(SUBSTR(lr209,5,4)) >= 1210 AND TO_NUMBER(SUBSTR(lr209,5,4)) <= 1231 
+ THEN TO_NUMBER(SUBSTR(lr209,0,4)) + 1 ELSE TO_NUMBER(SUBSTR(lr209,0,4)) END AS YEAR
+ FROM LR200P
+;
+REM INSERTING into GPREPORT.DOC_CATEGORY
+SET DEFINE OFF;
+Insert into GPREPORT.DOC_CATEGORY (CATE_ID,CATE_NAME) values (1,'License');
+Insert into GPREPORT.DOC_CATEGORY (CATE_ID,CATE_NAME) values (2,'Certificate');
+Insert into GPREPORT.DOC_CATEGORY (CATE_ID,CATE_NAME) values (3,'Contract');
+Insert into GPREPORT.DOC_CATEGORY (CATE_ID,CATE_NAME) values (4,'Agreement');
+Insert into GPREPORT.DOC_CATEGORY (CATE_ID,CATE_NAME) values (5,'Compliance');
+REM INSERTING into GPREPORT.DOC_TEMPLATE
+SET DEFINE OFF;
+Insert into GPREPORT.DOC_TEMPLATE (DOCID,PREFIX,DOCNAME,CATEGORY,LIFE,LIFE_TYPE,ALERT,EXTENDED) values (1,'doc','Test',1,45,'Day',10,'1');
+REM INSERTING into GPREPORT.DOC_TEMPLATE_ALERT
+SET DEFINE OFF;
+REM INSERTING into GPREPORT.DOC_TEMPLATE_COLUMN
+SET DEFINE OFF;
+REM INSERTING into GPREPORT.DOC_TEMPLATE_OPTION
+SET DEFINE OFF;
+REM INSERTING into GPREPORT.LEAVE_TYPE
+SET DEFINE OFF;
+Insert into GPREPORT.LEAVE_TYPE (LV_CODE,LV_ENAME,LV_TNAME,LV_STATUS,LV_SEQ,LV_NUM) values ('LTC','Late','?????','1',1,null);
+Insert into GPREPORT.LEAVE_TYPE (LV_CODE,LV_ENAME,LV_TNAME,LV_STATUS,LV_SEQ,LV_NUM) values ('LT','Late','?????','1',2,null);
+Insert into GPREPORT.LEAVE_TYPE (LV_CODE,LV_ENAME,LV_TNAME,LV_STATUS,LV_SEQ,LV_NUM) values ('A','Absent','??????','1',3,null);
+Insert into GPREPORT.LEAVE_TYPE (LV_CODE,LV_ENAME,LV_TNAME,LV_STATUS,LV_SEQ,LV_NUM) values ('ST','Suspend','??????','1',4,null);
+Insert into GPREPORT.LEAVE_TYPE (LV_CODE,LV_ENAME,LV_TNAME,LV_STATUS,LV_SEQ,LV_NUM) values ('AI','Sick-In','???????????????????????','1',5,null);
+Insert into GPREPORT.LEAVE_TYPE (LV_CODE,LV_ENAME,LV_TNAME,LV_STATUS,LV_SEQ,LV_NUM) values ('01','Sick','??????','1',6,1);
+Insert into GPREPORT.LEAVE_TYPE (LV_CODE,LV_ENAME,LV_TNAME,LV_STATUS,LV_SEQ,LV_NUM) values ('02','Business','?????','1',7,2);
+Insert into GPREPORT.LEAVE_TYPE (LV_CODE,LV_ENAME,LV_TNAME,LV_STATUS,LV_SEQ,LV_NUM) values ('03','Annual Leave','?????????','1',8,3);
+Insert into GPREPORT.LEAVE_TYPE (LV_CODE,LV_ENAME,LV_TNAME,LV_STATUS,LV_SEQ,LV_NUM) values ('04','Maternity','???????????????','1',9,4);
+Insert into GPREPORT.LEAVE_TYPE (LV_CODE,LV_ENAME,LV_TNAME,LV_STATUS,LV_SEQ,LV_NUM) values ('05','Odinary','?????????','1',10,5);
+Insert into GPREPORT.LEAVE_TYPE (LV_CODE,LV_ENAME,LV_TNAME,LV_STATUS,LV_SEQ,LV_NUM) values ('06','Military','??????????????????????????','1',11,6);
+Insert into GPREPORT.LEAVE_TYPE (LV_CODE,LV_ENAME,LV_TNAME,LV_STATUS,LV_SEQ,LV_NUM) values ('07','Funeral Parent','???????????????????????','1',12,7);
+Insert into GPREPORT.LEAVE_TYPE (LV_CODE,LV_ENAME,LV_TNAME,LV_STATUS,LV_SEQ,LV_NUM) values ('08','Funeral Cousin','????????????????????, ?????, ???????','1',13,8);
+Insert into GPREPORT.LEAVE_TYPE (LV_CODE,LV_ENAME,LV_TNAME,LV_STATUS,LV_SEQ,LV_NUM) values ('09','Sterilize','?????????????','1',14,9);
+Insert into GPREPORT.LEAVE_TYPE (LV_CODE,LV_ENAME,LV_TNAME,LV_STATUS,LV_SEQ,LV_NUM) values ('10','Wife give birh baby','???????????????','1',15,10);
+Insert into GPREPORT.LEAVE_TYPE (LV_CODE,LV_ENAME,LV_TNAME,LV_STATUS,LV_SEQ,LV_NUM) values ('23','Vaccination for Covid-19','????????????????????? 19','1',16,23);
+Insert into GPREPORT.LEAVE_TYPE (LV_CODE,LV_ENAME,LV_TNAME,LV_STATUS,LV_SEQ,LV_NUM) values ('29','Sick by Covid-19 infection','?????????????????????? 19','1',17,29);
+REM INSERTING into GPREPORT.NEWS
+SET DEFINE OFF;
+REM INSERTING into GPREPORT.NEWS_FILES
+SET DEFINE OFF;
+REM INSERTING into GPREPORT.RPTAUTHMST
+SET DEFINE OFF;
+Insert into GPREPORT.RPTAUTHMST (CAUTHNO,VAUTHRIZE) values ('6','Absent 3 Days');
+Insert into GPREPORT.RPTAUTHMST (CAUTHNO,VAUTHRIZE) values ('1','Section');
+Insert into GPREPORT.RPTAUTHMST (CAUTHNO,VAUTHRIZE) values ('2','Department');
+Insert into GPREPORT.RPTAUTHMST (CAUTHNO,VAUTHRIZE) values ('3','Division');
+Insert into GPREPORT.RPTAUTHMST (CAUTHNO,VAUTHRIZE) values ('4','Admin');
+Insert into GPREPORT.RPTAUTHMST (CAUTHNO,VAUTHRIZE) values ('5','Document');
+REM INSERTING into GPREPORT.RPTMST
+SET DEFINE OFF;
+Insert into GPREPORT.RPTMST (NREPNO,VDESC) values (0,'GP Admin Report');
+Insert into GPREPORT.RPTMST (NREPNO,VDESC) values (1,'Overtime Working Report');
+Insert into GPREPORT.RPTMST (NREPNO,VDESC) values (2,'Leave Report');
+Insert into GPREPORT.RPTMST (NREPNO,VDESC) values (3,'Diligent Allowance Historical');
+REM INSERTING into GPREPORT.RPTUSRAUTH
+SET DEFINE OFF;
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('12353',1,'5');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('13314',1,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('15199',0,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('13314',2,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('13001',0,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('92115',0,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('16008',0,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('13314',0,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('92115',1,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('92115',2,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('16007',0,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('16007',1,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('16007',2,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('13001',1,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('97044',1,'2');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('13001',2,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('13238',0,'6');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('12353',2,'5');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('16008',2,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('94098',1,'3');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('15199',1,'3');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('16008',1,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('15199',2,'3');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('94098',2,'3');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('07059',0,'6');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('12231',1,'1');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('12231',2,'1');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('05057',1,'5');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('05057',2,'5');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('15199',3,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('13001',3,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('92115',3,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('13314',3,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('16008',3,'4');
+Insert into GPREPORT.RPTUSRAUTH (VEMPNO,NREPNO,CAUTHNO) values ('16007',3,'4');
+REM INSERTING into GPREPORT.UNIFORM
+SET DEFINE OFF;
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (70,'GPUNI00070','26','35','37.5',7,0,20,'1',260,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (71,'GPUNI00071','27','35','37.5',7,0,35,'1',260,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (72,'GPUNI00072','28','36','37.5',7,0,6,'1',260,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (73,'GPUNI00073','29','37','38.5',7,0,7,'1',260,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (74,'GPUNI00074','30','38','38.5',7,0,4,'1',260,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (75,'GPUNI00075','31','39','38.5',7,0,1,'1',260,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (76,'GPUNI00076','32','40','38.8',7,0,2,'1',260,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (77,'GPUNI00077','33','41','38.8',7,0,1,'1',260,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (78,'GPUNI00078','34','42','38.8',7,0,12,'1',260,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (79,'GPUNI00079','35','43','38.8',7,0,22,'1',260,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (80,'GPUNI00080','36','44','38.8',7,0,13,'1',260,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (81,'GPUNI00081','37','45','38.8',7,0,0,'1',260,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (82,'GPUNI00082','38','46','38.8',7,0,0,'1',260,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (83,'GPUNI00083','39','47','38.8',7,0,0,'1',260,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (84,'GPUNI00084','40','48','38.8',7,0,0,'1',260,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (85,'GPUNI00085','S','26','34',8,0,0,'1',280,null,null,0,'4');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (86,'GPUNI00086','M','28','36',8,0,0,'1',280,null,null,0,'4');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (87,'GPUNI00087','L','30','38',8,0,1,'1',280,null,null,0,'4');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (88,'GPUNI00088','XL','32','40',8,0,9,'1',280,null,null,0,'4');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (89,'GPUNI00089','2XL','34','42',8,0,27,'1',280,null,null,0,'4');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (90,'GPUNI00090','3XL','36','44',8,0,3,'1',280,null,null,0,'4');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (91,'GPUNI00091','SS','80',null,9,0,0,'1',1000,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (92,'GPUNI00092','S','81',null,9,0,0,'1',1000,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (93,'GPUNI00093','M','82',null,9,0,7,'1',1000,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (94,'GPUNI00094','L','83',null,9,0,5,'1',1000,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (95,'GPUNI00095','XL','84',null,9,0,2,'1',1000,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (96,'GPUNI00096','2XL','85',null,9,0,1,'1',1000,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (97,'GPUNI00097','3XL','86',null,9,0,0,'1',1000,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (98,'GPUNI00098','4XL','87',null,9,0,0,'1',1000,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (99,'GPUNI00099','5XL','88',null,9,0,0,'1',1000,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (100,'GPUNI00100','SS','24','32',8,0,27,'1',280,null,null,0,'4');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (1,'GPUNI00001','SS','38','23.5',1,0,6,'1',245,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (2,'GPUNI00002','S','40','24',1,0,5,'1',245,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (3,'GPUNI00003','M','42','24.5',1,0,9,'1',245,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (4,'GPUNI00004','L','44','25.5',1,0,1,'1',245,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (5,'GPUNI00005','XL','46','26.5',1,0,10,'1',245,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (6,'GPUNI00006','2XL','48','27.5',1,0,0,'1',245,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (7,'GPUNI00007','3XL','50','28.5',1,0,0,'1',245,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (8,'GPUNI00008','4XL','52','28.5',1,0,0,'1',245,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (9,'GPUNI00009','SS','38','23.5',2,0,2,'1',310,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (10,'GPUNI00010','S','40','24',2,0,15,'1',310,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (11,'GPUNI00011','M','42','24.5',2,0,27,'1',310,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (12,'GPUNI00012','L','44','25.5',2,0,30,'1',310,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (13,'GPUNI00013','XL','46','26.5',2,0,9,'1',310,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (14,'GPUNI00014','2XL','48',null,2,0,2,'1',310,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (15,'GPUNI00015','3XL','50','28.5',2,0,3,'1',310,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (16,'GPUNI00016','4XL','52','28.5',2,0,2,'1',310,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (17,'GPUNI00017','25','35','37',3,0,0,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (18,'GPUNI00018','26','36','38',3,0,9,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (19,'GPUNI00019','27','37','38',3,0,22,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (20,'GPUNI00020','28','38','39',3,0,4,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (21,'GPUNI00021','29','39','39',3,0,25,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (22,'GPUNI00022','30','40','40',3,0,37,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (23,'GPUNI00023','31','41','40',3,0,8,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (153,'GPUNI00153','SS','80',null,10,0,0,'1',1000,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (154,'GPUNI00154','S','81',null,10,0,9,'1',1000,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (155,'GPUNI00155','M','82',null,10,0,2,'1',1000,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (156,'GPUNI00156','L','83',null,10,0,4,'1',1000,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (157,'GPUNI00157','XL','84',null,10,0,23,'1',1000,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (158,'GPUNI00158','2XL','85',null,10,0,21,'1',1000,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (159,'GPUNI00159','3XL','86',null,10,0,0,'1',1000,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (160,'GPUNI00160','4XL','87',null,10,0,0,'1',1000,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (161,'GPUNI00161','5XL','88',null,10,0,0,'1',1000,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (24,'GPUNI00024','32','42','40',3,0,11,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (25,'GPUNI00025','33','43','40',3,0,12,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (26,'GPUNI00026','34','44','40',3,0,15,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (27,'GPUNI00027','35','45','41',3,0,21,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (28,'GPUNI00028','36','46','41',3,0,20,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (29,'GPUNI00029','37','47','41',3,0,4,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (30,'GPUNI00030','38','48','41',3,0,5,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (31,'GPUNI00031','39','49','41',3,0,0,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (32,'GPUNI00032','40','50','41',3,0,0,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (163,'GPUNI00163','25','35',null,13,null,0,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (164,'GPUNI00164','26','36',null,13,null,0,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (165,'GPUNI00165','27','37',null,13,null,0,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (166,'GPUNI00166','28','38',null,13,null,0,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (167,'GPUNI00167','29','39',null,13,null,2,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (168,'GPUNI00168','30','40',null,13,null,6,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (169,'GPUNI00169','31','41',null,13,null,6,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (170,'GPUNI00170','32','42',null,13,null,9,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (171,'GPUNI00171','33','43',null,13,null,6,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (172,'GPUNI00172','34','44',null,13,null,1,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (173,'GPUNI00173','35','45',null,13,null,3,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (174,'GPUNI00174','36','46',null,13,null,0,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (175,'GPUNI00175','37','47',null,13,null,1,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (176,'GPUNI00176','38','48',null,13,null,0,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (177,'GPUNI00177','39','49',null,13,null,1,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (178,'GPUNI00178','40','50',null,13,null,0,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (179,'GPUNI00179','41','51',null,13,null,0,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (180,'GPUNI00180','42','52',null,13,null,0,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (181,'GPUNI00181','43','53',null,13,null,0,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (182,'GPUNI00182','44','54',null,13,null,0,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (183,'GPUNI00183','45','55',null,13,null,0,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (184,'GPUNI00184','46','56',null,13,null,0,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (185,'GPUNI00185','47','57',null,13,null,0,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (186,'GPUNI00186','SPECIAL','58',null,13,null,0,'1',270,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (187,'GPUNI00187','45','55',null,12,null,0,'1',230,null,null,0,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (33,'GPUNI00033','41','51','41',3,0,0,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (34,'GPUNI00034','42','52','41',3,0,0,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (35,'GPUNI00035','25','35','37',4,0,0,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (36,'GPUNI00036','26','36','38',4,0,0,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (37,'GPUNI00037','27','37','38',4,0,0,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (38,'GPUNI00038','28','38','39',4,0,41,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (39,'GPUNI00039','29','39','39',4,0,3,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (40,'GPUNI00040','30','40','40',4,0,17,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (41,'GPUNI00041','31','41','40',4,0,1,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (42,'GPUNI00042','32','42','40',4,0,26,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (43,'GPUNI00043','33','43','40',4,0,0,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (44,'GPUNI00044','34','44','40',4,0,4,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (45,'GPUNI00045','35','45','41',4,0,3,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (46,'GPUNI00046','36','46','41',4,0,13,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (47,'GPUNI00047','37','47','41',4,0,14,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (48,'GPUNI00048','38','48','41',4,0,32,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (49,'GPUNI00049','39','49','41',4,0,28,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (50,'GPUNI00050','40','50','41',4,0,11,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (51,'GPUNI00051','41','51','41',4,0,3,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (52,'GPUNI00052','42','52','41',4,0,15,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (53,'GPUNI00053','SSS','32','22.5',5,0,32,'1',230,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (54,'GPUNI00054','SS','33.5','22.5',5,0,0,'1',230,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (55,'GPUNI00055','S','35','22.5',5,0,3,'1',230,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (56,'GPUNI00056','M','36.5','23.5',5,0,2,'1',230,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (57,'GPUNI00057','L','37.5','24.5',5,0,0,'1',230,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (58,'GPUNI00058','XL','39','26',5,0,9,'1',230,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (59,'GPUNI00059','2XL','41',null,5,0,0,'1',230,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (60,'GPUNI00060','3XL','43','27',5,0,0,'1',230,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (61,'GPUNI00061','SSS','32','25',6,0,0,'1',230,null,null,0,'3');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (101,'GPUNI00101','SSS','36','23',1,0,-2,'1',245,null,null,-1,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (102,'GPUNI00102','SSS','36','23',2,0,0,'1',310,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (105,'GPUNI00105','5XL','54','28.5',1,0,16,'1',245,null,null,-2,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (107,'GPUNI00107','5XL','54','28.5',2,0,0,'1',310,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (109,'GPUNI00109','45','55','41',3,0,1,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (110,'GPUNI00110','43','53','41',4,0,3,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (111,'GPUNI00111','44','54','41',4,0,10,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (112,'GPUNI00112','45','55','41',4,0,0,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (113,'GPUNI00113','4XL','46','27',5,0,0,'1',230,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (114,'GPUNI00114','46','56',null,3,0,0,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (115,'GPUNI00115','47','57',null,3,0,0,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (116,'GPUNI00116','46','56',null,4,0,0,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (117,'GPUNI00117','47','57',null,4,0,0,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (118,'GPUNI00118','SS','36','24',11,null,11,'1',200,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (119,'GPUNI00119','S','38','25',11,null,16,'1',200,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (120,'GPUNI00120','M','40','26',11,null,11,'1',200,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (121,'GPUNI00121','L','42','27',11,null,2,'1',200,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (122,'GPUNI00122','XL','44','28',11,null,20,'1',200,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (123,'GPUNI00123','2XL','46','29',11,null,0,'1',200,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (124,'GPUNI00124','3XL','48','29',11,null,0,'1',200,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (125,'GPUNI00125','4XL','50','29',11,null,0,'1',200,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (126,'GPUNI00126','5XL','52','29',11,null,0,'1',200,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (127,'GPUNI00127','25','35','37',12,null,0,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (128,'GPUNI00128','26','36','38',12,null,1,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (129,'GPUNI00129','27','37','38',12,null,0,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (130,'GPUNI00130','28','38','39',12,null,0,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (131,'GPUNI00131','29','39','39',12,null,1,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (103,'GPUNI00103','43','53','41',3,0,0,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (104,'GPUNI00104','44','54','41',3,0,0,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (132,'GPUNI00132','30','40','40',12,null,12,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (133,'GPUNI00133','31','41','40',12,null,6,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (134,'GPUNI00134','32','42','40',12,null,4,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (135,'GPUNI00135','33','43','40',12,null,12,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (136,'GPUNI00136','34','44','40',12,null,7,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (137,'GPUNI00137','35','45','41',12,null,4,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (138,'GPUNI00138','36','46','41',12,null,6,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (139,'GPUNI00139','37','47','41',12,null,0,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (140,'GPUNI00140','38','48','41',12,null,0,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (141,'GPUNI00141','39','49','41',12,null,0,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (142,'GPUNI00142','40','50','41',12,null,1,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (143,'GPUNI00143','41','51','41',12,null,0,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (144,'GPUNI00144','42','52','41',12,null,0,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (145,'GPUNI00145','FREE SIZE','54+','29',1,null,0,'1',245,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (146,'GPUNI00146','SPECIAL','54+',null,2,null,0,'1',310,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (147,'GPUNI00147','FREE SIZE','58',null,3,null,0,'1',250,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (148,'GPUNI00148','FREE SIZE','58',null,4,null,0,'1',278,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (149,'GPUNI00149','SPECIAL','52+',null,11,null,0,'1',200,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (150,'GPUNI00150','SPECIAL','58',null,12,null,0,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (151,'GPUNI00151','43','53','41',12,0,0,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (152,'GPUNI00152','44','54','41',12,0,0,'1',230,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (62,'GPUNI00062','SS','33.5','25',6,0,0,'1',230,null,null,0,'3');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (63,'GPUNI00063','S','35','25',6,0,2,'1',230,null,null,0,'3');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (64,'GPUNI00064','M','36.5','26',6,0,8,'1',230,null,null,0,'3');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (65,'GPUNI00065','L','37.5','27',6,0,15,'1',230,null,null,0,'3');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (66,'GPUNI00066','XL','39','28',6,0,7,'1',230,null,null,0,'3');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (67,'GPUNI00067','2XL','40',null,6,0,0,'1',230,null,null,0,'3');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (68,'GPUNI00068','3XL','43','29',6,0,0,'1',230,null,null,0,'3');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (69,'GPUNI00069','25','34','37.5',7,0,20,'1',260,null,null,0,'2');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (162,'GPUNI00162','SSS','34','23',11,0,25,'1',200,null,null,0,'1');
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (190,'PPE00002','38','38',null,14,null,null,'1',null,null,null,null,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (191,'PPE00003','39','39',null,14,null,null,'1',null,null,null,null,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (192,'PPE00004','40','40',null,14,null,null,'1',null,null,null,null,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (188,'PPE00000','36','36',null,14,null,null,'1',null,null,null,null,null);
+Insert into GPREPORT.UNIFORM (PROD_ID,PROD_CODE,PROD_SIZES,PROD_WIDTH,PROD_HEIGHT,PROD_CATEGORY,PROD_MIN,PROD_REMAIN,PROD_STATUS,PROD_PRICE,UPDATE_DATE,UPDATE_BY,PROD_ALOC,PROD_TYPE) values (189,'PPE00001','37','37',null,14,null,null,'1',null,null,null,null,null);
+REM INSERTING into GPREPORT.UNIFORM_ANNUAL
+SET DEFINE OFF;
+Insert into GPREPORT.UNIFORM_ANNUAL (REQ_YEAR,REQ_USER,CREATE_DATE,CREATE_BY,CSTATUS,REMARK) values (2025,'15013','2024-10-04 14:45:59','15013','1',null);
+Insert into GPREPORT.UNIFORM_ANNUAL (REQ_YEAR,REQ_USER,CREATE_DATE,CREATE_BY,CSTATUS,REMARK) values (2025,'15013','2024-10-04 14:49:59','15013','1',null);
+Insert into GPREPORT.UNIFORM_ANNUAL (REQ_YEAR,REQ_USER,CREATE_DATE,CREATE_BY,CSTATUS,REMARK) values (2024,'96225','2024-10-03 09:35:22','96225','1',null);
+Insert into GPREPORT.UNIFORM_ANNUAL (REQ_YEAR,REQ_USER,CREATE_DATE,CREATE_BY,CSTATUS,REMARK) values (2025,'12224','2024-10-04 16:50:45','12224','1',null);
+Insert into GPREPORT.UNIFORM_ANNUAL (REQ_YEAR,REQ_USER,CREATE_DATE,CREATE_BY,CSTATUS,REMARK) values (2025,'12224','2024-10-04 15:46:59','12224','1',null);
+Insert into GPREPORT.UNIFORM_ANNUAL (REQ_YEAR,REQ_USER,CREATE_DATE,CREATE_BY,CSTATUS,REMARK) values (2024,'11160','2024-10-03 09:49:22','11160','1',null);
+Insert into GPREPORT.UNIFORM_ANNUAL (REQ_YEAR,REQ_USER,CREATE_DATE,CREATE_BY,CSTATUS,REMARK) values (2025,'94072','2024-10-04 15:18:02','94072','1',null);
+Insert into GPREPORT.UNIFORM_ANNUAL (REQ_YEAR,REQ_USER,CREATE_DATE,CREATE_BY,CSTATUS,REMARK) values (2025,'04079','2024-10-04 15:45:59','04079','1',null);
+Insert into GPREPORT.UNIFORM_ANNUAL (REQ_YEAR,REQ_USER,CREATE_DATE,CREATE_BY,CSTATUS,REMARK) values (2025,'15013','2024-10-04 15:44:56','15013','1',null);
+Insert into GPREPORT.UNIFORM_ANNUAL (REQ_YEAR,REQ_USER,CREATE_DATE,CREATE_BY,CSTATUS,REMARK) values (2025,'12224','2024-10-04 16:51:14','12224','1',null);
+Insert into GPREPORT.UNIFORM_ANNUAL (REQ_YEAR,REQ_USER,CREATE_DATE,CREATE_BY,CSTATUS,REMARK) values (2025,'12224','2024-10-04 16:51:54','12224','1',null);
+Insert into GPREPORT.UNIFORM_ANNUAL (REQ_YEAR,REQ_USER,CREATE_DATE,CREATE_BY,CSTATUS,REMARK) values (2025,'12224','2024-10-04 16:52:26','12224','1',null);
+REM INSERTING into GPREPORT.UNIFORM_ANNUAL_DETAIL
+SET DEFINE OFF;
+Insert into GPREPORT.UNIFORM_ANNUAL_DETAIL (REQL_YEAR,REQL_USER,PRODUCT,REQUEST_QTY,REMARK,ADJUST,EXTRA,DISCOUNT) values (2024,'96225',119,4,null,'0','0',0);
+Insert into GPREPORT.UNIFORM_ANNUAL_DETAIL (REQL_YEAR,REQL_USER,PRODUCT,REQUEST_QTY,REMARK,ADJUST,EXTRA,DISCOUNT) values (2024,'96225',119,3,null,'0','1',0.5);
+Insert into GPREPORT.UNIFORM_ANNUAL_DETAIL (REQL_YEAR,REQL_USER,PRODUCT,REQUEST_QTY,REMARK,ADJUST,EXTRA,DISCOUNT) values (2024,'04079',132,1,null,'0','1',0);
+Insert into GPREPORT.UNIFORM_ANNUAL_DETAIL (REQL_YEAR,REQL_USER,PRODUCT,REQUEST_QTY,REMARK,ADJUST,EXTRA,DISCOUNT) values (2024,'11160',164,2,null,'0','0',0);
+Insert into GPREPORT.UNIFORM_ANNUAL_DETAIL (REQL_YEAR,REQL_USER,PRODUCT,REQUEST_QTY,REMARK,ADJUST,EXTRA,DISCOUNT) values (2024,'11160',119,2,null,'0','0',0);
+Insert into GPREPORT.UNIFORM_ANNUAL_DETAIL (REQL_YEAR,REQL_USER,PRODUCT,REQUEST_QTY,REMARK,ADJUST,EXTRA,DISCOUNT) values (2024,'04079',118,4,null,'0','0',0);
+Insert into GPREPORT.UNIFORM_ANNUAL_DETAIL (REQL_YEAR,REQL_USER,PRODUCT,REQUEST_QTY,REMARK,ADJUST,EXTRA,DISCOUNT) values (2024,'11160',128,2,null,'0','0',0);
+Insert into GPREPORT.UNIFORM_ANNUAL_DETAIL (REQL_YEAR,REQL_USER,PRODUCT,REQUEST_QTY,REMARK,ADJUST,EXTRA,DISCOUNT) values (2024,'11160',9,2,null,'0','1',0);
+Insert into GPREPORT.UNIFORM_ANNUAL_DETAIL (REQL_YEAR,REQL_USER,PRODUCT,REQUEST_QTY,REMARK,ADJUST,EXTRA,DISCOUNT) values (2024,'04079',132,2,null,'0','0',0);
+REM INSERTING into GPREPORT.UNIFORM_CATEGORY
+SET DEFINE OFF;
+Insert into GPREPORT.UNIFORM_CATEGORY (CATID,CATNAME,CATDESC,CATANNUAL,CATIMAGE,CATUNIT,CATMETER,CATSEQ,CATGROUP,CATOWNER) values (17,'????????????? NEUKING ???? NK60','????????????? NEUKING ???? NK60','0',null,'????','????',2,null,'2');
+Insert into GPREPORT.UNIFORM_CATEGORY (CATID,CATNAME,CATDESC,CATANNUAL,CATIMAGE,CATUNIT,CATMETER,CATSEQ,CATGROUP,CATOWNER) values (14,'??????????????????? ??? ???? Stop Hazard SS1010','????????????? Stop Hazard','0',null,'????','????',1,null,'2');
+Insert into GPREPORT.UNIFORM_CATEGORY (CATID,CATNAME,CATDESC,CATANNUAL,CATIMAGE,CATUNIT,CATMETER,CATSEQ,CATGROUP,CATOWNER) values (15,'??????????????????? ???? ???? 641G','?????????????????
+','0',null,'????','????',3,null,'2');
+Insert into GPREPORT.UNIFORM_CATEGORY (CATID,CATNAME,CATDESC,CATANNUAL,CATIMAGE,CATUNIT,CATMETER,CATSEQ,CATGROUP,CATOWNER) values (16,'????????????????????????????','????????????????????????????','0',null,'????','????',4,null,'2');
+Insert into GPREPORT.UNIFORM_CATEGORY (CATID,CATNAME,CATDESC,CATANNUAL,CATIMAGE,CATUNIT,CATMETER,CATSEQ,CATGROUP,CATOWNER) values (13,'TROUSERS (WELDER)','?????? (?????????) ????','1','1726820975468.jpg','????','????',7,'2','1');
+Insert into GPREPORT.UNIFORM_CATEGORY (CATID,CATNAME,CATDESC,CATANNUAL,CATIMAGE,CATUNIT,CATMETER,CATSEQ,CATGROUP,CATOWNER) values (11,'POLO SHIRT','?????????','1','1724312229557.PNG','????',null,1,'6','1');
+Insert into GPREPORT.UNIFORM_CATEGORY (CATID,CATNAME,CATDESC,CATANNUAL,CATIMAGE,CATUNIT,CATMETER,CATSEQ,CATGROUP,CATOWNER) values (12,'TROUSERS (BLACK)','?????? (??????????) ????','1','1726820785352.jpg','????','????',4,'6','1');
+Insert into GPREPORT.UNIFORM_CATEGORY (CATID,CATNAME,CATDESC,CATANNUAL,CATIMAGE,CATUNIT,CATMETER,CATSEQ,CATGROUP,CATOWNER) values (1,'SHORT-SLEEVED SHIRT','?????????????????','0','1727322824335.jpg','????',null,2,'1','1');
+Insert into GPREPORT.UNIFORM_CATEGORY (CATID,CATNAME,CATDESC,CATANNUAL,CATIMAGE,CATUNIT,CATMETER,CATSEQ,CATGROUP,CATOWNER) values (2,'LONG-SLEEVED SHIRT','????????????????','1','1727322832216.JPG','????',null,3,'2','1');
+Insert into GPREPORT.UNIFORM_CATEGORY (CATID,CATNAME,CATDESC,CATANNUAL,CATIMAGE,CATUNIT,CATMETER,CATSEQ,CATGROUP,CATOWNER) values (3,'TROUSERS (BULE)','?????? (??????????) ?????','0','1726820939636.jpg','????','????',5,'1','1');
+Insert into GPREPORT.UNIFORM_CATEGORY (CATID,CATNAME,CATDESC,CATANNUAL,CATIMAGE,CATUNIT,CATMETER,CATSEQ,CATGROUP,CATOWNER) values (4,'TROUSERS (WELDER) ','?????? (?????????)  ?????','0','1726820968879.jpg','????','????',6,'2','1');
+Insert into GPREPORT.UNIFORM_CATEGORY (CATID,CATNAME,CATDESC,CATANNUAL,CATIMAGE,CATUNIT,CATMETER,CATSEQ,CATGROUP,CATOWNER) values (5,'OFFICE SHIRT (SHORT)','????????????????????','1','1726827141825.JPG','????',null,8,'3','1');
+Insert into GPREPORT.UNIFORM_CATEGORY (CATID,CATNAME,CATDESC,CATANNUAL,CATIMAGE,CATUNIT,CATMETER,CATSEQ,CATGROUP,CATOWNER) values (6,'OFFICE SHIRT (LONG)','???????????????????','1','1727058537195.JPG','????',null,9,'3','1');
+Insert into GPREPORT.UNIFORM_CATEGORY (CATID,CATNAME,CATDESC,CATANNUAL,CATIMAGE,CATUNIT,CATMETER,CATSEQ,CATGROUP,CATOWNER) values (7,'OFFICE PANTS ','??????????????','1','1726827168462.JPG','????','????',10,'3','1');
+Insert into GPREPORT.UNIFORM_CATEGORY (CATID,CATNAME,CATDESC,CATANNUAL,CATIMAGE,CATUNIT,CATMETER,CATSEQ,CATGROUP,CATOWNER) values (8,'SKIRT','???????','1','1727335827166.JPG','????',null,11,'3','1');
+Insert into GPREPORT.UNIFORM_CATEGORY (CATID,CATNAME,CATDESC,CATANNUAL,CATIMAGE,CATUNIT,CATMETER,CATSEQ,CATGROUP,CATOWNER) values (9,'JUMPSUIT','??????','1','1727059446588.JPG','???',null,12,'4','1');
+Insert into GPREPORT.UNIFORM_CATEGORY (CATID,CATNAME,CATDESC,CATANNUAL,CATIMAGE,CATUNIT,CATMETER,CATSEQ,CATGROUP,CATOWNER) values (10,'PREGNANT SUIT','???????????','0','1726827149382.jpg','???',null,13,'5','1');
+REM INSERTING into GPREPORT.UNIFORM_REPORT
+SET DEFINE OFF;
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',70,20,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',71,35,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',72,6,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',73,7,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',74,4,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',75,1,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',76,2,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',77,1,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',78,12,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',79,22,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',80,13,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',87,1,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',88,9,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',89,27,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',90,3,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',93,5,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',94,5,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',95,4,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',96,1,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',100,27,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',1,7,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',2,5,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',3,8,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',4,1,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',5,10,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',9,2,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',10,15,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',11,27,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',12,30,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',13,9,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',14,2,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',15,3,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',16,2,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',18,9,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',19,22,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',20,4,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',21,25,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',22,37,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',23,8,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',154,9,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',155,2,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',156,4,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',157,23,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',158,21,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',24,11,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',25,12,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',26,15,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',27,21,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',28,20,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',29,4,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',30,4,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',167,2,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',168,6,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',169,6,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',170,9,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',171,6,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',172,1,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',173,3,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',175,1,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',177,1,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',38,41,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',39,3,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',40,17,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',41,1,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',42,26,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',44,4,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',45,3,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',46,13,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',47,14,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',48,32,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',49,28,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',50,11,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',51,3,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',52,15,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',53,32,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',55,3,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',56,2,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',58,9,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',101,1,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',105,20,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',109,2,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',110,3,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',111,10,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',118,13,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',119,18,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',120,16,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',121,2,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',122,20,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',124,1,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',128,1,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',131,1,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',132,12,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',133,6,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',134,4,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',135,12,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',136,7,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',137,4,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',138,6,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',142,1,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',63,2,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',64,8,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',65,15,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',66,7,null);
+Insert into GPREPORT.UNIFORM_REPORT (NYEAR,NMONTH,NPROD,NQTY,CREATE_DATE) values (2024,'08',69,20,null);
+REM INSERTING into GPREPORT.UNIFORM_REQUEST
+SET DEFINE OFF;
+Insert into GPREPORT.UNIFORM_REQUEST (NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,REQUEST_TYPE,JOB,ATTACH_FILE,EMP_INPUT,EMP_REQUEST,CREATE_DATE,ADDRESS,AGREE_SARARY,CONFIRMED) values (13,'030101','24','2024',2,'4',null,null,'24012','24012',to_date('17-SEP-24','DD-MON-RR'),'48/7 ???? 6 ?.???????? ?.???????? ?.?????? 20150','1','1');
+Insert into GPREPORT.UNIFORM_REQUEST (NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,REQUEST_TYPE,JOB,ATTACH_FILE,EMP_INPUT,EMP_REQUEST,CREATE_DATE,ADDRESS,AGREE_SARARY,CONFIRMED) values (13,'030101','24','2024',4,'3',null,null,'12069','12069',to_date('11-OCT-24','DD-MON-RR'),null,'0','1');
+Insert into GPREPORT.UNIFORM_REQUEST (NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,REQUEST_TYPE,JOB,ATTACH_FILE,EMP_INPUT,EMP_REQUEST,CREATE_DATE,ADDRESS,AGREE_SARARY,CONFIRMED) values (13,'030101','24','2024',5,'3',null,null,'12069','12069',to_date('11-OCT-24','DD-MON-RR'),null,'0','1');
+Insert into GPREPORT.UNIFORM_REQUEST (NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,REQUEST_TYPE,JOB,ATTACH_FILE,EMP_INPUT,EMP_REQUEST,CREATE_DATE,ADDRESS,AGREE_SARARY,CONFIRMED) values (13,'030101','24','2024',7,'3',null,null,'12069','12069',to_date('11-OCT-24','DD-MON-RR'),null,'0','1');
+Insert into GPREPORT.UNIFORM_REQUEST (NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,REQUEST_TYPE,JOB,ATTACH_FILE,EMP_INPUT,EMP_REQUEST,CREATE_DATE,ADDRESS,AGREE_SARARY,CONFIRMED) values (13,'030101','24','2024',6,'3',null,null,'12069','12069',to_date('11-OCT-24','DD-MON-RR'),null,'0','1');
+Insert into GPREPORT.UNIFORM_REQUEST (NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,REQUEST_TYPE,JOB,ATTACH_FILE,EMP_INPUT,EMP_REQUEST,CREATE_DATE,ADDRESS,AGREE_SARARY,CONFIRMED) values (13,'030101','24','2024',12,'4',null,null,'24012','24012',to_date('14-OCT-24','DD-MON-RR'),'48/7 ???? 6 ?.???????? ?.???????? ?.?????? 20150','1','1');
+Insert into GPREPORT.UNIFORM_REQUEST (NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,REQUEST_TYPE,JOB,ATTACH_FILE,EMP_INPUT,EMP_REQUEST,CREATE_DATE,ADDRESS,AGREE_SARARY,CONFIRMED) values (13,'030101','24','2024',13,'3',null,null,'24012','24012',to_date('14-OCT-24','DD-MON-RR'),null,'0','1');
+Insert into GPREPORT.UNIFORM_REQUEST (NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,REQUEST_TYPE,JOB,ATTACH_FILE,EMP_INPUT,EMP_REQUEST,CREATE_DATE,ADDRESS,AGREE_SARARY,CONFIRMED) values (13,'030101','24','2024',1,'4',null,null,'12069','12069',to_date('14-SEP-24','DD-MON-RR'),'210 ???? 9 ?.???????? ?.??????? ?.??????????? 34260','1','1');
+Insert into GPREPORT.UNIFORM_REQUEST (NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,REQUEST_TYPE,JOB,ATTACH_FILE,EMP_INPUT,EMP_REQUEST,CREATE_DATE,ADDRESS,AGREE_SARARY,CONFIRMED) values (13,'030101','24','2024',8,'3',null,null,'12069','12069',to_date('11-OCT-24','DD-MON-RR'),null,'0','1');
+Insert into GPREPORT.UNIFORM_REQUEST (NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,REQUEST_TYPE,JOB,ATTACH_FILE,EMP_INPUT,EMP_REQUEST,CREATE_DATE,ADDRESS,AGREE_SARARY,CONFIRMED) values (13,'030101','24','2024',9,'3',null,null,'24012','24012',to_date('14-OCT-24','DD-MON-RR'),null,'0','1');
+Insert into GPREPORT.UNIFORM_REQUEST (NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,REQUEST_TYPE,JOB,ATTACH_FILE,EMP_INPUT,EMP_REQUEST,CREATE_DATE,ADDRESS,AGREE_SARARY,CONFIRMED) values (13,'030101','24','2024',10,'3',null,null,'24012','24012',to_date('14-OCT-24','DD-MON-RR'),null,'0','1');
+Insert into GPREPORT.UNIFORM_REQUEST (NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,REQUEST_TYPE,JOB,ATTACH_FILE,EMP_INPUT,EMP_REQUEST,CREATE_DATE,ADDRESS,AGREE_SARARY,CONFIRMED) values (13,'030101','24','2024',11,'4',null,null,'24012','24012',to_date('14-OCT-24','DD-MON-RR'),'48/7 ???? 6 ?.???????? ?.???????? ?.?????? 20150','1','1');
+Insert into GPREPORT.UNIFORM_REQUEST (NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,REQUEST_TYPE,JOB,ATTACH_FILE,EMP_INPUT,EMP_REQUEST,CREATE_DATE,ADDRESS,AGREE_SARARY,CONFIRMED) values (13,'030101','24','2024',3,'3',null,null,'24012','24012',to_date('11-OCT-24','DD-MON-RR'),null,'0','1');
+REM INSERTING into GPREPORT.UNIFORM_REQUEST_DETAIL
+SET DEFINE OFF;
+Insert into GPREPORT.UNIFORM_REQUEST_DETAIL (URD_ID,NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,UNIFORM_CATEGORY,UNIFORM_TYPE,UNIFORM_OLD_TYPE,QTY) values (1,13,'030101','24','2024',1,1,1,null,2);
+Insert into GPREPORT.UNIFORM_REQUEST_DETAIL (URD_ID,NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,UNIFORM_CATEGORY,UNIFORM_TYPE,UNIFORM_OLD_TYPE,QTY) values (2,13,'030101','24','2024',1,11,120,null,5);
+Insert into GPREPORT.UNIFORM_REQUEST_DETAIL (URD_ID,NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,UNIFORM_CATEGORY,UNIFORM_TYPE,UNIFORM_OLD_TYPE,QTY) values (4,13,'030101','24','2024',3,1,101,5,1);
+Insert into GPREPORT.UNIFORM_REQUEST_DETAIL (URD_ID,NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,UNIFORM_CATEGORY,UNIFORM_TYPE,UNIFORM_OLD_TYPE,QTY) values (7,13,'030101','24','2024',6,1,1,101,1);
+Insert into GPREPORT.UNIFORM_REQUEST_DETAIL (URD_ID,NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,UNIFORM_CATEGORY,UNIFORM_TYPE,UNIFORM_OLD_TYPE,QTY) values (10,13,'030101','24','2024',9,3,109,30,1);
+Insert into GPREPORT.UNIFORM_REQUEST_DETAIL (URD_ID,NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,UNIFORM_CATEGORY,UNIFORM_TYPE,UNIFORM_OLD_TYPE,QTY) values (11,13,'030101','24','2024',10,11,119,118,2);
+Insert into GPREPORT.UNIFORM_REQUEST_DETAIL (URD_ID,NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,UNIFORM_CATEGORY,UNIFORM_TYPE,UNIFORM_OLD_TYPE,QTY) values (12,13,'030101','24','2024',11,11,118,null,2);
+Insert into GPREPORT.UNIFORM_REQUEST_DETAIL (URD_ID,NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,UNIFORM_CATEGORY,UNIFORM_TYPE,UNIFORM_OLD_TYPE,QTY) values (3,13,'030101','24','2024',2,1,105,null,2);
+Insert into GPREPORT.UNIFORM_REQUEST_DETAIL (URD_ID,NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,UNIFORM_CATEGORY,UNIFORM_TYPE,UNIFORM_OLD_TYPE,QTY) values (5,13,'030101','24','2024',4,1,3,2,2);
+Insert into GPREPORT.UNIFORM_REQUEST_DETAIL (URD_ID,NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,UNIFORM_CATEGORY,UNIFORM_TYPE,UNIFORM_OLD_TYPE,QTY) values (6,13,'030101','24','2024',5,1,101,5,1);
+Insert into GPREPORT.UNIFORM_REQUEST_DETAIL (URD_ID,NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,UNIFORM_CATEGORY,UNIFORM_TYPE,UNIFORM_OLD_TYPE,QTY) values (8,13,'030101','24','2024',7,1,101,3,3);
+Insert into GPREPORT.UNIFORM_REQUEST_DETAIL (URD_ID,NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,UNIFORM_CATEGORY,UNIFORM_TYPE,UNIFORM_OLD_TYPE,QTY) values (9,13,'030101','24','2024',8,1,3,1,2);
+Insert into GPREPORT.UNIFORM_REQUEST_DETAIL (URD_ID,NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,UNIFORM_CATEGORY,UNIFORM_TYPE,UNIFORM_OLD_TYPE,QTY) values (13,13,'030101','24','2024',12,11,118,null,2);
+Insert into GPREPORT.UNIFORM_REQUEST_DETAIL (URD_ID,NFRMNO,VORGNO,CYEAR,CYEAR2,NRUNNO,UNIFORM_CATEGORY,UNIFORM_TYPE,UNIFORM_OLD_TYPE,QTY) values (14,13,'030101','24','2024',13,9,95,93,2);
+REM INSERTING into GPREPORT.UNIFORM_REQUEST_TYPE
+SET DEFINE OFF;
+Insert into GPREPORT.UNIFORM_REQUEST_TYPE (RT_ID,RT_DETAIL,RT_STATUS) values (1,'Transfer (??????????)',1);
+Insert into GPREPORT.UNIFORM_REQUEST_TYPE (RT_ID,RT_DETAIL,RT_STATUS) values (2,'Maternity (???????????)',1);
+Insert into GPREPORT.UNIFORM_REQUEST_TYPE (RT_ID,RT_DETAIL,RT_STATUS) values (3,'Changing (???????????)',1);
+Insert into GPREPORT.UNIFORM_REQUEST_TYPE (RT_ID,RT_DETAIL,RT_STATUS) values (4,'Buying (?????????)',1);
+REM INSERTING into GPREPORT.UNIFORM_TRANSACTION
+SET DEFINE OFF;
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (221,3,101,1,'12069',to_timestamp('11-OCT-24 01.55.03.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'GP-UNF24-000005',1);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (224,3,3,2,'12069',to_timestamp('11-OCT-24 02.26.40.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'GP-UNF24-000008',8);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (225,2,1,2,'12069',to_timestamp('11-OCT-24 02.26.40.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'GP-UNF24-000008',4);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (226,3,101,3,'12069',to_timestamp('11-OCT-24 02.26.53.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'GP-UNF24-000007',1);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (227,2,3,3,'12069',to_timestamp('11-OCT-24 02.26.53.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'GP-UNF24-000007',6);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (215,1,162,25,'12069',to_timestamp('14-SEP-24 01.31.08.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'AMEC0044489',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (219,4,1,2,'12069',to_timestamp('11-OCT-24 01.43.44.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'GP-UNF24-000001',7);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (220,4,120,5,'12069',to_timestamp('11-OCT-24 01.43.44.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'GP-UNF24-000001',16);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (109,1,118,13,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (110,1,119,18,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (111,1,120,16,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (112,1,121,2,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (113,1,122,20,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (114,1,124,1,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (115,1,101,1,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (116,1,1,7,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (117,1,2,5,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (118,1,3,8,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (119,1,4,1,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (120,1,5,10,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (121,1,105,20,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (122,1,9,2,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (123,1,10,15,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (124,1,11,27,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (125,1,12,30,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (126,1,13,9,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (127,1,14,2,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (128,1,15,3,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (129,1,16,2,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (130,1,128,1,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (131,1,131,1,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (132,1,132,12,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (133,1,133,6,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (134,1,134,4,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (135,1,135,12,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (136,1,136,7,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (137,1,137,4,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (138,1,138,6,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (139,1,142,1,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (140,1,18,9,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (141,1,19,22,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (142,1,20,4,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (143,1,21,25,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (144,1,22,37,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (145,1,23,8,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (146,1,24,11,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (147,1,25,12,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (148,1,26,15,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (149,1,27,21,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (150,1,28,20,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (151,1,29,4,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (152,1,30,4,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (153,1,109,2,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (154,1,38,41,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (155,1,39,3,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (156,1,40,17,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (157,1,41,1,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (158,1,42,26,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (159,1,44,4,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (160,1,45,3,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (161,1,46,13,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (162,1,47,14,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (163,1,48,32,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (164,1,49,28,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (165,1,50,11,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (166,1,51,3,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (167,1,52,15,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (168,1,110,3,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (169,1,111,10,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (170,1,167,2,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (171,1,168,6,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (172,1,169,6,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (173,1,170,9,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (174,1,171,6,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (175,1,172,1,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (176,1,173,3,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (177,1,175,1,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (178,1,177,1,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (179,1,53,32,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (180,1,55,3,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (181,1,56,2,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (182,1,58,9,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (183,1,63,2,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (184,1,64,8,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (185,1,65,15,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (186,1,66,7,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (187,1,69,20,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (188,1,70,20,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (189,1,71,35,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (190,1,72,6,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (191,1,73,7,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (192,1,74,4,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (193,1,75,1,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (194,1,76,2,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (195,1,77,1,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (196,1,78,12,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (197,1,79,22,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (198,1,80,13,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (199,1,100,27,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (200,1,87,1,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (201,1,88,9,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (202,1,89,27,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (203,1,90,3,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (204,1,93,5,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (205,1,94,5,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (206,1,95,4,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (207,1,96,1,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (208,1,154,9,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (209,1,155,2,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (210,1,156,4,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (211,1,157,23,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (212,1,158,21,'14298',to_timestamp('31-AUG-24 04.37.32.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'???????',0);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (217,4,105,2,'24012',to_timestamp('11-OCT-24 09.24.38.000000000 AM','DD-MON-RR HH.MI.SSXFF AM'),'GP-UNF24-000002',20);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (230,3,119,2,'24012',to_timestamp('14-OCT-24 08.18.22.000000000 AM','DD-MON-RR HH.MI.SSXFF AM'),'GP-UNF24-000010',18);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (231,2,118,2,'24012',to_timestamp('14-OCT-24 08.18.22.000000000 AM','DD-MON-RR HH.MI.SSXFF AM'),'GP-UNF24-000010',13);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (234,3,95,2,'24012',to_timestamp('14-OCT-24 08.39.14.000000000 AM','DD-MON-RR HH.MI.SSXFF AM'),'GP-UNF24-000013',4);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (235,2,93,2,'24012',to_timestamp('14-OCT-24 08.39.14.000000000 AM','DD-MON-RR HH.MI.SSXFF AM'),'GP-UNF24-000013',5);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (218,4,105,2,'24012',to_timestamp('11-OCT-24 09.25.09.000000000 AM','DD-MON-RR HH.MI.SSXFF AM'),'GP-UNF24-000002',18);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (222,3,1,1,'12069',to_timestamp('11-OCT-24 02.10.01.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'GP-UNF24-000006',5);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (223,2,101,1,'12069',to_timestamp('11-OCT-24 02.10.01.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'GP-UNF24-000006',5);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (228,3,109,1,'24012',to_timestamp('14-OCT-24 08.11.12.000000000 AM','DD-MON-RR HH.MI.SSXFF AM'),'GP-UNF24-000009',2);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (229,2,30,1,'24012',to_timestamp('14-OCT-24 08.11.12.000000000 AM','DD-MON-RR HH.MI.SSXFF AM'),'GP-UNF24-000009',4);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (232,4,118,2,'24012',to_timestamp('14-OCT-24 08.21.07.000000000 AM','DD-MON-RR HH.MI.SSXFF AM'),'GP-UNF24-000011',15);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (233,4,118,2,'24012',to_timestamp('14-OCT-24 08.38.08.000000000 AM','DD-MON-RR HH.MI.SSXFF AM'),'GP-UNF24-000012',13);
+Insert into GPREPORT.UNIFORM_TRANSACTION (TRS_ID,TRS_TYPE,TRS_PRODUCT,TRS_QTY,TRS_USER,TRS_DATE,TRS_DETAIL,REMAINLOG) values (216,4,124,1,'12069',to_timestamp('14-SEP-24 01.32.07.000000000 PM','DD-MON-RR HH.MI.SSXFF AM'),'IS - 25544',1);
+REM INSERTING into GPREPORT.WORKTYPE
+SET DEFINE OFF;
