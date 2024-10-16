@@ -55,6 +55,13 @@
 
     <label class="form-control w-full mt-3">
         <div class="label">
+            <span class="label-text font-bold">Early alert day (Day)</span>
+        </div>
+        <input type="text" placeholder="" class="input input-bordered w-full docearly" name="doc_early" required />
+    </label>
+
+    <label class="form-control w-full mt-3">
+        <div class="label">
             <span class="label-text font-bold">Early alert date</span>
         </div>
         <input type="text" placeholder="" class="input input-bordered w-full docalert fdate" name="doc_alert"

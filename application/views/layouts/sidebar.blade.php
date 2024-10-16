@@ -1,6 +1,6 @@
-<div class="drawer-side z-[99] md:w-72">
+<div class="drawer-side z-[99] md:w-72 md:!fixed">
     <label for="nav-master" aria-label="close sidebar" class="drawer-overlay"></label>
-    <ul class="menu bg-base-100 p-4 pt-[calc(68px+1rem)] flex gap-2 fixed w-full md:!w-72 h-screen border-r baorder-base-200"
+    <ul class="menu bg-base-100 p-4 pt-[calc(68px+1rem)] flex gap-2 w-full md:!w-72 h-screen border-r baorder-base-200"
         id="nav-sidebar">
         <li>
             <a class="text-md home" href="{{ base_url() }}">

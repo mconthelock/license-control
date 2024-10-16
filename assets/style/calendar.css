@@ -15,3 +15,16 @@
 .flatpickr-day {
   margin-bottom: 0.25rem;
 }
+
+.flatpickr-day.selected {
+  @apply !bg-primary text-base-300;
+}
+
+.day-off:not(.selected) {
+  @apply bg-red-200 text-base-300;
+}
+
+.flatpickr-prev-month > svg,
+.flatpickr-next-month > svg {
+  @apply fill-gray-400;
+}

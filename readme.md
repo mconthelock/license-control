@@ -9,7 +9,7 @@
 
 | Type          | Class     | Ex.        |
 | ------------- | --------- | ---------- |
-| Main Button   | Primary   |            |
+| Main Button   | Primary   | Blue color |
 | Second Button | Secondary |            |
 | Foregrand     | base-200  | Card/Table |
 | Border        | base-200  |            |

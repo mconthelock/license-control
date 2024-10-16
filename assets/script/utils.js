@@ -1,4 +1,6 @@
 import $ from "jquery";
+import moment from "moment";
+
 export const host = $("meta[name=base_url]").attr("content");
 export const uri = $("meta[name=base_uri]").attr("content");
 
@@ -72,4 +74,9 @@ export const tableOption = {
       orderable: false,
     },
   ],
+};
+
+export const calcDate = (sdate, ndate, unit = "Day") => {
+  if (ndate > 0) return moment(sdate).add(ndate, unit).format("YYYY-MM-DD");
+  else return moment(sdate).subtract(ndate, unit).format("YYYY-MM-DD");
 };

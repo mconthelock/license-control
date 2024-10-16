@@ -18,6 +18,17 @@
             <div class="flex-1 min-w-80">
             </div>
         </div>
+        <div class="flex gap-3 mt-5">
+            <button class="btn btn-primary text-base-300" type="submit">
+                <span class="loading loading-spinner hidden"></span>
+                <span>Save Template</span>
+            </button>
+
+            <button class="btn btn-error text-base-300">
+                <span class="loading loading-spinner hidden"></span>
+                <span>Cancel</span>
+            </button>
+        </div>
     </form>
 @endsection
 
