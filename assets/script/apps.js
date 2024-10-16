@@ -10,3 +10,11 @@ $(document).on("change", "#theme", function () {
     localStorage.setItem("theme", "light");
   }
 });
+
+$(document).on("click", ".msg-close", function (e) {
+  $(".alert-message").removeClass("opacity-100");
+  $(".alert-message").addClass("opacity-0");
+  setTimeout(() => {
+    $(".alert-message").remove();
+  }, 700);
+});

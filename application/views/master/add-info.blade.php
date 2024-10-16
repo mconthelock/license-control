@@ -6,21 +6,21 @@
             <span class="label-text font-bold">Document Prefix</span>
         </div>
         <input type="text" placeholder="DOC-" class="input input-bordered w-full uppercase" name="doc_prefix"
-            maxlength="5" />
+            maxlength="5" required />
     </label>
     <label class="form-control w-full mt-3">
         <div class="label">
             <span class="label-text font-bold">Document Name</span>
         </div>
         <input type="text" placeholder="Important Document" class="input input-bordered w-full" name="doc_name"
-            maxlength="50" />
+            maxlength="50" required />
     </label>
     <label class="form-control w-full mt-3">
         <div class="label">
             <span class="label-text font-bold">Documnet Type</span>
         </div>
-        <select class="select select-bordered w-full" name="doc_type" id="doc_type">
-            <option disabled selected>Category</option>
+        <select class="select select-bordered w-full" name="doc_type" id="doc_type" required>
+            <option disabled selected value="">Category</option>
         </select>
     </label>
     <label class="form-control w-full mt-3">
@@ -28,11 +28,12 @@
             <span class="label-text font-bold">Service Life</span>
         </div>
         <div class="flex gap-3">
-            <div class="flex-1 w-2/3"><input type="text" placeholder="Number"
-                    class="input input-bordered w-full"name="doc_life" />
+            <div class="flex-1 w-2/3">
+                <input type="number" placeholder="Number" class="input input-bordered w-full"name="doc_life"
+                    required />
             </div>
             <div class="flex-none">
-                <select class="select select-bordered w-full" name="doc_life_unit">
+                <select class="select select-bordered w-full" name="doc_life_unit" required>
                     <option disabled selected>Select</option>
                     <option value="Day">Day</option>
                     <option value="Month">Month</option>
@@ -45,14 +46,14 @@
         <div class="label">
             <span class="label-text font-bold">Alert Before Expire</span>
         </div>
-        <input type="text" placeholder="Number" class="input input-bordered w-full" name="doc_alert" />
+        <input type="number" placeholder="Number" class="input input-bordered w-full" name="doc_alert" required />
         <div class="label">
             <span class="label-text-alt">Specify the unit as days.</span>
         </div>
     </label>
     <label class="form-control w-full mt-3">
         <div class="flex gap-3">
-            <input type="checkbox" checked="checked" class="checkbox" name="doc_extended" />
+            <input type="checkbox" checked="checked" class="checkbox" name="doc_extended" value="1" />
             <div class="flex">
                 <span class="label-text font-bold">Renew immediately upon expiration</span>
             </div>

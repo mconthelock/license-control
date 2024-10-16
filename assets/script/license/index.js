@@ -7,41 +7,14 @@ import { host, showLoader, tableOption, toggleNavbar } from "../utils";
 
 var table;
 $(document).ready(async function () {
-  const data = [
-    {
-      docno: 1,
-      title: "Jig yearly inspection",
-      startdate: "2022-01-01",
-      expireddate: "2022-01-01",
-      status: "Active",
-      pic: "Chalormsak (12069)",
-      provider: "Thai Wodering Co., Ltd.",
-    },
-    {
-      docno: 2,
-      title: "Bottom sprocket ass'y jig",
-      startdate: "2022-01-01",
-      expireddate: "2022-01-01",
-      status: "Active",
-      pic: "Chalormsak (12069)",
-      provider: "MC technos Co.,Ltd.",
-    },
-    {
-      docno: 3,
-      title: "Buffer stand auto welding machine",
-      startdate: "2022-01-01",
-      expireddate: "2022-01-01",
-      status: "Active",
-      pic: "Chalormsak (12069)",
-      provider: "THAI ESCORP",
-    },
-  ];
-  await createTable(data);
+  const data = [];
+  const list = await getTemplate();
+  await createTable(data, list);
   await toggleNavbar("a.license");
   await showLoader(false);
 });
 
-function createTable(data) {
+function createTable(data, list) {
   const opt = { ...tableOption };
   opt.data = data;
   opt.columns = [
@@ -54,20 +27,40 @@ function createTable(data) {
     { data: "provider", title: "Provider" },
     { data: "docno", title: "", sortable: false },
   ];
+
   opt.initComplete = function () {
+    let temp = ``;
+    list.forEach((element) => {
+      temp += `<li><a href="${host}licenses/add/${element.DOCID}">${element.PREFIX}</a></li>`;
+    });
+
+    if (temp != "") temp = `<div class="divider !m-0"></div>${temp}`;
     $(".table-action").html(`
         <details class="dropdown">
             <summary class="btn btn-sm btn-primary shadow-md text-base-300 font-normal m-1"><i class="icofont-close-circled rotate-45 text-xl"></i> Add New</summary>
             <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow border">
                 <li><a href="${host}/licenses/add/">New License</a></li>
-                <div class="divider m-0"></div>
-                <li><a>Template 1</a></li>
+                ${temp}
             </ul>
         </details>
-        <a class="btn btn-sm btn-secondary shadow-md  font-normal" href="${host}/licenses/add/">
+        <a class="btn btn-sm btn-secondary shadow-md font-normal m-1" href="${host}/licenses/add/">
             <i class="icofont-arrow-down text-xl"></i>Export
         </a>`);
   };
   table = new DataTable("#licenses-table", opt);
   return table;
 }
+
+export const getTemplate = (q = {}) => {
+  return new Promise((resolve) => {
+    $.ajax({
+      type: "post",
+      dataType: "json",
+      url: `${host}master/getTemplate`,
+      data: q,
+      success: function (response) {
+        resolve(response);
+      },
+    });
+  });
+};

@@ -16,11 +16,11 @@ export function showMessage(msg, type = "error") {
   ];
 
   const dt = prop.find((x) => x.id == type);
-  const toast = `<div class="toast toast-end z-[50] alert-message w-80 max-w-80 transition-all duration-1000">
+  const toast = `<div class="toast toast-end z-[101] alert-message w-80 max-w-80 transition-all duration-1000">
             <div class="alert flex flex-col gap-2 overflow-hidden relative ${dt.bg}">
                 <div class="msg-title text-xl font-semibold block w-full text-left ${dt.text}">${dt.title}</div>
                 <div class="msg-txt block w-full text-left max-w-80 text-wrap ${dt.text}">${msg}</div>
-                <div class="msg-close absolute top-2 right-5 z-10">
+                <div class="msg-close absolute top-2 right-5 z-[102]">
                     <i class="icofont-ui-close"></i>
                 </div>
                 <div class="absolute right-[-30px] top-[-10px] text-[120px] z-0 opacity-20">
@@ -33,7 +33,7 @@ export function showMessage(msg, type = "error") {
   $(document.body).append(toast);
   setTimeout(() => {
     $(".msg-close").click();
-  }, 1000);
+  }, 7500);
 }
 
 export const showLoader = (val) => {

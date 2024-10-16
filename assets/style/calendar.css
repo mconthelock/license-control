@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.flatpickr-calendar {
+  @apply bg-base-100 p-5 w-auto !shadow-sm !border !border-solid !border-gray-300 !rounded-lg;
+  /* border: 1px solid var(--base-300) !important; */
+}
+.flatpickr-monthDropdown-months,
+.numInputWrapper > input,
+.flatpickr-weekday {
+  @apply !text-gray-400;
+}
+
+.flatpickr-day {
+  margin-bottom: 0.25rem;
+}

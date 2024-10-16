@@ -1,7 +1,7 @@
 // 001. Add Prop: Click add prop button
 // 002. Add Alert to: Click add alert button
 import $ from "jquery";
-import { host, showLoader, toggleNavbar } from "../utils";
+import { host, uri, showLoader, toggleNavbar, showMessage } from "../utils";
 
 $(document).ready(async function () {
   await toggleNavbar("a.master");
@@ -42,6 +42,7 @@ $(document).on("click", "#addprop", function (e) {
                 <option disabled selected>Property Type</option>
                 <option value="text">Text</option>
                 <option value="date">Date</option>
+                <option value="file">File</option>
                 <option value="vendor">Vendors</option>
                 <option value="list">List</option>
             </select>
@@ -100,14 +101,85 @@ $(document).on("click", ".remove-option", function (e) {
 $(document).on("click", "#addmember", function (e) {
   e.preventDefault();
   $("#member").append(`<div class="flex items-center gap-2">
-          <input type="text" name="prop[]" class="input input-bordered w-1/3" placeholder="Emp No.">
-          <input type="text" name="propval[]" class="input input-bordered w-full max-w-xs" placeholder="Emp Name" readonly>
-          <button class="btn btn-ghost btn-circle" id="removeprop"><i class="icofont-ui-close"></i></button>
-      </div>`);
+        <input type="text" name="empno[]" class="input input-bordered w-1/3 employee" placeholder="Emp No." maxlength="5">
+        <input type="text" name="empname[]" class="input input-bordered w-full max-w-xs empname" placeholder="Emp Name" readonly>
+        <button class="btn btn-ghost btn-circle remove-emp">
+            <span class="loading loading-spinner hidden"></span>
+            <span class="text"><i class="icofont-ui-close"></i></span>
+        </button>
+    </div>`);
+  $("#member").find("div:last-child").find(".employee").focus();
 });
 
-$(document).on("submit", "#addtemplate", function (e) {
+$(document).on("click", ".remove-emp", function (e) {
+  e.preventDefault();
+  $(this).closest("div").remove();
+});
+
+$(document).on("change", ".employee", async function (e) {
+  e.preventDefault();
+  const getEmp = (id) => {
+    return new Promise((resolve) => {
+      $.ajax({
+        type: "post",
+        dataType: "json",
+        url: `${uri}/webservice/api/Employee/getusers`,
+        data: { id },
+        success: function (response) {
+          resolve(response);
+        },
+      });
+    });
+  };
+
+  const row = $(this).closest("div");
+  row.find(".remove-emp").find(".loading").toggle("hidden");
+  row.find(".remove-emp").find(".text").toggle("hidden");
+  const data = await getEmp($(this).val());
+  if (data != undefined) {
+    row.find(".empname").val(data[0].SNAME);
+  } else {
+    row.find(".employee").val("");
+    showMessage("Employee not found");
+  }
+  row.find(".remove-emp").find(".loading").toggle("hidden");
+  row.find(".remove-emp").find(".text").toggle("hidden");
+  return;
+});
+
+// 003. Add Template
+$(document).on("submit", "#addtemplate", async function (e) {
   e.preventDefault();
   const data = $(this).serializeArray();
-  //console.log(data);
+  const emp = data.filter((el) => el.name == "empname[]");
+  if (emp.length == 0) {
+    showMessage("Please add alert person in-charged");
+    return;
+  }
+
+  let temp = true;
+  emp.map((el) => {
+    if (el.value == "") temp = false;
+  });
+  if (temp == false) {
+    showMessage("Please add alert person in-charged");
+    return;
+  }
+
+  showLoader(true);
+  await saveData(data);
 });
+
+function saveData(data) {
+  return new Promise((resolve) => {
+    $.ajax({
+      type: "post",
+      dataType: "json",
+      url: `${host}master/saveTemplate`,
+      data: data,
+      success: function (response) {
+        resolve(response);
+      },
+    });
+  });
+}

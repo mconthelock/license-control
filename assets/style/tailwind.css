@@ -59,6 +59,12 @@
     @apply bg-primary text-base-300;
   }
 
+  /* Calendar */
+  .day-off {
+    background-color: #f87171 !important; /* Tailwind's red-400 */
+    color: white !important;
+  }
+
   /* Page Loading */
   .loader {
     height: 5rem;

@@ -9,7 +9,7 @@
             </a>
         </li>
         <li>
-            <a class="text-md home" href="{{ base_url() }}licenses">
+            <a class="text-md license" href="{{ base_url() }}licenses">
                 <div class="flex-none"><i class="icofont-certificate text-xl"></i></div>
                 <div class="flex-1">License</div>
             </a>

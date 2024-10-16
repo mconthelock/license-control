@@ -2,6 +2,7 @@
 
 - npx tailwindcss -i ./assets/style/tailwind.css -o ./assets/dist/css/tailwind.css --watch
 - npx tailwindcss -i ./assets/style/datatable.css -o ./assets/dist/css/datatable.min.css --minify --watch
+- npx tailwindcss -i ./assets/style/calendar.css -o ./assets/dist/css/calendar.min.css --minify --watch
 - npx webpack --watch
 
 # Element
