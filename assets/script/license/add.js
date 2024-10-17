@@ -9,14 +9,17 @@ import flatpickr from "flatpickr";
 import select2 from "select2";
 
 import { host, uri, showLoader, toggleNavbar, calcDate } from "../utils";
-import { getTemplate } from "./index";
+import { getTemplate, getTemplateProp, getVendor } from "../data";
 
 $(document).ready(async function () {
   const id = window.location.href.replace(host, "").split("/");
   if (id[2] != undefined) {
     const no = id[2];
     const template = await getTemplate({ no });
-    if (template !== undefined) await showTemplate(template[0]);
+    if (template !== undefined) {
+      await showTemplate(template[0]);
+      await showTemplateProp(template[0]);
+    }
   }
 
   //Date Picker
@@ -47,45 +50,47 @@ $(document).ready(async function () {
     });
   };
 
-  const vnd = await getVendor();
   $("#provider").select2();
-  populateSelect(vnd);
+  const vnd = await getVendor();
+  await populateSelect(vnd);
   await toggleNavbar("a.license");
   await showLoader(false);
 });
 
 async function showTemplate(data) {
   const frm = $("#docinfo");
-  frm.find(".docno").val(`${data.PREFIX}-0001`);
+  frm.find(".docno").val(`${data.DOCNO}-0001`);
   frm.find(".docname").val(data.DOCNAME);
-  frm.find(".doclife").val(data.LIFE);
-  frm.find(".docunit").val(data.LIFE_TYPE);
-  frm.find(".docearly").val(data.ALERT);
 
+  const frmexp = $("#docperiod");
+  frmexp.find(".doclife").val(data.DOCTERM);
+  frmexp.find(".docunit").val(data.DOCTERMUNIT);
+  frmexp.find(".docearly").val(data.DOCALERT);
   const sdate = moment().format("YYYY-MM-DD");
-  const expire = await calcDate(sdate, data.LIFE, data.LIFE_TYPE);
-  const alertdate = await calcDate(expire, data.ALERT * -1);
-  frm.find(".docstart").val(sdate);
-  frm.find(".docexpired").val(expire);
-  frm.find(".docalert").val(alertdate);
+  const expire = await calcDate(sdate, data.DOCTERM, data.DOCTERMUNIT);
+  const alertdate = await calcDate(expire, data.DOCALERT * -1);
+  frmexp.find(".docstart").val(sdate);
+  frmexp.find(".docexpired").val(expire);
+  frmexp.find(".docalert").val(alertdate);
 }
 
-function getVendor() {
-  return new Promise((resolve) => {
-    $.ajax({
-      type: "post",
-      dataType: "json",
-      url: `${uri}/webservice/api/pur/vendors/getvendors/`,
-      data: { status: "1" },
-      success: function (data) {
-        resolve(data);
-      },
-    });
+async function showTemplateProp(id) {
+  let str = ``;
+  const data = await getTemplateProp({ docid: id.DOCID });
+  data.map((el) => {
+    str += `<label class="form-control w-full mt-3">
+        <div class="label">
+            <span class="label-text font-bold">${el.COL_NAME}</span>
+        </div>
+        <input type="hidden" name="docno" required />
+        <input type="text" class="input input-bordered w-full" name="docno" required />
+    </label>`;
   });
+  $("#additional").append(str);
 }
 
 $(document).on("change", ".calcdate", async function () {
-  const frm = $("#docinfo");
+  const frm = $("#docperiod");
   const sdate = frm.find(".docstart").val();
   const life = frm.find(".doclife").val();
   const unit = frm.find(".docunit").val();

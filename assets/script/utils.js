@@ -49,7 +49,7 @@ export const toggleNavbar = (cls) => {
 
 export const tableOption = {
   dom: '<"flex gap-3 items-center"<"flex-1"f><"flex-none flex gap-2 table-action">>r<"bg-base-200 border rounded-lg overflow-hidden my-5"t><"flex gap-2 items-center"<"flex-1"i><"flex-none flex gap-2"l><"flex-none"p>>',
-  pageLength: 2,
+  pageLength: 25,
   autoWidth: false,
   destroy: true,
   language: {

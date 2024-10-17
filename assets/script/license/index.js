@@ -32,7 +32,7 @@ function createTable(data, list) {
   opt.initComplete = function () {
     let temp = ``;
     list.forEach((element) => {
-      temp += `<li><a href="${host}licenses/add/${element.DOCID}">${element.PREFIX}</a></li>`;
+      temp += `<li><a href="${host}licenses/add/${element.DOCID}">${element.DOCNAME}</a></li>`;
     });
 
     if (temp != "") temp = `<div class="divider !m-0"></div>${temp}`;

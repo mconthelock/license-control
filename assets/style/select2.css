@@ -16,7 +16,7 @@
 .select2-container--default
   .select2-selection--single
   .select2-selection__arrow {
-  @apply !h-full;
+  @apply !h-full !mr-2;
 }
 .select2-dropdown {
   @apply bg-base-100;

@@ -33,7 +33,7 @@ div.dt-container .dt-search input {
   gap: 0.5rem;
 }
 div.dt-container .dt-paging .dt-paging-button {
-  @apply bg-primary w-8 h-8 text-base-300 rounded-full p-0 m-0 !important;
+  @apply bg-primary w-8 h-8 text-base-300 rounded-full !p-0 !m-0 !important;
 }
 
 div.dt-container .dt-paging .dt-paging-button.next,

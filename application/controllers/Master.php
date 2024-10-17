@@ -51,6 +51,13 @@ class Master extends MY_Controller {
         echo json_encode(array('status' => 'success'));
     }
 
+    public function getTemplateProp(){
+        $q = array();
+        if(isset($_POST['docid'])) $q['COL_DOC'] = $_POST['docid'];
+        $data = $this->tmp->getTemplateProp($q);
+        echo json_encode($data);
+    }
+
     public function getDocCategory(){
         $data = $this->tmp->getDocCategory();
         echo json_encode($data);

@@ -32,7 +32,37 @@ function createTable(data) {
       },
     },
     { data: "DOCALERT", title: "Early alert (Day)" },
-    { data: "SNAME", title: "Person incharge" },
+    { data: "EMPNAME", title: "Person incharge" },
+    {
+      data: "SDIV",
+      title: "Division",
+      render: (data, e, row) => {
+        if (e == "display") {
+          return data.replace(" DIV.", "");
+        }
+        return data;
+      },
+    },
+    {
+      data: "SDEPT",
+      title: "Department",
+      render: (data, e, row) => {
+        if (e == "display") {
+          return data.replace(" DEPT.", "");
+        }
+        return data;
+      },
+    },
+    {
+      data: "SSEC",
+      title: "Section",
+      render: (data, e, row) => {
+        if (e == "display") {
+          return data.replace(" Sec.", "");
+        }
+        return data;
+      },
+    },
     {
       data: "DOCID",
       title: "",
