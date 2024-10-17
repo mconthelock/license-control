@@ -20,16 +20,34 @@ class Master extends MY_Controller {
     }
 
     public function saveTemplate(){
-        $templateinfo = array(
-            'PREFIX'    => strtoupper($_POST['doc_prefix']),
+        $info = array(
+            'DOCNO'     => strtoupper($_POST['doc_prefix']),
             'DOCNAME'   => $_POST['doc_name'],
-            'CATEGORY'  => $_POST['doc_type'],
-            'LIFE'      => $_POST['doc_life'],
-            'LIFE_TYPE' => $_POST['doc_life_unit'],
-            'ALERT'     => $_POST['doc_alert'],
+            'DOCCATEGORY'  => $_POST['doc_type'],
+            'DOCTERM'      => $_POST['doc_life'],
+            'DOCTERMUNIT'  => $_POST['doc_life_unit'],
+            'DOCALERT'     => $_POST['doc_alert'],
+            'DOCPIC'    => '12069',
+            'DOCDIV'    => '050101', //$_POST['doc_div'],
+            'DOCDEPT'   => '050601', //$_POST['doc_dept'],
+            'DOCSEC'    => '050604', //$_POST['doc_sec'],
+            'DOCLEVEL'  => '1', //$_POST['doc_level'],
             'EXTENDED'  => isset($_POST['doc_extended']) ?  1 : null,
+            'CREATEBY'  => '12069'
         );
-        $this->tmp->saveTemplate($templateinfo);
+        $id = $this->tmp->saveTemplate($info);
+
+        if(isset($_POST['prop'])){
+            $prop = array();
+            foreach($_POST['prop'] as $key => $val){
+                $prop[] = array(
+                    'COL_DOC' => $id[0]->DOCID,
+                    'COL_NAME' => $val,
+                    'COL_TYPE' => $_POST['proptype'][$key],
+                );
+            }
+            $this->tmp->saveTemplateProp($prop);
+        }
         echo json_encode(array('status' => 'success'));
     }
 

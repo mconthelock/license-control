@@ -15,13 +15,13 @@
             </a>
         </li>
         <li>
-            <a class="text-md home" href="{{ base_url() }}audits">
+            <a class="text-md contract" href="{{ base_url() }}contract">
                 <div class="flex-none"><i class="icofont-pen-nib text-xl"></i></div>
                 <div class="flex-1">Contract & Agreement</div>
             </a>
         </li>
         <li>
-            <a class="text-md home" href="{{ base_url() }}audits">
+            <a class="text-md audit" href="{{ base_url() }}audits">
                 <div class="flex-none"><i class="icofont-police-cap text-xl"></i></div>
                 <div class="flex-1">Audits Schedule</div>
                 <div class="badge !badge-secondary">35</div>

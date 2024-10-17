@@ -1,6 +1,7 @@
-// src/index.js
-//import "@fontsource/roboto"; // นำเข้าไฟล์ CSS ของ Roboto
-//import "@fontsource/kanit"; // นำเข้าไฟล์ CSS ของ Roboto
-// import { host } from "./app";
-// import "./login";
-// import "./scan";
+import $ from "jquery";
+import { host, showLoader, toggleNavbar } from "./utils";
+
+$(document).ready(async function () {
+  await toggleNavbar("a.home");
+  await showLoader(false);
+});

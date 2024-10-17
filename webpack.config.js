@@ -3,6 +3,7 @@ const path = require("path");
 module.exports = {
   entry: {
     apps: "./assets/script/apps.js",
+    main: "./assets/script/main.js",
     masters: "./assets/script/master/index.js",
     newmasters: "./assets/script/master/newmaster.js",
     licenses: "./assets/script/license/index.js",

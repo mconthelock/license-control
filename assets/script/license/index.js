@@ -4,6 +4,7 @@ import DataTable from "datatables.net-dt";
 
 import $ from "jquery";
 import { host, showLoader, tableOption, toggleNavbar } from "../utils";
+import { getTemplate } from "../data";
 
 var table;
 $(document).ready(async function () {
@@ -50,17 +51,3 @@ function createTable(data, list) {
   table = new DataTable("#licenses-table", opt);
   return table;
 }
-
-export const getTemplate = (q = {}) => {
-  return new Promise((resolve) => {
-    $.ajax({
-      type: "post",
-      dataType: "json",
-      url: `${host}master/getTemplate`,
-      data: q,
-      success: function (response) {
-        resolve(response);
-      },
-    });
-  });
-};

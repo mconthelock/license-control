@@ -78,5 +78,8 @@ export const tableOption = {
 
 export const calcDate = (sdate, ndate, unit = "Day") => {
   if (ndate > 0) return moment(sdate).add(ndate, unit).format("YYYY-MM-DD");
-  else return moment(sdate).subtract(ndate, unit).format("YYYY-MM-DD");
+  else
+    return moment(sdate)
+      .subtract(ndate * -1, unit)
+      .format("YYYY-MM-DD");
 };

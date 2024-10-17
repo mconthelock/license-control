@@ -4,5 +4,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ $GLOBALS['script'] }}licenses.bundle.js?ver{{ date('Ymdhis') }}"></script>
+    <script src="{{ $GLOBALS['script'] }}main.bundle.js?ver{{ date('Ymdhis') }}"></script>
 @endsection

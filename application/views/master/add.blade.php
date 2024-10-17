@@ -23,10 +23,15 @@
                 <span>Save Template</span>
             </button>
 
-            <button class="btn btn-error text-base-300">
+            <button class="btn btn-error text-base-300" type="reset">
                 <span class="loading loading-spinner hidden"></span>
-                <span>Cancel</span>
+                <span>Clear Data</span>
             </button>
+
+            <a class="btn btn-neutral" href="{{ base_url() }}master">
+                <span class="loading loading-spinner hidden"></span>
+                <span>Back</span>
+            </a>
         </div>
     </form>
 @endsection

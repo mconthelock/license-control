@@ -1,12 +1,15 @@
 import "datatables.net-dt/css/dataTables.dataTables.min.css";
 import "../../dist/css/datatable.min.css";
-import DataTable from "datatables.net-dt";
+
 import $ from "jquery";
+import DataTable from "datatables.net-dt";
 import { host, tableOption, showLoader, toggleNavbar } from "../utils";
+import { getTemplate } from "../data";
 
 var table;
 $(document).ready(async function () {
-  await createTable([]);
+  const data = await await getTemplate();
+  await createTable(data);
   await showLoader(false);
   await toggleNavbar("a.master");
 });
@@ -15,14 +18,34 @@ function createTable(data) {
   const opt = { ...tableOption };
   opt.data = data;
   opt.columns = [
-    { data: "docno", title: "Control No." },
-    { data: "title", title: "Title" },
-    { data: "startdate", title: "Start Date" },
-    { data: "expireddate", title: "Expired Date" },
-    { data: "status", title: "Status" },
-    { data: "pic", title: "Person In-charge" },
-    { data: "provider", title: "Provider" },
-    { data: "docno", title: "", sortable: false },
+    { data: "DOCNO", title: "Control No." },
+    { data: "DOCNAME", title: "Title" },
+    { data: "CATE_NAME", title: "Category" },
+    {
+      data: "DOCTERM",
+      title: "Control term",
+      render: (data, e, row) => {
+        if (e == "display") {
+          return data + " " + row.DOCTERMUNIT;
+        }
+        return data;
+      },
+    },
+    { data: "DOCALERT", title: "Early alert (Day)" },
+    { data: "SNAME", title: "Person incharge" },
+    {
+      data: "DOCID",
+      title: "",
+      sortable: false,
+      render: (data, e, row) => {
+        if (e == "display") {
+          return `<a href="${host}/master/edit/${data}" class="btn btn-sm btn-primary shadow-md text-base-300 font-normal">
+            <i class="icofont-ui-edit text-xl"></i>Edit Template
+        </a>`;
+        }
+        return data;
+      },
+    },
   ];
   opt.initComplete = function () {
     $(".table-action").html(`

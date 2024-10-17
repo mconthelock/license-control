@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.select2-container--default .select2-selection--single {
+  @apply !input !input-bordered !w-full flex items-center;
+}
+
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__rendered {
+  color: inherit !important;
+  padding: 0 !important;
+}
+
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow {
+  @apply !h-full;
+}
+.select2-dropdown {
+  @apply bg-base-100;
+}
