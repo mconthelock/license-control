@@ -9,10 +9,14 @@ import { getTemplate } from "../data";
 var table;
 $(document).ready(async function () {
   const data = [];
-  const list = await getTemplate();
-  await createTable(data, list);
-  await toggleNavbar("a.license");
-  await showLoader(false);
+  try {
+    const list = await getTemplate();
+    await createTable(data, list);
+    await toggleNavbar("a.license");
+    await showLoader(false);
+  } catch (e) {
+    if (e.status == "session_expired") window.location.href = e.url;
+  }
 });
 
 function createTable(data, list) {

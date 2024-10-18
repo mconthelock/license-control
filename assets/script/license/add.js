@@ -8,7 +8,13 @@ import moment from "moment";
 import flatpickr from "flatpickr";
 import select2 from "select2";
 
-import { host, uri, showLoader, toggleNavbar, calcDate } from "../utils";
+import {
+  host,
+  showLoader,
+  toggleNavbar,
+  calcDate,
+  populateSelect,
+} from "../utils";
 import { getTemplate, getTemplateProp, getVendor } from "../data";
 
 $(document).ready(async function () {
@@ -37,7 +43,7 @@ $(document).ready(async function () {
   });
 
   //Select2
-  const populateSelect = (data) => {
+  /*const populateSelect = (data) => {
     const selectElement = $("#provider");
     data.forEach((item) => {
       const newOption = new Option(
@@ -48,11 +54,15 @@ $(document).ready(async function () {
       );
       selectElement.append(newOption).trigger("change");
     });
-  };
+  };*/
 
   $("#provider").select2();
   const vnd = await getVendor();
-  await populateSelect(vnd);
+  const vendor = [];
+  vnd.map((el) => {
+    vendor.push({ id: el.VENDOR, text: el.VNDNAME });
+  });
+  await populateSelect(vendor, $("#provider"));
   await toggleNavbar("a.license");
   await showLoader(false);
 });

@@ -14,7 +14,10 @@
                 @include('master/add-prop')
             </div>
             <div class="flex-1 min-w-80">
-                @include('master/add-member')
+                <div class="flex flex-col gap-5 h-full">
+                    @include('master/add-member')
+                    @include('master/add-owner')
+                </div>
             </div>
         </div>
         <div class="flex gap-3 mt-5">
@@ -28,7 +31,7 @@
                 <span>Clear Data</span>
             </button>
 
-            <a class="btn btn-neutral" href="{{ base_url() }}master">
+            <a class="btn btn-neutral text-base-300" href="{{ base_url() }}master">
                 <span class="loading loading-spinner hidden"></span>
                 <span>Back</span>
             </a>

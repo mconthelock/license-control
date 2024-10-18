@@ -1,9 +1,24 @@
 // 001. Add Prop: Click add prop button
 // 002. Add Alert to: Click add alert button
+import "select2/dist/css/select2.min.css";
+import "../../dist/css/select2.min.css";
+
 import $ from "jquery";
-import { host, uri, showLoader, toggleNavbar, showMessage } from "../utils";
+import select2 from "select2";
+
+import {
+  host,
+  uri,
+  showLoader,
+  toggleNavbar,
+  showMessage,
+  populateSelect,
+} from "../utils";
+import { getDivision, getDepartment, getSection } from "../data";
 
 $(document).ready(async function () {
+  const userdiv = $("#login_empdiv").val();
+  await setOwner(userdiv);
   await toggleNavbar("a.master");
   await appendCategory();
   await showLoader(false);
@@ -29,6 +44,41 @@ async function appendCategory() {
       `<option value="${el.CATE_ID}">${el.CATE_NAME}</option>`
     );
   });
+}
+
+async function setOwner(userdiv) {
+  const div = [],
+    dept = [],
+    sec = [];
+
+  //Set Division Selector
+  $("#ownerdiv").select2();
+  const division = await getDivision();
+  division.map((el) => {
+    div.push({ id: el.SDIVCODE, text: el.SDIV });
+  });
+  await populateSelect(div, $("#ownerdiv"));
+  $("#ownerdiv").val(userdiv);
+  $("#ownerdiv").trigger("change");
+
+  //Set Department Selector
+  const div2dept = userdiv.substring(0, 2);
+  $("#ownerdept").select2();
+  const depertment = await getDepartment();
+  depertment.map((el) => {
+    if (el.SDEPCODE.substring(0, 2) == div2dept) {
+      dept.push({ id: el.SDEPCODE, text: el.SDEPT });
+    }
+  });
+  await populateSelect(dept, $("#ownerdept"));
+
+  //Set Section Selector
+  $("#ownersec").select2();
+  const section = await getSection();
+  section.map((el) => {
+    sec.push({ id: el.SSECCODE, text: el.SSEC });
+  });
+  await populateSelect(sec, $("#ownersec"));
 }
 
 // 001. Add Prop
@@ -170,6 +220,7 @@ $(document).on("submit", "#addtemplate", async function (e) {
   await saveData(data);
 });
 
+// 004. Save Data
 function saveData(data) {
   return new Promise((resolve) => {
     $.ajax({
@@ -177,6 +228,20 @@ function saveData(data) {
       dataType: "json",
       url: `${host}master/saveTemplate`,
       data: data,
+      success: function (response) {
+        resolve(response);
+      },
+    });
+  });
+}
+
+// 005. Owner
+function setDivision() {
+  return new Promise((resolve) => {
+    $.ajax({
+      type: "post",
+      dataType: "json",
+      url: `${uri}/webservice/api/webflow/organization/division/`,
       success: function (response) {
         resolve(response);
       },

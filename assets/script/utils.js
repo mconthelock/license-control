@@ -83,3 +83,10 @@ export const calcDate = (sdate, ndate, unit = "Day") => {
       .subtract(ndate * -1, unit)
       .format("YYYY-MM-DD");
 };
+
+export const populateSelect = (data, selectElement) => {
+  data.forEach((item) => {
+    const newOption = new Option(item.text, item.id, false, false);
+    selectElement.append(newOption).trigger("change");
+  });
+};

@@ -44,18 +44,19 @@
     <label class="form-control w-full mt-3">
         <div class="label">
             <span class="label-text font-bold">Early alert day (Day)</span>
+            <span class="label-text-alt text-gray-400">Specify the unit as days</span>
         </div>
         <input type="number" placeholder="Number" class="input input-bordered w-full" name="doc_alert" required />
-        <div class="label">
+        {{-- <div class="label">
             <span class="label-text-alt">Specify the unit as days.</span>
-        </div>
+        </div> --}}
     </label>
-    <label class="form-control w-full mt-3">
+    {{-- <label class="form-control w-full mt-3">
         <div class="flex gap-3">
             <input type="checkbox" checked="checked" class="checkbox" name="doc_extended" value="1" />
             <div class="flex">
                 <span class="label-text font-bold">Renew immediately upon expiration</span>
             </div>
         </div>
-    </label>
+    </label> --}}
 </div>

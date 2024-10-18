@@ -26,6 +26,14 @@
     </div>
     <div class="flex-none">
         <div class="dropdown dropdown-end">
+            <ul class="menu menu-horizontal">
+                <!-- Navbar menu content here -->
+                <li><a href="https://{{ $_SERVER['HTTP_HOST'] }}/form">Webflow</a></li>
+                {{-- <li><a href="http://webflow/form/sharepoint/sharepoint.asp">SharePoint</a></li> --}}
+                {{-- <li><a href="https://amecoutlook.mitsubishielevatorasia.co.th/owa/">Outlook(OWA)</a></li> --}}
+            </ul>
+        </div>
+        <div class="dropdown dropdown-end">
             <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
                 <div class="indicator">
                     <i class="icofont-notification text-3xl"></i>
@@ -35,7 +43,7 @@
         </div>
         <div class="dropdown dropdown-end">
             <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-                <div class="w-10 rounded-full">
+                <div class="w-10 rounded-full !shadow-sm">
                     <img alt="" src="{{ isset($_SESSION['profile-img']) ? $_SESSION['profile-img'] : '' }}" />
                 </div>
             </div>
@@ -49,6 +57,12 @@
                 <li><a>Settings</a></li>
                 <li><a href="{{ base_url() }}welcome/logout/">Logout</a></li>
             </ul>
+
+            <input type="hidden" id="login_empno" value="{{ $_SESSION['user']->SEMPNO }}" />
+            <input type="hidden" id="login_empname" value="{{ $_SESSION['user']->SNAME }}" />
+            <input type="hidden" id="login_empdiv" value="{{ $_SESSION['user']->SDIVCODE }}" />
+            <input type="hidden" id="login_empdept" value="{{ $_SESSION['user']->SDEPCODE }}" />
+            <input type="hidden" id="login_empsec" value="{{ $_SESSION['user']->SSECCODE }}" />
         </div>
     </div>
 </div>

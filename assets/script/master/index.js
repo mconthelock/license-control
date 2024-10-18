@@ -15,24 +15,27 @@ $(document).ready(async function () {
 });
 
 function createTable(data) {
+  const colors = [
+    { id: 1, name: "neutral" },
+    { id: 2, name: "primary" },
+    { id: 3, name: "secondary" },
+    { id: 4, name: "accent" },
+    { id: 5, name: "warning" },
+  ];
   const opt = { ...tableOption };
   opt.data = data;
   opt.columns = [
-    { data: "DOCNO", title: "Control No." },
-    { data: "DOCNAME", title: "Title" },
-    { data: "CATE_NAME", title: "Category" },
     {
-      data: "DOCTERM",
-      title: "Control term",
+      data: "CATE_NAME",
+      title: "Category",
       render: (data, e, row) => {
         if (e == "display") {
-          return data + " " + row.DOCTERMUNIT;
+          const color = colors.find((c) => c.id == row.CATE_ID);
+          return `<div class="badge badge-${color.name}">${data}</div>`;
         }
         return data;
       },
     },
-    { data: "DOCALERT", title: "Early alert (Day)" },
-    { data: "EMPNAME", title: "Person incharge" },
     {
       data: "SDIV",
       title: "Division",
@@ -63,6 +66,21 @@ function createTable(data) {
         return data;
       },
     },
+    { data: "DOCNO", title: "Control No." },
+    { data: "DOCNAME", title: "Title" },
+    {
+      data: "DOCTERM",
+      title: "Control term",
+      render: (data, e, row) => {
+        if (e == "display") {
+          return data + " " + row.DOCTERMUNIT;
+        }
+        return data;
+      },
+    },
+    { data: "DOCALERT", title: "Early alert (Day)" },
+    { data: "EMPNAME", title: "Person incharge" },
+
     {
       data: "DOCID",
       title: "",
@@ -79,7 +97,7 @@ function createTable(data) {
   ];
   opt.initComplete = function () {
     $(".table-action").html(`
-        <a class="btn btn-sm btn-primary shadow-md text-base-300 font-normal" href="${host}/master/add/">
+        <a class="btn btn-sm btn-primary shadow-md text-base-300 font-normal" href="${host}master/add/">
             <i class="icofont-close-circled rotate-45 text-xl"></i>Add Template
         </a>`);
   };

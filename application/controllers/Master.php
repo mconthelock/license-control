@@ -4,6 +4,7 @@ class Master extends MY_Controller {
     public function __construct(){
         parent::__construct();
         $this->load->model('Template_model', 'tmp');
+        $this->session_expire();
     }
 
     public function index(){
@@ -41,9 +42,9 @@ class Master extends MY_Controller {
             $prop = array();
             foreach($_POST['prop'] as $key => $val){
                 $prop[] = array(
-                    'COL_DOC' => $id[0]->DOCID,
-                    'COL_NAME' => $val,
-                    'COL_TYPE' => $_POST['proptype'][$key],
+                    'COLDOC' => $id[0]->DOCID,
+                    'COLNAME' => $val,
+                    'COLTYPE' => $_POST['proptype'][$key],
                 );
             }
             $this->tmp->saveTemplateProp($prop);
@@ -53,7 +54,7 @@ class Master extends MY_Controller {
 
     public function getTemplateProp(){
         $q = array();
-        if(isset($_POST['docid'])) $q['COL_DOC'] = $_POST['docid'];
+        if(isset($_POST['docid'])) $q['COLDOC'] = $_POST['docid'];
         $data = $this->tmp->getTemplateProp($q);
         echo json_encode($data);
     }
