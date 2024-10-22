@@ -1,24 +1,19 @@
+// 000. Onload function
 // 001. Add Prop: Click add prop button
 // 002. Add Alert to: Click add alert button
 import "select2/dist/css/select2.min.css";
 import "../../dist/css/select2.min.css";
 
 import $ from "jquery";
-import select2 from "select2";
+//import select2 from "select2";
+import { host, showLoader, toggleNavbar, showMessage } from "../utils";
+import { getDivision, getDepartment, getSection, getEmployee } from "../data";
 
-import {
-  host,
-  uri,
-  showLoader,
-  toggleNavbar,
-  showMessage,
-  populateSelect,
-} from "../utils";
-import { getDivision, getDepartment, getSection } from "../data";
-
+// 000. On load document state
 $(document).ready(async function () {
-  const userdiv = $("#login_empdiv").val();
-  await setOwner(userdiv);
+  await setDivision($("#login_empdiv").val());
+  await setDepartment($("#login_empdiv").val());
+  await setSection($("#login_empdept").val());
   await toggleNavbar("a.master");
   await appendCategory();
   await showLoader(false);
@@ -46,39 +41,41 @@ async function appendCategory() {
   });
 }
 
-async function setOwner(userdiv) {
-  const div = [],
-    dept = [],
-    sec = [];
-
-  //Set Division Selector
-  $("#ownerdiv").select2();
+async function setDivision(div) {
   const division = await getDivision();
-  division.map((el) => {
-    div.push({ id: el.SDIVCODE, text: el.SDIV });
+  division.map((item) => {
+    $("#ownerdiv").append(
+      `<option value="${item.SDIVCODE}"
+        class="${item.SDIVCODE != div ? "hidden" : ""}"
+        ${item.SDIVCODE == div ? "selected" : ""}
+      >${item.SDIV}</option>`
+    );
   });
-  await populateSelect(div, $("#ownerdiv"));
-  $("#ownerdiv").val(userdiv);
-  $("#ownerdiv").trigger("change");
+}
 
-  //Set Department Selector
-  const div2dept = userdiv.substring(0, 2);
-  $("#ownerdept").select2();
+async function setDepartment(div) {
+  const userdept = $("#login_empdept").val();
   const depertment = await getDepartment();
-  depertment.map((el) => {
-    if (el.SDEPCODE.substring(0, 2) == div2dept) {
-      dept.push({ id: el.SDEPCODE, text: el.SDEPT });
-    }
+  depertment.map((item) => {
+    $("#ownerdept").append(
+      `<option value="${item.SDEPCODE}"
+        class="${item.SDIVCODE != div ? "hidden" : ""}"
+        ${item.SDEPCODE == userdept ? "selected" : ""}
+        >${item.SDEPT}</option>`
+    );
   });
-  await populateSelect(dept, $("#ownerdept"));
+}
 
-  //Set Section Selector
-  $("#ownersec").select2();
+async function setSection(dept) {
   const section = await getSection();
-  section.map((el) => {
-    sec.push({ id: el.SSECCODE, text: el.SSEC });
+  $("#ownersec").append(`<option value="00" selected>ALL</option>`);
+  section.map((item) => {
+    $("#ownersec").append(
+      `<option value="${item.SSECCODE}" class="${
+        item.SDEPCODE != dept ? "hidden" : ""
+      }">${item.SSEC}</option>`
+    );
   });
-  await populateSelect(sec, $("#ownersec"));
 }
 
 // 001. Add Prop
@@ -88,8 +85,7 @@ $(document).on("click", "#addprop", function (e) {
     <div class="flex flex-col gap-2 mb-2 prop-row">
         <div class="flex items-center gap-2">
             <input type="text" name="prop[]" class="input input-bordered w-full max-w-xs" placeholder="Property Name">
-            <select class="select select-bordered w-full max-w-xs proptype" name="proptype[]">
-                <option disabled selected>Property Type</option>
+            <select name="proptype[]" class="select select-bordered w-full max-w-xs proptype">
                 <option value="text">Text</option>
                 <option value="date">Date</option>
                 <option value="file">File</option>
@@ -141,24 +137,42 @@ $(document).on("click", ".remove-option", function (e) {
   e.preventDefault();
   const row = $(this).closest(".prop-row");
   $(this).closest(".prop-option").remove();
-  console.log(row.find(".prop-option").length);
   if (row.find(".prop-option").length == 0) {
     row.find(".proptype").val("text");
   }
 });
 
 // 002. Add Alert to
-$(document).on("click", "#addmember", function (e) {
+$(document).on("change", "#add-member", async function (e) {
   e.preventDefault();
-  $("#member").append(`<div class="flex items-center gap-2">
-        <input type="text" name="empno[]" class="input input-bordered w-1/3 employee" placeholder="Emp No." maxlength="5">
-        <input type="text" name="empname[]" class="input input-bordered w-full max-w-xs empname" placeholder="Emp Name" readonly>
-        <button class="btn btn-ghost btn-circle remove-emp">
+  $(this).closest("label").find(".loading").toggle("hidden");
+  $(this).closest("label").find(".search-member").toggle("hidden");
+  const user = await getEmployee({ id: $(this).val() });
+  if (user == undefined) {
+    showMessage("Employee not found");
+  } else {
+    $("#member").append(`<div class="flex items-center gap-5">
+        <div class="avatar flex-none">
+            <div class="w-12 rounded-full shadow-md">
+                <img src="${user[0].EMPIMG}" />
+            </div>
+        </div>
+        <div class="flex-1">
+            <h1 class="font-bold mb-1">${user[0].SNAME}</h1>
+            <h2>${user[0].SEMPNO}</h2>
+            <input type="hidden" name="empno[]" value="${user[0].SEMPNO}">
+        </div>
+        <button class="btn btn-ghost btn-circle flex-none remove-emp" tab="-1">
             <span class="loading loading-spinner hidden"></span>
             <span class="text"><i class="icofont-ui-close"></i></span>
         </button>
     </div>`);
-  $("#member").find("div:last-child").find(".employee").focus();
+  }
+
+  $(this).closest("label").find(".loading").toggle("hidden");
+  $(this).closest("label").find(".search-member").toggle("hidden");
+  $(this).val("");
+  $(this).focus();
 });
 
 $(document).on("click", ".remove-emp", function (e) {
@@ -166,58 +180,28 @@ $(document).on("click", ".remove-emp", function (e) {
   $(this).closest("div").remove();
 });
 
-$(document).on("change", ".employee", async function (e) {
-  e.preventDefault();
-  const getEmp = (id) => {
-    return new Promise((resolve) => {
-      $.ajax({
-        type: "post",
-        dataType: "json",
-        url: `${uri}/webservice/api/Employee/getusers`,
-        data: { id },
-        success: function (response) {
-          resolve(response);
-        },
-      });
-    });
-  };
-
-  const row = $(this).closest("div");
-  row.find(".remove-emp").find(".loading").toggle("hidden");
-  row.find(".remove-emp").find(".text").toggle("hidden");
-  const data = await getEmp($(this).val());
-  if (data != undefined) {
-    row.find(".empname").val(data[0].SNAME);
-  } else {
-    row.find(".employee").val("");
-    showMessage("Employee not found");
-  }
-  row.find(".remove-emp").find(".loading").toggle("hidden");
-  row.find(".remove-emp").find(".text").toggle("hidden");
-  return;
-});
-
 // 003. Add Template
-$(document).on("submit", "#addtemplate", async function (e) {
+$(document).on("click", "#addtemplate", async function (e) {
   e.preventDefault();
-  const data = $(this).serializeArray();
-  const emp = data.filter((el) => el.name == "empname[]");
-  if (emp.length == 0) {
-    showMessage("Please add alert person in-charged");
+  const data = $("#form-template").serializeArray();
+  let req = true;
+  data.map((el) => {
+    if (el.value == "") req = false;
+  });
+  if (!req) {
+    showMessage("Please fill all important field");
     return;
   }
 
-  let temp = true;
-  emp.map((el) => {
-    if (el.value == "") temp = false;
-  });
-  if (temp == false) {
+  const emp = data.filter((el) => el.name == "empno[]");
+  if (emp.length == 0) {
     showMessage("Please add alert person in-charged");
     return;
   }
 
   showLoader(true);
   await saveData(data);
+  window.location.href = `${host}master`;
 });
 
 // 004. Save Data
@@ -236,15 +220,16 @@ function saveData(data) {
 }
 
 // 005. Owner
-function setDivision() {
-  return new Promise((resolve) => {
-    $.ajax({
-      type: "post",
-      dataType: "json",
-      url: `${uri}/webservice/api/webflow/organization/division/`,
-      success: function (response) {
-        resolve(response);
-      },
+$(document).on("change", "#ownerdept", async function (e) {
+  e.preventDefault();
+  const dept = $(this).val();
+  $("#ownersec")
+    .find("option")
+    .map((i, el) => {
+      const deptcode = $(el).val().substring(0, 4);
+      if (deptcode == dept.substring(0, 4) || deptcode == "00")
+        $(el).removeClass("hidden");
+      else $(el).addClass("hidden");
     });
-  });
-}
+  $("#ownersec").val("00");
+});

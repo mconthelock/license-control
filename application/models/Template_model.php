@@ -14,9 +14,9 @@ class Template_model extends CI_Model {
         return $this->db->from('LICENSE_TEMPLATE')
             ->join('LICENSE_CATEGORY', 'CATE_ID = DOCCATEGORY')
             ->join('(SELECT SEMPNO EMPNO, SNAME EMPNAME, CSTATUS EMPSTATUS FROM AMECUSERALL)', 'EMPNO = CREATEBY')
-            ->join('AMEC.PDIVISION', 'DOCDIV = SDIVCODE')
-            ->join('AMEC.PDEPARTMENT', 'DOCDEPT = SDEPCODE')
-            ->join('AMEC.PSECTION', 'DOCSEC = SSECCODE')
+            ->join('AMEC.PDIVISION', 'DOCDIV = SDIVCODE', 'LEFT')
+            ->join('AMEC.PDEPARTMENT', 'DOCDEPT = SDEPCODE', 'LEFT')
+            ->join('AMEC.PSECTION', 'DOCSEC = SSECCODE', 'LEFT')
             ->get()
             ->result();
     }
@@ -40,5 +40,15 @@ class Template_model extends CI_Model {
 
     public function saveTemplateProp($data){
         return $this->db->insert_batch('LICENSE_MSTCOLUMN', $data);
+    }
+
+    public function getTemplateAlert($q){
+        return $this->db->where($q)
+            ->get('LICENSE_MSTALERT')
+            ->result();
+    }
+
+    public function saveTemplateEmp($data){
+        return $this->db->insert_batch('LICENSE_MSTALERT', $data);
     }
 }

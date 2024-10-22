@@ -35,8 +35,13 @@ function createTable(data, list) {
 
   opt.initComplete = function () {
     let temp = ``;
-    list.forEach((element) => {
-      temp += `<li><a href="${host}licenses/add/${element.DOCID}">${element.DOCNAME}</a></li>`;
+    list.forEach((el) => {
+      if (
+        el.DOCDIV == $("#login_empdiv").val() &&
+        el.DOCDEPT == $("#login_empdept").val()
+      ) {
+        temp += `<li><a href="${host}licenses/add/${el.DOCID}">${el.DOCNAME}</a></li>`;
+      }
     });
 
     if (temp != "") temp = `<div class="divider !m-0"></div>${temp}`;

@@ -39,7 +39,7 @@ function createTable(data) {
     {
       data: "SDIV",
       title: "Division",
-      render: (data, e, row) => {
+      render: (data, e) => {
         if (e == "display") {
           return data.replace(" DIV.", "");
         }
@@ -49,9 +49,9 @@ function createTable(data) {
     {
       data: "SDEPT",
       title: "Department",
-      render: (data, e, row) => {
+      render: (data, e) => {
         if (e == "display") {
-          return data.replace(" DEPT.", "");
+          return data == "00" ? "" : data.replace(" DEPT.", "");
         }
         return data;
       },
@@ -61,7 +61,7 @@ function createTable(data) {
       title: "Section",
       render: (data, e, row) => {
         if (e == "display") {
-          return data.replace(" Sec.", "");
+          return data == "00" ? "" : data.replace(" SEC.", "");
         }
         return data;
       },
@@ -80,7 +80,6 @@ function createTable(data) {
     },
     { data: "DOCALERT", title: "Early alert (Day)" },
     { data: "EMPNAME", title: "Person incharge" },
-
     {
       data: "DOCID",
       title: "",

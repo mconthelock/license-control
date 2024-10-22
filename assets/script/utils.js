@@ -87,6 +87,6 @@ export const calcDate = (sdate, ndate, unit = "Day") => {
 export const populateSelect = (data, selectElement) => {
   data.forEach((item) => {
     const newOption = new Option(item.text, item.id, false, false);
-    selectElement.append(newOption).trigger("change");
+    selectElement.append(newOption); //.trigger("change");
   });
 };

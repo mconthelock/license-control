@@ -15,12 +15,12 @@ import {
   calcDate,
   populateSelect,
 } from "../utils";
-import { getTemplate, getTemplateProp, getVendor } from "../data";
+import { getTemplate, getTemplateProp, getVendor, getEmployee } from "../data";
 
 $(document).ready(async function () {
   const id = window.location.href.replace(host, "").split("/");
-  if (id[2] != undefined) {
-    const no = id[2];
+  if (!isNaN(parseInt(id[3]))) {
+    const no = parseInt(id[3]);
     const template = await getTemplate({ no });
     if (template !== undefined) {
       await showTemplate(template[0]);
@@ -43,20 +43,7 @@ $(document).ready(async function () {
   });
 
   //Select2
-  /*const populateSelect = (data) => {
-    const selectElement = $("#provider");
-    data.forEach((item) => {
-      const newOption = new Option(
-        `${item.VENDOR}: ${item.VNDNAME}`,
-        item.VENDOR,
-        false,
-        false
-      );
-      selectElement.append(newOption).trigger("change");
-    });
-  };*/
-
-  $("#provider").select2();
+  $("#provider").select2({ tags: true });
   const vnd = await getVendor();
   const vendor = [];
   vnd.map((el) => {
@@ -111,4 +98,27 @@ $(document).on("change", ".calcdate", async function () {
   frm.find(".docstart").val(sdate);
   frm.find(".docexpired").val(expire);
   frm.find(".docalert").val(alertdate);
+});
+
+// Change Person In-charged
+$(document).on("change", "#person-incharge", async function (e) {
+  e.preventDefault();
+  const user = await getEmployee({ id: $(this).val() });
+  if (user == undefined) {
+    showMessage("Employee not found");
+  } else {
+    console.log(user);
+    $("#person-incharge-avatar").html(`<div class="avatar flex-none">
+        <div class="w-12 rounded-full">
+            <img src="${user[0].EMPIMG}" />
+        </div>
+    </div>
+    <div class="flex-grow ml-3">
+        <h1 class="text-lg font-bold">${user[0].SNAME}</h1>
+        <p class="text-gray-400">${user[0].SEMPNO}</p>
+        <input type="hidden" name="licensepic" value="${user[0].SEMPNO}">
+    </div>`);
+  }
+  $(this).val("");
+  $(this).focus();
 });

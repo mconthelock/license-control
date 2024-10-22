@@ -30,12 +30,12 @@
             </div>
         </div>
         <div class="flex gap-3 mt-5">
-            <button class="btn btn-primary text-base-300" type="submit">
+            <button class="btn btn-primary text-base-300" type="button">
                 <span class="loading loading-spinner hidden"></span>
                 <span>Save Licenses</span>
             </button>
 
-            <button class="btn btn-error text-base-300">
+            <button class="btn btn-error text-base-300" type="reset">
                 <span class="loading loading-spinner hidden"></span>
                 <span>Cancel</span>
             </button>

@@ -33,7 +33,7 @@
     <label class="form-control w-full mt-3">
         <div class="label">
             <span class="label-text font-bold">Expire Date</span>
-            <span class="label-text-alt">*Updated by "Service Life"</span>
+            <span class="label-text-alt text-gray-400">*Updated by "Service Life"</span>
         </div>
         <input type="text" placeholder="" class="input input-bordered w-full docexpired" name="doc_expired" required
             readonly />
@@ -50,7 +50,7 @@
     <label class="form-control w-full mt-3">
         <div class="label">
             <span class="label-text font-bold">Early alert date</span>
-            <span class="label-text-alt">**Updated by "Early alert day"</span>
+            <span class="label-text-alt text-gray-400">**Updated by "Early alert day"</span>
         </div>
         <input type="text" placeholder="" class="input input-bordered w-full docalert " name="doc_alert" required
             readonly />

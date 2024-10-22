@@ -22,19 +22,19 @@ class Master extends MY_Controller {
 
     public function saveTemplate(){
         $info = array(
-            'DOCNO'     => strtoupper($_POST['doc_prefix']),
+            'DOCNO'     => strtoupper($_POST['doc_no']),
             'DOCNAME'   => $_POST['doc_name'],
             'DOCCATEGORY'  => $_POST['doc_type'],
-            'DOCTERM'      => $_POST['doc_life'],
-            'DOCTERMUNIT'  => $_POST['doc_life_unit'],
+            'DOCTERM'      => $_POST['doc_term'],
+            'DOCTERMUNIT'  => $_POST['doc_termunit'],
             'DOCALERT'     => $_POST['doc_alert'],
-            'DOCPIC'    => '12069',
-            'DOCDIV'    => '050101', //$_POST['doc_div'],
-            'DOCDEPT'   => '050601', //$_POST['doc_dept'],
-            'DOCSEC'    => '050604', //$_POST['doc_sec'],
-            'DOCLEVEL'  => '1', //$_POST['doc_level'],
+            'DOCPIC'    => $_SESSION['user']->SEMPNO,
+            'DOCDIV'    => $_POST['ownerdiv'],
+            'DOCDEPT'   => $_POST['ownerdept'],
+            'DOCSEC'    => $_POST['ownersec'],
+            'DOCLEVEL'  => '1',
             'EXTENDED'  => isset($_POST['doc_extended']) ?  1 : null,
-            'CREATEBY'  => '12069'
+            'CREATEBY'  => $_SESSION['user']->SEMPNO
         );
         $id = $this->tmp->saveTemplate($info);
 
@@ -49,6 +49,15 @@ class Master extends MY_Controller {
             }
             $this->tmp->saveTemplateProp($prop);
         }
+
+        $empno = array();
+        foreach($_POST['empno'] as $key => $val){
+            $empno[]  = array(
+                'ALTDOC' => $id[0]->DOCID,
+                'ALTEMP' => $val,
+            );
+        }
+        $this->tmp->saveTemplateEmp($empno);
         echo json_encode(array('status' => 'success'));
     }
 
