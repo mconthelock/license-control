@@ -35,8 +35,8 @@
             <span class="label-text font-bold">Expire Date</span>
             <span class="label-text-alt text-gray-400">*Updated by "Service Life"</span>
         </div>
-        <input type="text" placeholder="" class="input input-bordered w-full docexpired" name="doc_expired" required
-            readonly />
+        <input type="text" placeholder="" class="input input-bordered w-full fdate docexpired" name="doc_expired"
+            required />
     </label>
 
     <label class="form-control w-full mt-3">
@@ -52,7 +52,7 @@
             <span class="label-text font-bold">Early alert date</span>
             <span class="label-text-alt text-gray-400">**Updated by "Early alert day"</span>
         </div>
-        <input type="text" placeholder="" class="input input-bordered w-full docalert " name="doc_alert" required
-            readonly />
+        <input type="text" placeholder="" class="input input-bordered w-full fdate docalert " name="doc_alert"
+            required />
     </label>
 </div>

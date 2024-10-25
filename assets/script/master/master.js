@@ -1,6 +1,5 @@
 import $ from "jquery";
 import { host, showMessage } from "../utils";
-import { getDivision, getDepartment, getSection } from "../data";
 
 export async function appendCategory() {
   const getCategory = () => {
@@ -20,55 +19,6 @@ export async function appendCategory() {
   data.map((el) => {
     $("#doc_type").append(
       `<option value="${el.CATE_ID}">${el.CATE_NAME}</option>`
-    );
-  });
-}
-
-export async function setDivision(div) {
-  const division = await getDivision();
-  division.map((item) => {
-    $("#ownerdiv").append(
-      `<option value="${item.SDIVCODE}"
-          class="${item.SDIVCODE != div ? "hidden" : ""}"
-          ${item.SDIVCODE == div ? "selected" : ""}
-        >${item.SDIV}</option>`
-    );
-  });
-}
-
-export async function setDepartment(div) {
-  const userdept = $("#login_empdept").val();
-  const depertment = await getDepartment();
-  depertment.map((item) => {
-    $("#ownerdept").append(
-      `<option value="${item.SDEPCODE}"
-          class="${item.SDIVCODE != div ? "hidden" : ""}"
-          ${item.SDEPCODE == userdept ? "selected" : ""}
-          >${item.SDEPT}</option>`
-    );
-  });
-}
-
-export function changeDepartment(dept) {
-  $("#ownersec")
-    .find("option")
-    .map((i, el) => {
-      const deptcode = $(el).val().substring(0, 4);
-      if (deptcode == dept.substring(0, 4) || deptcode == "00")
-        $(el).removeClass("hidden");
-      else $(el).addClass("hidden");
-    });
-  $("#ownersec").val("00");
-}
-
-export async function setSection(dept) {
-  const section = await getSection();
-  $("#ownersec").append(`<option value="00" selected>ALL</option>`);
-  section.map((item) => {
-    $("#ownersec").append(
-      `<option value="${item.SSECCODE}" class="${
-        item.SDEPCODE != dept ? "hidden" : ""
-      }">${item.SSEC}</option>`
     );
   });
 }
@@ -175,6 +125,7 @@ export function checkReq(form) {
   const unit = $(".doctermunit").val();
   if (unit == "Month") term = term * 30;
   else if (unit == "Year") term = term * 365;
+  console.log(term, termmin);
   if (!moreNumber("Control term", term, termmin)) return false;
 
   const alert = $(".docalert").val();
@@ -191,8 +142,12 @@ export function checkReq(form) {
 }
 
 export function moreNumber(name, num1, num2 = 0) {
-  const number1 = num1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  const number2 = num2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const number1 = parseInt(
+    num1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  );
+  const number2 = parseInt(
+    num2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  );
   if (number1 < number2) {
     showMessage(`Please enter number of ${name} more than ${number2} days`);
     return false;

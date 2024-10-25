@@ -5,14 +5,11 @@ import "select2/dist/css/select2.min.css";
 import "../../dist/css/select2.min.css";
 
 import $ from "jquery";
-import { host, showLoader, toggleNavbar, showMessage } from "../utils";
+import { host, showLoader, toggleNavbar } from "../utils";
+import { setDivision, setDepartment, setSection } from "../department";
 import { getEmployee } from "../data";
 import {
   appendCategory,
-  setDivision,
-  setDepartment,
-  setSection,
-  changeDepartment,
   setProp,
   setOption,
   removeOption,
@@ -21,7 +18,7 @@ import {
   setEmployee,
   checkReq,
   saveTemplate,
-} from "./_fn";
+} from "./master";
 
 // 000. On load document state
 $(document).ready(async function () {
@@ -29,6 +26,7 @@ $(document).ready(async function () {
   await setDivision($("#login_empdiv").val());
   await setDepartment($("#login_empdiv").val());
   await setSection($("#login_empdept").val());
+
   $("#memder-loader").addClass("hidden");
   await toggleNavbar("a.master");
   await showLoader(false);

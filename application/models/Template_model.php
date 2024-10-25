@@ -36,6 +36,7 @@ class Template_model extends CI_Model {
     public function getTemplateProp($q = ''){
         if($q) $this->db->where($q);
         return $this->db->from('LICENSE_MSTCOLUMN')
+            ->order_by('COLID')
             ->get()
             ->result();
     }

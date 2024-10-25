@@ -31,31 +31,6 @@
             </div>
         </div>
     </form>
-    {{-- @include('licenses/info') --}}
-    {{-- <form action="#" method="POST" id=""> --}}
-    {{-- <div class="flex-1 min-w-80">
-            @include('licenses/additional')
-        </div>
-        </div>
-        {{-- <div class="flex flex-col flex-wrap gap-5 lg:!flex-row mb-5">
-            <div class="flex-1 min-w-80">
-                @include('licenses/reminder')
-            </div>
-
-
-        </div> --}}
-    {{-- <div class="flex gap-3 mt-5">
-            <button class="btn btn-primary text-base-300" type="button">
-                <span class="loading loading-spinner hidden"></span>
-                <span>Save Licenses</span>
-            </button>
-
-            <button class="btn btn-error text-base-300" type="reset">
-                <span class="loading loading-spinner hidden"></span>
-                <span>Cancel</span>
-            </button>
-        </div> --}}
-    {{-- </form> --}}
 @endsection
 
 @section('scripts')

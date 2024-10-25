@@ -27,6 +27,22 @@
 
     <label class="form-control w-full mt-3">
         <div class="label">
+            <span class="label-text font-bold">Owner</span>
+        </div>
+        <div class="flex gap-2">
+            <select class="select select-bordered w-full max-w-xs" name="ownerdiv" id="ownerdiv">
+            </select>
+
+            <select class="select select-bordered w-full max-w-xs" name="ownerdept" id="ownerdept">
+            </select>
+
+            <select class="select select-bordered w-full max-w-xs" name="ownersec" id="ownersec">
+            </select>
+        </div>
+    </label>
+
+    <label class="form-control w-full mt-3">
+        <div class="label">
             <span class="label-text font-bold">Person In-Charge</span>
         </div>
 

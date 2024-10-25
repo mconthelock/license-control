@@ -4,6 +4,7 @@ import "../../dist/css/select2.min.css";
 import $ from "jquery";
 
 import { host, toggleNavbar, showLoader } from "../utils";
+import { setDivision, setDepartment, setSection } from "../department";
 import {
   getTemplate,
   getTemplateProp,
@@ -13,10 +14,6 @@ import {
 } from "../data";
 import {
   appendCategory,
-  setDivision,
-  setDepartment,
-  setSection,
-  changeDepartment,
   setProp,
   setOption,
   removeOption,
@@ -25,7 +22,7 @@ import {
   setEmployee,
   checkReq,
   saveTemplate,
-} from "./_fn";
+} from "./master";
 // 000. On load document state
 $(document).ready(async function () {
   const id = window.location.href.replace(host, "").split("/");

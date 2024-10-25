@@ -3,6 +3,8 @@ class Licenses extends MY_Controller {
 
     public function __construct(){
         parent::__construct();
+        $this->session_expire();
+
         $this->load->model('License_model', 'lns');
     }
 

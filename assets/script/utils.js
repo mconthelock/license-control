@@ -78,14 +78,6 @@ export const tableOption = {
   ],
 };
 
-export const calcDate = (sdate, ndate, unit = "Day") => {
-  if (ndate > 0) return moment(sdate).add(ndate, unit).format("YYYY-MM-DD");
-  else
-    return moment(sdate)
-      .subtract(ndate * -1, unit)
-      .format("YYYY-MM-DD");
-};
-
 export const populateSelect = (data, selectElement) => {
   data.forEach((item) => {
     const newOption = new Option(item.text, item.id, false, false);

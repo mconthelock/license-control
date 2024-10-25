@@ -68,7 +68,7 @@ class Master extends MY_Controller {
             'DOCLEVEL'  => '1',
             'EXTENDED'  => isset($_POST['doc_extended']) ?  1 : null,
         );
-        if(isset($_POST['doc_id'])){
+        if($_POST['doc_id'] != ""){
             $info['DOCID']      = $_POST['doc_id'];
             $info['UPDATEBY']   = $_SESSION['user']->SEMPNO;
         }else{
@@ -77,7 +77,7 @@ class Master extends MY_Controller {
         $id = $this->tmp->saveTemplate($info);
 
         //Delete prop and option if update function
-        if(isset($_POST['doc_id'])){
+        if($_POST['doc_id'] != ""){
             $this->tmp->deleteTemplateProp(array('COLDOC' => $id[0]->DOCID));
             $this->tmp->deleteTemplateOptionByDoc(array('COLDOC' => $id[0]->DOCID));
             $this->tmp->deleteTemplateEmp(array('ALTDOC' => $id[0]->DOCID));
