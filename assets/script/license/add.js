@@ -11,19 +11,27 @@ import select2 from "select2";
 import {
   host,
   showLoader,
+  showMessage,
   toggleNavbar,
   calcDate,
   populateSelect,
 } from "../utils";
-import { getTemplate, getTemplateProp, getVendor, getEmployee } from "../data";
+import {
+  getTemplate,
+  getTemplateProp,
+  getVendor,
+  getEmployee,
+  getMaxLicense,
+} from "../data";
 
 $(document).ready(async function () {
   const id = window.location.href.replace(host, "").split("/");
-  if (!isNaN(parseInt(id[3]))) {
-    const no = parseInt(id[3]);
-    const template = await getTemplate({ no });
+  if (!isNaN(parseInt(id[2]))) {
+    const no = parseInt(id[2]);
+    const template = await getTemplate({ id: no });
     if (template !== undefined) {
-      await showTemplate(template[0]);
+      const runno = await getMaxLicense({ no: template[0].DOCNO });
+      await showTemplate(template[0], runno);
       await showTemplateProp(template[0]);
     }
   }
@@ -54,9 +62,11 @@ $(document).ready(async function () {
   await showLoader(false);
 });
 
-async function showTemplate(data) {
+async function showTemplate(data, no) {
   const frm = $("#docinfo");
-  frm.find(".docno").val(`${data.DOCNO}-0001`);
+  const runno = "0000" + no[0].ID.toString();
+  const id = runno.substr(runno.length - 4);
+  frm.find(".docno").val(`${data.DOCNO}-${id}`);
   frm.find(".docname").val(data.DOCNAME);
 
   const frmexp = $("#docperiod");
@@ -77,10 +87,10 @@ async function showTemplateProp(id) {
   data.map((el) => {
     str += `<label class="form-control w-full mt-3">
         <div class="label">
-            <span class="label-text font-bold">${el.COL_NAME}</span>
+            <span class="label-text font-bold">${el.COLNAME}</span>
         </div>
-        <input type="hidden" name="docno" required />
-        <input type="text" class="input input-bordered w-full" name="docno" required />
+        <input type="hidden" class="input input-bordered w-full" name="prop[]" value="${el.COLNAME}"/>
+        <input type="text" class="input input-bordered w-full" name="propval[]"/>
     </label>`;
   });
   $("#additional").append(str);

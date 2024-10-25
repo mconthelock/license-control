@@ -6,6 +6,7 @@ module.exports = {
     main: "./assets/script/main.js",
     masters: "./assets/script/master/index.js",
     newmasters: "./assets/script/master/newmaster.js",
+    editmasters: "./assets/script/master/editmaster.js",
     licenses: "./assets/script/license/index.js",
     newlicenses: "./assets/script/license/add.js",
   },

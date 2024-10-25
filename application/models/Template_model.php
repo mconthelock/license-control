@@ -22,13 +22,15 @@ class Template_model extends CI_Model {
     }
 
     public function saveTemplate($data){
-        $q = array('DOCNO' => $data['DOCNO']);
-        if($this->db->get_where('LICENSE_TEMPLATE', $q)->num_rows() > 0){
-            $this->db->where('DOCNO', $data['DOCNO']);
+        if(isset($data['DOCID'])){
+            $this->db->where('DOCID', $data['DOCID']);
             $this->db->update('LICENSE_TEMPLATE', $data);
+            return $this->db->where('DOCID', $data['DOCID'])->get('LICENSE_TEMPLATE')->result();
+        }else{
+            $this->db->insert('LICENSE_TEMPLATE', $data);
+            $doc = $this->db->select('MAX(DOCID) DOCID')->get('LICENSE_TEMPLATE')->result();
+            return $this->db->where('DOCID', $doc[0]->DOCID)->get('LICENSE_TEMPLATE')->result();
         }
-        $this->db->insert('LICENSE_TEMPLATE', $data);
-        return $this->db->where('DOCNO', $data['DOCNO'])->get('LICENSE_TEMPLATE')->result();
     }
 
     public function getTemplateProp($q = ''){
@@ -39,16 +41,51 @@ class Template_model extends CI_Model {
     }
 
     public function saveTemplateProp($data){
-        return $this->db->insert_batch('LICENSE_MSTCOLUMN', $data);
+        $this->db->insert('LICENSE_MSTCOLUMN', $data);
+        return $this->db->where('COLDOC', $data['COLDOC'])
+            ->select('MAX(COLID) COLID')
+            ->get('LICENSE_MSTCOLUMN')
+            ->result();
+    }
+
+    public function deleteTemplateProp($q){
+        return $this->db->where($q)->delete('LICENSE_MSTCOLUMN');
     }
 
     public function getTemplateAlert($q){
         return $this->db->where($q)
-            ->get('LICENSE_MSTALERT')
+            ->from('LICENSE_MSTALERT')
+            ->join('AMECUSERALL', 'SEMPNO = ALTEMP')
+            ->get()
             ->result();
     }
 
     public function saveTemplateEmp($data){
         return $this->db->insert_batch('LICENSE_MSTALERT', $data);
+    }
+
+    public function deleteTemplateEmp($q){
+        return $this->db->where($q)->delete('LICENSE_MSTALERT');
+    }
+
+    public function getTemplateOption($q = ''){
+        if($q) $this->db->where($q);
+        return $this->db->from('LICENSE_MSTOPTION')
+            ->join('LICENSE_MSTCOLUMN', 'COLID = OPTCOLUMN')
+            ->order_by('OPTID')
+            ->get()
+            ->result();
+    }
+
+    public function deleteTemplateOptionByDoc($q){
+        $data = $this->db->where($q)->get('LICENSE_MSTCOLUMN')->result();
+        foreach($data as $d){
+            $this->db->where('OPTCOLUMN', $d->COLID)->delete('LICENSE_MSTOPTION');
+        }
+        return;
+    }
+
+    public function saveTemplateOption($data){
+        return $this->db->insert_batch('LICENSE_MSTOPTION', $data);
     }
 }

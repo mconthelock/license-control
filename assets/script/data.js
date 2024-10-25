@@ -1,5 +1,5 @@
 import $ from "jquery";
-import { host, uri } from "./utils";
+import { host, uri, showMessage } from "./utils";
 
 export const getTemplate = (q = {}) => {
   return new Promise((resolve, reject) => {
@@ -19,11 +19,45 @@ export const getTemplate = (q = {}) => {
 };
 
 export const getTemplateProp = (q = {}) => {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     $.ajax({
       type: "post",
       dataType: "json",
       url: `${host}master/getTemplateProp`,
+      data: q,
+      success: function (response) {
+        if (response.status == "session_expired") {
+          reject(response);
+        }
+        resolve(response);
+      },
+    });
+  });
+};
+
+export const getTemplateOption = (q = {}) => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      type: "post",
+      dataType: "json",
+      url: `${host}master/getTemplateOption`,
+      data: q,
+      success: function (response) {
+        if (response.status == "session_expired") {
+          reject(response);
+        }
+        resolve(response);
+      },
+    });
+  });
+};
+
+export const getTemplateMember = (q = {}) => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      type: "post",
+      dataType: "json",
+      url: `${host}master/getTemplateMember`,
       data: q,
       success: function (response) {
         if (response.status == "session_expired") {
@@ -124,12 +158,77 @@ export function getSection(q = {}) {
   });
 }
 
-export function getEmployee(q = {}) {
+export function getEmployee(id) {
+  const findUser = (id) => {
+    return new Promise((resolve) => {
+      $.ajax({
+        type: "post",
+        dataType: "json",
+        url: `${uri}/webservice/api/webflow/employee/getusers/`,
+        data: { id },
+        success: async function (data) {
+          if (data.status === false) {
+            await showMessage(data.message);
+            resolve(null);
+            return;
+          }
+
+          const localUsers = JSON.parse(localStorage.getItem("amecuser")) || {};
+          const users = localUsers.value || [];
+          users.push(data[0]);
+          localStorage.setItem("amecuser", JSON.stringify({ value: users }));
+          resolve(data[0]);
+        },
+      });
+    });
+  };
+
+  const localUsers = JSON.parse(localStorage.getItem("amecuser")) || {};
+  const users = localUsers.value || [];
+  const user = users.find((user) => user.SEMPNO === id);
+  if (user == undefined) {
+    return findUser(id);
+  }
+
+  return new Promise((resolve) => {
+    resolve(user);
+  });
+}
+
+export function getEmpImage(id) {
+  return new Promise((resolve) => {
+    $.ajax({
+      type: "get",
+      dataType: "json",
+      url: `${uri}/webservice/api/webflow/employee/getusersimg/id/${id}`,
+      success: function (data) {
+        resolve(data);
+      },
+    });
+  });
+}
+
+//License Data
+export function getLicense(q = {}) {
   return new Promise((resolve) => {
     $.ajax({
       type: "post",
       dataType: "json",
-      url: `${uri}/webservice/api/webflow/employee/getusers/`,
+      url: `${host}licenses/getLicense`,
+      data: q,
+      success: function (data) {
+        resolve(data);
+      },
+    });
+  });
+}
+
+export function getMaxLicense(q = {}) {
+  return new Promise((resolve) => {
+    $.ajax({
+      type: "post",
+      dataType: "json",
+      url: `${host}licenses/getMaxLicense`,
       data: q,
       success: function (data) {
         resolve(data);

@@ -15,8 +15,41 @@ class Master extends MY_Controller {
         $this->views('master/add');
     }
 
+    public function edit($id){
+        $this->views('master/edit');
+    }
+
     public function getTemplate(){
-        $data = $this->tmp->getTemplate();
+        $q = array();
+        if(isset($_POST['id'])) $q['DOCID'] = $_POST['id'];
+        if(isset($_POST['type'])) $q['DOCCATEGORY'] = $_POST['type'];
+        $data = $this->tmp->getTemplate($q);
+        echo json_encode($data);
+    }
+
+    public function getTemplateProp(){
+        $q = array();
+        if(isset($_POST['docid'])) $q['COLDOC'] = $_POST['docid'];
+        $data = $this->tmp->getTemplateProp($q);
+        echo json_encode($data);
+    }
+
+    public function getTemplateOption(){
+        $q = array();
+        if(isset($_POST['docid'])) $q['COLDOC'] = $_POST['docid'];
+        $data = $this->tmp->getTemplateOption($q);
+        echo json_encode($data);
+    }
+
+    public function getTemplateMember(){
+        $q = array();
+        if(isset($_POST['docid'])) $q['ALTDOC'] = $_POST['docid'];
+        $data = $this->tmp->getTemplateAlert($q);
+        echo json_encode($data);
+    }
+
+    public function getDocCategory(){
+        $data = $this->tmp->getDocCategory();
         echo json_encode($data);
     }
 
@@ -34,20 +67,43 @@ class Master extends MY_Controller {
             'DOCSEC'    => $_POST['ownersec'],
             'DOCLEVEL'  => '1',
             'EXTENDED'  => isset($_POST['doc_extended']) ?  1 : null,
-            'CREATEBY'  => $_SESSION['user']->SEMPNO
         );
+        if(isset($_POST['doc_id'])){
+            $info['DOCID']      = $_POST['doc_id'];
+            $info['UPDATEBY']   = $_SESSION['user']->SEMPNO;
+        }else{
+            $info['CREATEBY']   = $_SESSION['user']->SEMPNO;
+        }
         $id = $this->tmp->saveTemplate($info);
 
+        //Delete prop and option if update function
+        if(isset($_POST['doc_id'])){
+            $this->tmp->deleteTemplateProp(array('COLDOC' => $id[0]->DOCID));
+            $this->tmp->deleteTemplateOptionByDoc(array('COLDOC' => $id[0]->DOCID));
+            $this->tmp->deleteTemplateEmp(array('ALTDOC' => $id[0]->DOCID));
+        }
+
         if(isset($_POST['prop'])){
-            $prop = array();
             foreach($_POST['prop'] as $key => $val){
-                $prop[] = array(
+                $prop = array(
                     'COLDOC' => $id[0]->DOCID,
                     'COLNAME' => $val,
                     'COLTYPE' => $_POST['proptype'][$key],
                 );
+                $propdata = $this->tmp->saveTemplateProp($prop);
+                $propid = $propdata[0]->COLID;
+                if(isset($_POST['opt'][$key])){
+                    $opt = array();
+                    foreach($_POST['opt'][$key] as $k => $v){
+                        $opt[] = array(
+                            'OPTCOLUMN' => $propid,
+                            'OPTVALUE' => $v,
+                        );
+                    }
+                    $this->tmp->saveTemplateOption($opt);
+                }
             }
-            $this->tmp->saveTemplateProp($prop);
+
         }
 
         $empno = array();
@@ -59,17 +115,5 @@ class Master extends MY_Controller {
         }
         $this->tmp->saveTemplateEmp($empno);
         echo json_encode(array('status' => 'success'));
-    }
-
-    public function getTemplateProp(){
-        $q = array();
-        if(isset($_POST['docid'])) $q['COLDOC'] = $_POST['docid'];
-        $data = $this->tmp->getTemplateProp($q);
-        echo json_encode($data);
-    }
-
-    public function getDocCategory(){
-        $data = $this->tmp->getDocCategory();
-        echo json_encode($data);
     }
 }

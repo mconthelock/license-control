@@ -1,4 +1,4 @@
-<div class="border shadow-md rounded-lg p-5 bg-base-200 h-full" id="docinfo">
+<div class="border shadow-md rounded-lg bg-base-200 h-full p-5" id="docinfo">
     <h1 class="text-xl font-extrabold">Document Information</h1>
     <div class="divider"></div>
 
@@ -6,22 +6,21 @@
         <div class="label">
             <span class="label-text font-bold">Control No.</span>
         </div>
-        <input type="text" placeholder="DOC" class="input input-bordered w-full uppercase docno" name="docno"
-            required />
+        <input type="text" class="input input-bordered w-full uppercase docno" name="docno" />
     </label>
 
     <label class="form-control w-full mt-3">
         <div class="label">
             <span class="label-text font-bold">Title</span>
         </div>
-        <input type="text" placeholder="DOC" class="input input-bordered w-full docname" name="doc_name" required />
+        <input type="text" class="input input-bordered w-full docname" name="doc_name" />
     </label>
 
     <label class="form-control w-full mt-3">
         <div class="label">
             <span class="label-text font-bold">Provider</span>
         </div>
-        <select class="!input !input-bordered !w-full flex items-center select2" id="provider">
+        <select class="!input !input-bordered flex items-center select2" id="provider">
             <option disabled selected value="">Select vendor who issue License?</option>
         </select>
     </label>
@@ -30,6 +29,7 @@
         <div class="label">
             <span class="label-text font-bold">Person In-Charge</span>
         </div>
+
         <label class="input input-bordered flex items-center gap-2">
             <input type="text" class="grow" placeholder="Change In-charge" id="person-incharge" tabindex="-1" />
             <i class="icofont-user-male opacity-30"></i>

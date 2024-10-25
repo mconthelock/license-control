@@ -1,4 +1,4 @@
-<div class="border shadow-md rounded-lg p-5 bg-base-200" id="docperiod">
+<div class="border shadow-md rounded-lg p-5 bg-base-200 h-full" id="docperiod">
     <h1 class="text-xl font-extrabold">Expiration Date</h1>
     <div class="divider"></div>
 

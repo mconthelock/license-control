@@ -1,12 +1,16 @@
-// 000. Onload function
-// 001. Add Prop: Click add prop button
-// 002. Add Alert to: Click add alert button
 import "select2/dist/css/select2.min.css";
 import "../../dist/css/select2.min.css";
 
 import $ from "jquery";
-import { host, showLoader, toggleNavbar, showMessage } from "../utils";
-import { getEmployee } from "../data";
+
+import { host, toggleNavbar, showLoader } from "../utils";
+import {
+  getTemplate,
+  getTemplateProp,
+  getTemplateOption,
+  getTemplateMember,
+  getEmployee,
+} from "../data";
 import {
   appendCategory,
   setDivision,
@@ -22,19 +26,67 @@ import {
   checkReq,
   saveTemplate,
 } from "./_fn";
-
 // 000. On load document state
 $(document).ready(async function () {
+  const id = window.location.href.replace(host, "").split("/");
+  if (isNaN(parseInt(id[2]))) {
+    window.location.href = `${host}/master/`;
+    return false;
+  }
   await appendCategory();
   await setDivision($("#login_empdiv").val());
   await setDepartment($("#login_empdiv").val());
   await setSection($("#login_empdept").val());
+
+  const template = await getTemplate({ id: id[2] });
+  await showTemplate(template[0]);
+  await showTemplateProp(template[0].DOCID);
+  await showTemplateMember(template[0].DOCID);
+
   $("#memder-loader").addClass("hidden");
   await toggleNavbar("a.master");
   await showLoader(false);
 });
 
-// 001. Add Prop
+async function showTemplate(data) {
+  const frm = $("#docinfo");
+  frm.find(".docid").val(data.DOCID);
+  frm.find(".docno").val(data.DOCNO);
+  frm.find(".docname").val(data.DOCNAME);
+  frm.find(".doctype").val(data.DOCCATEGORY);
+  frm.find(".docterm").val(data.DOCTERM);
+  frm.find(".doctermunit").val(data.DOCTERMUNIT);
+  frm.find(".docalert").val(data.DOCALERT);
+  $("#ownerdiv").val(data.DOCDIV);
+  $("#ownerdept").val(data.DOCDEPT);
+  $("#ownersec").val(data.DOCSEC);
+}
+
+async function showTemplateProp(id) {
+  let str = ``;
+  const data = await getTemplateProp({ docid: id });
+  const option = await getTemplateOption({ docid: id });
+  data.map((el, i) => {
+    let strOption = ``;
+    const opts = option.filter((item) => item.COLID == el.COLID);
+    opts.map((opt) => {
+      strOption += setOption(i, opt);
+    });
+    str += setProp(el, strOption);
+  });
+  $("#prop").append(str);
+}
+
+async function showTemplateMember(id) {
+  const data = await getTemplateMember({ docid: id });
+  data.map((el) => {
+    const user = getEmployee(el.ALTEMP).then((emp) => {
+      const setEmp = setEmployee(emp);
+      $("#member").append(setEmp);
+    });
+  });
+}
+
 $(document).on("change", ".proptype", async function (e) {
   e.preventDefault();
   const val = $(this).val();
@@ -91,14 +143,7 @@ $(document).on("click", ".remove-emp", function (e) {
   $(this).closest("div").remove();
 });
 
-// 005. Owner
-$(document).on("change", "#ownerdept", async function (e) {
-  e.preventDefault();
-  const dept = $(this).val();
-  await changeDepartment(dept);
-});
-
-// 003. Add Template
+// 003. Save template
 $(document).on("click", "#addtemplate", async function (e) {
   e.preventDefault();
   if (!checkReq($("#form-template"))) return false;

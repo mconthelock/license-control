@@ -1,7 +1,7 @@
 @extends('layouts/template')
 
 @section('content')
-    <h1 class="text-2xl font-bold mb-1">New Template</h1>
+    <h1 class="text-2xl font-bold mb-1">Update Template</h1>
     <p class="text-gray-400 mb-5">Defind your document propoties, This document template will be used when you add new
         document.</p>
     <div class="divider"></div>
@@ -32,7 +32,7 @@
                 <span>Clear Data</span>
             </button> --}}
 
-            <a class="btn btn-neutral text-base-300" href="{{ base_url() }}master">
+            <a class="btn btn-neutral text-base-300 min-w-24" href="{{ base_url() }}master">
                 <span class="loading loading-spinner hidden"></span>
                 <span>Back</span>
             </a>
@@ -41,5 +41,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ $GLOBALS['script'] }}newmasters.bundle.js?ver={{ date('Ymdhis') }}"></script>
+    <script src="{{ $GLOBALS['script'] }}editmasters.bundle.js?ver={{ date('Ymdhis') }}"></script>
 @endsection

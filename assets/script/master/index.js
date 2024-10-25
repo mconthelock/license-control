@@ -17,7 +17,7 @@ $(document).ready(async function () {
 function createTable(data) {
   const colors = [
     { id: 1, name: "neutral" },
-    { id: 2, name: "primary" },
+    { id: 2, name: "primary text-gray-300" },
     { id: 3, name: "secondary" },
     { id: 4, name: "accent" },
     { id: 5, name: "warning" },
@@ -49,9 +49,9 @@ function createTable(data) {
     {
       data: "SDEPT",
       title: "Department",
-      render: (data, e) => {
+      render: (data, e, row) => {
         if (e == "display") {
-          return data == "00" ? "" : data.replace(" DEPT.", "");
+          return row.DOCDEPT == "00" ? "All" : data.replace(" DEPT.", "");
         }
         return data;
       },
@@ -61,7 +61,7 @@ function createTable(data) {
       title: "Section",
       render: (data, e, row) => {
         if (e == "display") {
-          return data == "00" ? "" : data.replace(" SEC.", "");
+          return row.DOCSEC == "00" ? "All" : data.replace(" SEC.", "");
         }
         return data;
       },
@@ -86,7 +86,7 @@ function createTable(data) {
       sortable: false,
       render: (data, e, row) => {
         if (e == "display") {
-          return `<a href="${host}/master/edit/${data}" class="btn btn-sm btn-primary shadow-md text-base-300 font-normal">
+          return `<a href="${host}master/edit/${data}" class="btn btn-sm btn-primary shadow-md text-base-300 font-normal">
             <i class="icofont-ui-edit text-xl"></i>Edit Template
         </a>`;
         }

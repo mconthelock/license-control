@@ -1,6 +1,8 @@
 import $ from "jquery";
 import moment from "moment";
 
+import { getEmployee } from "./data";
+
 export const host = $("meta[name=base_url]").attr("content");
 export const uri = $("meta[name=base_uri]").attr("content");
 

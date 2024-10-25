@@ -31,11 +31,11 @@
     </script>
 </head>
 
-<body class="flex flex-col min-h-screen relative">
+<body class="flex flex-col min-h-screen relative max-w-screen">
     <div class="flex-none z-[100]">
         @include('layouts.navbar')
     </div>
-    <div class="flex-1 drawer lg:drawer-open">
+    <div class="flex-1 drawer lg:drawer-open ">
         <input id="nav-master" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content flex flex-col p-5 pt-[calc(68px+1rem)]">
             <div class="flex-1 z-10 lg:ps-[18rem]">
@@ -44,6 +44,7 @@
         </div>
         @include('layouts.sidebar')
     </div>
+    ccc
     @include('layouts.footer')
 
     {{-- Pattern --}}
