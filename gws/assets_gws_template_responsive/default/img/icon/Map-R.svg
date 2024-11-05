@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>00-Foundation/icon_Map</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="00-Foundation/icon_Map" fill="#F50F10">
+            <path d="M17.564,10.0244 L12.879,23.1354 L8.198,10.0264 C7.692,8.5514 7.516,6.2474 8.688,4.6074 C9.538,3.4164 10.941,2.8124 12.858,2.8124 C14.787,2.8124 16.201,3.4224 17.06,4.6264 C18.234,6.2714 18.066,8.5614 17.564,10.0244 M17.721,4.1534 C17.019,3.1704 15.606,2.0004 12.858,2.0004 C10.695,2.0004 9.024,2.7384 8.026,4.1344 C6.676,6.0264 6.861,8.6324 7.431,10.2954 L12.879,25.5514 L18.331,10.2954 L18.332,10.2904 C18.897,8.6454 19.075,6.0504 17.721,4.1534" id="Fill-1"></path>
+            <path d="M12.8775,10.0957 L11.7215,8.0937 L12.8775,6.0917 L14.0335,8.0937 L12.8775,10.0957 Z M10.7835,8.0937 L12.8775,11.7207 L14.9715,8.0937 L12.8775,4.4667 L10.7835,8.0937 Z" id="Fill-4"></path>
+        </g>
+    </g>
+</svg>

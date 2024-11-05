@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>00-Foundation/icon_Zip</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M8.9844,16.2825 L12.3124,19.6105 L12.3124,12.6995 L13.1254,12.6995 L13.1254,19.6105 L16.4534,16.2825 L17.0274,16.8565 L12.7184,21.1655 L8.4104,16.8565 L8.9844,16.2825 Z M19.625,18.7871 L20.438,18.7871 L20.438,23.6621 L5,23.6621 L5,18.7871 L5.813,18.7871 L5.813,22.8501 L19.625,22.8501 L19.625,18.7871 Z M14.3717,3.119 L17.3797,3.119 L19.1097,4.849 L19.1097,6.35 L17.4517,8.007 L15.1847,8.007 L15.1847,11.125 L14.3717,11.125 L14.3717,3.119 Z M15.1847,3.932 L15.1847,7.194 L17.1137,7.194 L18.2967,6.014 L18.2967,5.184 L17.0427,3.932 L15.1847,3.932 Z M7.2014,3.0002 L11.6384,3.0002 L7.8684,10.3122 L11.2644,10.3122 L11.2644,11.1252 L6.5354,11.1252 L10.3054,3.8132 L7.2014,3.8132 L7.2014,3.0002 Z M12.312,11.1254 L12.312,3.1194 L13.125,3.1194 L13.125,11.1254 L12.312,11.1254 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="00-Foundation/icon_Zip">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#000000" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

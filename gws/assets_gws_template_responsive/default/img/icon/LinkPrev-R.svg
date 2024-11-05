@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>00-Foundation/icon_LinkPrev</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="5.64702306 8.64702306 4.2320409 10.0604676 11.9311569 17.7679591 19.6462547 10.061236 18.2328093 8.64625467 11.9326936 14.9395316"></polygon>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="00-Foundation/icon_LinkPrev">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Path-3" fill="#F50F10" fill-rule="nonzero" transform="translate(11.939148, 13.207107) rotate(-270.000000) translate(-11.939148, -13.207107) " xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

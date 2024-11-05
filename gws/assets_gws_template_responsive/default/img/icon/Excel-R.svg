@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>00-Foundation/icon_Excel</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M13.531,12.6937 L13.531,19.6047 L16.859,16.2767 L17.434,16.8507 L13.125,21.1597 L8.816,16.8507 L9.39,16.2767 L12.719,19.6047 L12.719,12.6937 L13.531,12.6937 Z M20.0309,18.7813 L20.8439,18.7813 L20.8439,23.6563 L5.4059,23.6563 L5.4059,18.7813 L6.2189,18.7813 L6.2189,22.8443 L20.0309,22.8443 L20.0309,18.7813 Z M9.509,3.0007 L10.421,3.0007 L8.166,7.0347 L10.421,11.0667 L9.507,11.0677 L7.71,7.8507 L5.913,11.0677 L5,11.0667 L7.254,7.0347 L5,3.0007 L5.912,3.0007 L7.71,6.2177 L9.509,3.0007 Z M11.8535,3.0025 L12.6515,3.0025 L12.6515,10.2685 L16.3815,10.2685 L16.3815,11.0675 L11.8535,11.0675 L11.8535,3.0025 Z M17.5883,3.061 L21.5793,3.061 L21.5793,4.739 L20.7793,4.739 L20.7793,3.861 L18.3873,3.861 L18.3873,6.894 L21.5793,6.894 L21.5793,11.067 L17.5883,11.067 L17.5883,9.39 L18.3873,9.39 L18.3873,10.268 L20.7793,10.268 L20.7793,7.693 L17.5883,7.693 L17.5883,3.061 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="00-Foundation/icon_Excel">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#F50F10" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>
